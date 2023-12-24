@@ -1,0 +1,11 @@
+--- Skie\BAF\1xSkie.baf    Thu Nov 03 15:15:58 2011
++++ C:\BWP Patchstudio\patched files\Skie\BAF\1xSkie.baf    Tue Dec 13 13:57:19 2016
+@@ -19,7 +19,7 @@
+ 
+ IF
+ InParty(Myself)
+-Dead("1xSkieVa")
++Dead("vamold01")
+ Global("SkieVampirePlot","GLOBAL",1)
+ THEN
+ RESPONSE #100

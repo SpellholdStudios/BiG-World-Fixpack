@@ -1,0 +1,11 @@
+--- FotD\BAF_PATCH\GBASILSK.BAF	Mon Nov 28 08:59:20 2016
++++ C:\BWP Patchstudio\patched files\FotD\BAF_PATCH\GBASILSK.BAF	Mon Nov 28 08:59:55 2016
+@@ -5,7 +5,7 @@
+ THEN
+ 	RESPONSE #100
+ 		SetGlobalTimer("POISON_BREATH","LOCALS",6)
+-		ApplySpell(Myself,GREATER_BASILISK_POISON_3)
++		ApplySpell(Myself,GREATER_BASILISK_POISON)
+ END
+ 
+ IF

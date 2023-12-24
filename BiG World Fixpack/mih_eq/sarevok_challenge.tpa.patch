@@ -1,0 +1,22 @@
+--- mih_eq\tob\pocket_plane\sarevok_challenge.tpa	Tue Jan 17 22:00:18 2023
++++ C:\BWP Patchstudio\patched files\mih_eq\tob\pocket_plane\sarevok_challenge.tpa	Mon Jun 12 09:19:30 2023
+@@ -112,15 +112,15 @@
+     BEGIN
+       REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP
+        ~CreateCreature("chtaz0[12]",\[[0-9]*\.[0-9]*\],[A-Z]*)~
+-       ~CreateCreature("chtaz01", [685.1913], NE)
++       ~CreateCreature("chtaz01", [685.1913], 10)
+         CreateVisualEffect("SPPORTAL",[738.1822])
+-        CreateCreature("chtaz02", [738.1822], NE)~
++        CreateCreature("chtaz02", [738.1822], 10)~
+ 
+       REPLACE_TEXTUALLY CASE_INSENSITIVE EVALUATE_REGEXP
+        ~CreateCreature("chsam0[12]",\[[0-9]*\.[0-9]*\],[A-Z]*)~
+-       ~CreateCreature("chsam01", [663.1570], S)
++       ~CreateCreature("chsam01", [663.1570], 0)
+         CreateVisualEffect("SPPORTAL",[693.1880])
+-        CreateCreature("chsam02", [693.1880], NE)~
++        CreateCreature("chsam02", [693.1880], 10)~
+     END
+ 
+   COPY_EXISTING "ar4500.bcs" "override"

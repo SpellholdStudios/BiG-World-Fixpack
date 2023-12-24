@@ -1,0 +1,11 @@
+--- LongerRoad\bcs\AR3003.BAF	Thu Jun 08 17:53:41 2023
++++ C:\BWP Patchstudio\patched files\LongerRoad\bcs\AR3003.BAF	Thu Jun 08 12:40:38 2023
+@@ -7,7 +7,7 @@
+ 		SetGlobal("LRSpawnedYbdiel","AR3003",1)
+ 		StartCutSceneMode()
+ 		PlaySong(999990)
+-		CreateCreature("ybdiel",[804.414],W)  // Ybdiel
++		CreateCreature("ybdiel",[804.414],4)  // Ybdiel
+ 		Wait(1)
+ 		ActionOverride("ybdiel",MoveToPoint([1103.764]))
+ 		Explore()

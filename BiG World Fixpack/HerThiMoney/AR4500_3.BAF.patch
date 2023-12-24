@@ -1,0 +1,20 @@
+--- HerThiMoney\scripts\AR4500_3.BAF	Mon Oct 31 20:39:25 2022
++++ C:\BWP Patchstudio\patched files\HerThiMoney\scripts\AR4500_3.BAF	Thu May 18 10:01:55 2023
+@@ -8,7 +8,7 @@
+ 	
+ THEN
+ 	RESPONSE #100
+-	CreateCreature("ANFATESP",[1986.1040],S) 
++	CreateCreature("ANFATESP",[1986.1040],0) 
+ 	SetGlobal("ANfinalAranTalk","AR4500",1)
+ END
+ 
+@@ -20,7 +20,7 @@
+ 	CreateVisualEffect("SPPORTAL",[1999.1218])
+ 	Wait(2)
+ 	FadeFromColor([60.0],0)
+-	CreateCreature("Aran",[1999.1218],S) 
++	CreateCreature("Aran",[1999.1218],0) 
+ 	SetGlobal("ANfinalAranTalk","AR4500",4)
+ 	SmallWait(4)
+ 	ActionOverride("Aran",StartDialogNoSet(Player1))

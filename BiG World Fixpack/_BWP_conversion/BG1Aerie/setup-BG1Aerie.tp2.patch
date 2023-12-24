@@ -1,0 +1,21 @@
+--- BG1Aerie\setup-BG1Aerie.tp2	Tue May 09 09:46:29 2023
++++ C:\BWP Patchstudio\patched files\BG1Aerie\setup-BG1Aerie.tp2	Sun May 14 09:06:38 2023
+@@ -10,16 +10,10 @@
+ 
+ ALWAYS
+ 
+-ACTION_IF GAME_IS ~bgee~ BEGIN
+-  PRINT ~BG:EE install detected~
++ACTION_IF GAME_IS ~BGT~ BEGIN
++  PRINT ~BGT install detected~
+   OUTER_SPRINT "NashkelCarnival" "AR9700"
+   OUTER_SPRINT "NashkelCarnival_ZordralsTent" "AR3806"
+-END ELSE ACTION_IF GAME_IS ~eet~ BEGIN
+-  PRINT ~EET install detected~
+-  OUTER_SPRINT "NashkelCarnival" "BG4900"
+-  OUTER_SPRINT "NashkelCarnival_ZordralsTent" "BG4906"
+-END ELSE BEGIN
+-  FAIL ~Please install on BG:EE or EET.~
+ END
+ 
+ END

@@ -1,0 +1,11 @@
+--- SandrahRtF\TRA\RTF-setup.tra	Mon Feb 15 12:41:00 2016
++++ C:\BWP Patchstudio\patched files\SandrahRtF\TRA\RTF-setup.tra	Thu Dec 21 08:44:36 2017
+@@ -577,4 +577,5 @@
+ @2038= ~Green Abishai~
+ @2039= ~Velsharoon's Staff~
+ @2040= ~Velsharoon's Cloak~
+-@2041= ~Velemir Rielev~
+\ No newline at end of file
++@2041= ~Velemir Rielev~
++@2042= ~Midnight~
+\ No newline at end of file

@@ -1,0 +1,27 @@
+--- TenyaThermidor\Dialogue\Angelo.d	Wed Jan 21 14:30:10 2015
++++ C:\BWP Patchstudio\patched files\TenyaThermidor\Dialogue\Angelo.d	Sun Nov 27 21:47:50 2016
+@@ -46,17 +46,17 @@
+ Wait(2)
+ MoveViewPoint([1298.216],INSTANT)
+ ActionOverride(Player1,JumpToPoint([1298.216]))
+-ActionOverride(Player1,Face(SSE))
++ActionOverride(Player1,Face(15))
+ ActionOverride(Player2,JumpToPoint([1222.304]))
+-ActionOverride(Player2,Face(SSE))
++ActionOverride(Player2,Face(15))
+ ActionOverride(Player3,JumpToPoint([1134.397]))
+-ActionOverride(Player3,Face(SSE))
++ActionOverride(Player3,Face(15))
+ ActionOverride(Player4,JumpToPoint([1610.375]))
+-ActionOverride(Player4,Face(NW))
++ActionOverride(Player4,Face(6))
+ ActionOverride(Player5,JumpToPoint([1519.458]))
+-ActionOverride(Player5,Face(NW))
++ActionOverride(Player5,Face(6))
+ ActionOverride(Player6,JumpToPoint([1441.544]))
+-ActionOverride(Player6,Face(NW))
++ActionOverride(Player6,Face(6))
+ ActionOverride("Tenya",JumpToPoint([1042.489]))
+ ActionOverride("Tenya",FaceObject("Neb"))
+ SetGlobal("B2#TenNeb","GLOBAL",1)
+

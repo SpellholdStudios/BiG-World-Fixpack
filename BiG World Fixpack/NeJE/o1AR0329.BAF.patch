@@ -1,0 +1,9 @@
+--- NeJE\bdash\ThirdP\baf\o1AR0329.BAF	Sun Sep 06 03:41:36 2015
++++ C:\BWP Patchstudio\patched files\NeJE\bdash\ThirdP\baf\o1AR0329.BAF	Mon Jul 16 10:16:49 2018
+@@ -1,5 +1,5 @@
+ IF
+-	Dead("aran02")
++	Dead("aran")
+ 	Global("DearAranJournal","AR0329",0)
+ THEN
+ 	RESPONSE #100

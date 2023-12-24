@@ -1,0 +1,37 @@
+--- klatu\setup-klatu.tp2	Fri Oct 07 20:27:52 2016
++++ C:\BWP Patchstudio\patched files\klatu\setup-klatu.tp2	Sun Jan 01 19:01:40 2017
+@@ -1,6 +1,6 @@
+ BACKUP ~klatu/backup~
+ AUTHOR ~klatu~
+-VERSION ~1.7~
++VERSION ~1.7 BWP fix~
+ README ~klatu/readme-klatu.html~
+ 
+ AUTO_TRA ~klatu/lang/%s~
+@@ -2105,7 +2105,7 @@
+ 			~scrl81~	// Sleep
+ 			~scrla6~	// Spook
+ 		// LEVEL  2 --------------------------------------------
+-			~scrl1b~	// Agannazarâ€™s Scorcher
++			~scrl1b~	// Agannazar’s Scorcher
+ 			~scrl85~	// Blur
+ 			~spwi223a~	// Cat's Grace
+ 			~cdia223~	// Cat's Grace
+@@ -2717,7 +2717,7 @@
+ 			~sd_ocdm~	// Otiluke's Cloak of Dispel Magic
+ 		// LEVEL  4 --------------------------------------------
+ 			~s!scrl01~	// Ray of Fragmentation
+-			~spwi4so~	// Siegfriedâ€™s Scorching Supplication
++			~spwi4so~	// Siegfried’s Scorching Supplication
+ 		// LEVEL  5 --------------------------------------------
+ 			~iceexpl~	// Ice Exploder
+ 			~iiradt~	// Improved Invisibility 10' radius
+@@ -2845,7 +2845,7 @@
+ 		BEGIN @192 DESIGNATED 3040
+ 		GROUP @70 // Cosmetic Changes
+ 		REQUIRE_PREDICATE GAME_IS ~soa tob tutu tutu_totsc bgt iwd_in_bg2 bgee bg2ee eet iwdee~ @2
+-		REQUIRE_PREDICATE MOD_IS_INSTALLED ~KIVAN/SETUP-KIVAN.TP2~ ~0~ @198 // Required mod component missing
++		REQUIRE_PREDICATE MOD_IS_INSTALLED ~KIVAN/SETUP-KIVAN.TP2~ ~100~ @198 // Required mod component missing
+ 		
+ 		ACTION_FOR_EACH song IN ~kivan00~ ~kivan000~ ~p#deh00~ BEGIN
+ 			COPY	~klatu/wav/mute.wav~ ~override/%song%.wav~

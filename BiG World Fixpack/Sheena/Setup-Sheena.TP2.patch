@@ -1,0 +1,31 @@
+--- Setup-Sheena.TP2	Fri May 08 11:20:15 2020
++++ C:\BWP Patchstudio\patched files\Setup-Sheena.TP2	Tue May 16 10:48:52 2023
+@@ -1,7 +1,7 @@
+ BACKUP ~Sheena\backup~
+ AUTHOR ~edvin@seznam.cz~
+ 
+-VERSION ~v2.6~
++VERSION ~v2.6 BWP fix~
+ 
+ //For those without TOB
+ ALWAYS
+@@ -36,7 +36,7 @@
+ 
+ LANGUAGE ~English~ 
+ 	 ~English~
+-         ~Sheena/Translations/English/setup.tra~
++         ~Sheena/tra/English/setup.tra~
+ 
+ LANGUAGE ~Francais (Traduction Stargazer & Red Knight)~
+          ~French~
+@@ -86,8 +86,8 @@
+ END
+ 
+ APPEND ~Action.ids~
+-~147 RemoveSpellRES(S:RES*,O:Target)~
+-UNLESS ~147 RemoveSpellRES(S:RES*,O:Target)~
++~147 RemoveSpellRES(S:Spell*)~
++UNLESS ~147 RemoveSpellRES(S:Spell*)~
+ APPEND ~Trigger.ids~
+ ~0x4031 HaveSpellRES(S:RES*)~
+ UNLESS ~0x4031 HaveSpellRES(S:RES*)~

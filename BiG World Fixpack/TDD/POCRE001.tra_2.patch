@@ -1,0 +1,9 @@
+--- TDD\Language\Italian\POCRE001.tra	Wed Jun 02 13:03:44 2010
++++ C:\BWP Patchstudio\patched files\TDD\Language\Italian\POCRE001.tra	Mon Dec 25 10:13:17 2017
+@@ -16,4 +16,6 @@
+ @15   = ~Sei pronto ad uscire dal lago?~
+ @16   = ~Si, fammi uscire da qui.~
+ @17   = ~No, non ancora.~
++@18   = ~Il lago~
++@19   = ~Locanda Sunlake~
+ 

@@ -1,0 +1,17 @@
+--- BG1Aerie\Scripts\B2#cAAM1.baf	Tue Jun 26 18:44:28 2018
++++ C:\BWP Patchstudio\patched files\BG1Aerie\Scripts\B2#cAAM1.baf	Mon Jun 25 07:21:33 2018
+@@ -22,10 +22,10 @@
+     FadeToColor([20.0],0)
+     Wait(2)
+     FaceObject(Player1)
+-    CreateCreature("B2#Tello",[2414.3370],SE)
+-    CreateCreature("B2#Kyte",[2379.3491],E)
+-    CreateCreature("B2#Band1",[2766.3297],SW)
+-    CreateCreature("B2#Band2",[2815.3429],W)
++    CreateCreature("B2#Tello",[2414.3370],14)
++    CreateCreature("B2#Kyte",[2379.3491],12)
++    CreateCreature("B2#Band1",[2766.3297],2)
++    CreateCreature("B2#Band2",[2815.3429],4)
+     SetGlobal("B2#AeriAMB","GLOBAL",2)
+     FadeFromColor([20.0],0)
+     SmallWait(20)

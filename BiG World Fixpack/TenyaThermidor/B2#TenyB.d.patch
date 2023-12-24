@@ -1,0 +1,83 @@
+--- TenyaThermidor\Dialogue\B2#TenyB.d	Tue Jan 24 19:28:39 2017
++++ C:\BWP Patchstudio\patched files\TenyaThermidor\Dialogue\B2#TenyB.d	Sat Jan 14 08:37:10 2017
+@@ -449,7 +449,7 @@
+ == BCORAN @169
+ DO ~SetGlobal("B2#BTenCorab","GLOBAL",1)~
+ EXIT
+-
++/*
+ CHAIN
+ IF ~InParty("Tenya")
+ See("Tenya")
+@@ -461,7 +461,7 @@
+ == B2#TENYB @171
+ DO ~SetGlobal("B2#BTenDorn","GLOBAL",1)~
+ EXIT
+-
++*/
+ CHAIN
+ IF ~InParty("Tenya")
+ See("Tenya")
+@@ -583,9 +583,9 @@
+ !See([ENEMY])
+ Global("B2#BTenImn","GLOBAL",0)
+ ~ THEN B2#TENYB B2#BTenImn @214
+-== BIMOEN @215
++== BIMOEN2 @215
+ == B2#TENYB @216
+-== BIMOEN @217
++== BIMOEN2 @217
+ == B2#TENYB @218
+ DO ~SetGlobal("B2#BTenImn","GLOBAL",1)~
+ EXIT
+@@ -597,11 +597,11 @@
+ CombatCounter(0)
+ !See([ENEMY])
+ Global("B2#BTenImn","GLOBAL",1)
+-~ THEN BIMOEN B2#BTenImna @219
++~ THEN BIMOEN2 B2#BTenImna @219
+ == B2#TENYB @220
+-== BIMOEN @221
++== BIMOEN2 @221
+ == B2#TENYB @222
+-== BIMOEN @223
++== BIMOEN2 @223
+ DO ~SetGlobal("B2#BTenImn","GLOBAL",2)~
+ EXIT
+ 
+@@ -748,7 +748,7 @@
+ == B2#TENYB @281
+ DO ~SetGlobal("B2#BTenMont","GLOBAL",1)~
+ EXIT
+-
++/*
+ CHAIN
+ IF ~InParty("Tenya")
+ See("Tenya")
+@@ -765,7 +765,7 @@
+ == BNEERA @288
+ DO ~SetGlobal("B2#BTenNeer","GLOBAL",1)~
+ EXIT
+-
++*/
+ CHAIN
+ IF ~InParty("Tenya")
+ See("Tenya")
+@@ -783,7 +783,7 @@
+ == B2#TENYB @296
+ DO ~SetGlobal("B2#BTenQuay","GLOBAL",1)~
+ EXIT
+-
++/*
+ CHAIN
+ IF ~InParty("Rasaad")
+ See("Rasaad")
+@@ -819,7 +819,7 @@
+ == BRASAAD @312
+ DO ~SetGlobal("B2#BTenRasaa","GLOBAL",1)~
+ EXIT
+-
++*/
+ CHAIN
+ IF ~InParty("Tenya")
+ See("Tenya")

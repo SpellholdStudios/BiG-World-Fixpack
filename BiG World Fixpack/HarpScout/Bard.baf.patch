@@ -1,0 +1,10 @@
+--- HarpScout\Bard.baf	Sat Oct 21 15:19:12 2006
++++ C:\BWP Patchstudio\patched files\HarpScout\Bard.baf	Fri Mar 27 10:17:30 2020
+@@ -8,6 +8,6 @@
+ THEN
+ 	RESPONSE #100
+ 	ApplySpellRES("Y#HARPB5",Player1)
+-	DisplayStringNoName(Player1,"Utracono zdolnoœci harfiarza")
++	DisplayStringNoName(Player1,~Utracono zdolnoœci harfiarza~)
+ 	PlaySound("REPDOWN")
+ END

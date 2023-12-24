@@ -1,0 +1,22 @@
+--- ZFA\dlg\NQ#JD01.d	Tue Apr 20 15:43:19 2021
++++ C:\BWP Patchstudio\patched files\ZFA\dlg\NQ#JD01.d	Tue Jul 11 10:18:24 2023
+@@ -5,7 +5,7 @@
+ //		Kit(Player1,GODHELM)
+ //		Kit(Player1,GODTALOS)
+ //		Alignment(Player1,MASK_GOOD)
+-//		!Kit(Player1,Blackguard)
++//		!Kit(Player1,Blackguard)	-	only for EE
+ //		Class(Player1,PALADIN_ALL)
+ 
+ // Global("NQ#JEDNA","GLOBAL",1)		Spawn Petan, Dragan
+@@ -33,8 +33,8 @@
+ IF ~CheckStatGT(LastTalkedToBy,11,CHR)~ THEN REPLY @22004 DO ~~ GOTO QUEST02 // ~Ich bin <CHARNAME>. Wer seid Ihr, wenn ich fragen darf?~
+ IF ~CheckStatLT(LastTalkedToBy,12,CHR)~ THEN REPLY @22004 DO ~~ GOTO QUEST03 // ~Ich bin <CHARNAME>. Wer seid Ihr, wenn ich fragen darf?~
+ 
+-IF ~CheckStatGT(LastTalkedToBy,9,CHR) Alignment(LastTalkedToBy,MASK_GOOD) Class(LastTalkedToBy,PALADIN_ALL) !Kit(LastTalkedToBy,Blackguard)~ THEN REPLY @22005 DO ~~ GOTO QUEST04 // ~Ich bin <CHARNAME>, ein Paladin im Dienste des Guten. Wer seid Ihr, wenn ich fragen darf?~
+-IF ~CheckStatLT(LastTalkedToBy,10,CHR) Alignment(LastTalkedToBy,MASK_GOOD) Class(LastTalkedToBy,PALADIN_ALL) !Kit(LastTalkedToBy,Blackguard)~ THEN REPLY @22005 DO ~~ GOTO QUEST03 // ~Ich bin <CHARNAME>, ein Paladin im Dienste des Guten. Wer seid Ihr, wenn ich fragen darf?~
++IF ~CheckStatGT(LastTalkedToBy,9,CHR) Alignment(LastTalkedToBy,MASK_GOOD) Class(LastTalkedToBy,PALADIN_ALL)~ THEN REPLY @22005 DO ~~ GOTO QUEST04 // ~Ich bin <CHARNAME>, ein Paladin im Dienste des Guten. Wer seid Ihr, wenn ich fragen darf?~
++IF ~CheckStatLT(LastTalkedToBy,10,CHR) Alignment(LastTalkedToBy,MASK_GOOD) Class(LastTalkedToBy,PALADIN_ALL)~ THEN REPLY @22005 DO ~~ GOTO QUEST03 // ~Ich bin <CHARNAME>, ein Paladin im Dienste des Guten. Wer seid Ihr, wenn ich fragen darf?~
+ 
+ IF ~CheckStatGT(LastTalkedToBy,9,CHR) Alignment(LastTalkedToBy,MASK_GOOD) !Kit(LastTalkedToBy,GODLATHANDER) OR(6) Class(LastTalkedToBy,CLERIC) Class(LastTalkedToBy,FIGHTER_CLERIC) Class(LastTalkedToBy,CLERIC_MAGE) Class(LastTalkedToBy,CLERIC_THIEF) Class(LastTalkedToBy,FIGHTER_MAGE_CLERIC) Class(LastTalkedToBy,CLERIC_RANGER)~ THEN REPLY @22006 DO ~~ GOTO QUEST04 // ~Ich bin <CHARNAME>, ein Kleriker im Dienste des Guten. Wer seid Ihr, wenn ich fragen darf?~
+ IF ~CheckStatLT(LastTalkedToBy,10,CHR) Alignment(LastTalkedToBy,MASK_GOOD) !Kit(LastTalkedToBy,GODLATHANDER) OR(6) Class(LastTalkedToBy,CLERIC) Class(LastTalkedToBy,FIGHTER_CLERIC) Class(LastTalkedToBy,CLERIC_MAGE) Class(LastTalkedToBy,CLERIC_THIEF) Class(LastTalkedToBy,FIGHTER_MAGE_CLERIC) Class(LastTalkedToBy,CLERIC_RANGER)~ THEN REPLY @22006 DO ~~ GOTO QUEST03 // ~Ich bin <CHARNAME>, ein Kleriker im Dienste des Guten. Wer seid Ihr, wenn ich fragen darf?~

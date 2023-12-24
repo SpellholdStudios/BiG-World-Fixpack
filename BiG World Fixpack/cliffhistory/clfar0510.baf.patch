@@ -1,0 +1,13 @@
+--- cliffhistory\appends\clfar0510.baf	Fri Oct 15 18:49:14 2004
++++ C:\BWP Patchstudio\patched files\cliffhistory\appends\clfar0510.baf	Fri Mar 27 09:43:31 2020
+@@ -54,8 +54,8 @@
+ THEN
+ 	RESPONSE #100
+ 		SetGlobal("Journal","AR0510",1)
+-		AddJournalEntry("Caco-Fonick, Bard out of Hell
++		AddJournalEntry(~Caco-Fonick, Bard out of Hell
+ 
+-The terrible bard, Fonick, has been destroyed, thus ensuring that the history of Faerun is not sullied by any memory of his horrendous songs.",QUEST_DONE)
++The terrible bard, Fonick, has been destroyed, thus ensuring that the history of Faerun is not sullied by any memory of his horrendous songs.~,QUEST_DONE)
+ END
+ 

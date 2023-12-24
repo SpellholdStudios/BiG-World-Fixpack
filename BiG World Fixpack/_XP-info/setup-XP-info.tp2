@@ -1,0 +1,37 @@
+BACKUP ~XP-info\backup~
+AUTHOR ~Manduran mailto:bgtproject@medienkultur.de~
+
+/*******************************************************
+- CONPONENT: -------------------------------------------
+- Spell Learning, Lock Picking and Traps XP Balancing --
+*******************************************************/
+
+BEGIN ~Reading your current game configuration~
+INSTALL_BY_DEFAULT
+NO_LOG_RECORD
+
+	//Display current stats!
+	SILENT COPY_EXISTING ~XPBONUS.2da~ ~override/XPBONUS.2da~
+		COUNT_REGEXP_INSTANCES "40 +41 +42 +43 +44 +45 +46 +47 +48 +49 +50" "high"
+		PATCH_IF ("%high%" = 1) BEGIN
+			SET "xplvl" = 50
+			READ_2DA_ENTRY 3 1 50 "spells"
+			READ_2DA_ENTRY 2 1 50 "traps"
+			READ_2DA_ENTRY 1 1 50 "pockets"
+		END ELSE BEGIN
+			READ_2DA_ENTRY 3 1 40 "spells"
+			READ_2DA_ENTRY 2 1 40 "traps"
+			READ_2DA_ENTRY 1 1 40 "pockets"
+			SET "xplvl" = 40
+		END
+		PATCH_PRINT ~ # This component is automatically installed.
+ # It will not change your game in any way, it just informs you about:
+ # -----------------------------------------------------------------------
+ # YOUR CURRENT XP SETTINGS
+ # -----------------------------------------------------------------------
+ #   Your xp level system is based on %xplvl% levels
+ #   You currently gain %spells% xp for spell learning at level 1
+ #   You currently gain %traps% xp for traps at level 1
+ #   You currently gain %pockets% xp for picking pockets  at level 1
+ # -----------------------------------------------------------------------~
+	BUT_ONLY_IF_IT_CHANGES

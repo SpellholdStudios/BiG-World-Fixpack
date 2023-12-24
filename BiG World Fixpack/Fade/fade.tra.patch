@@ -1,0 +1,11 @@
+--- Fade\tra\classic\english\fade.tra	Tue Feb 06 14:05:18 2018
++++ C:\BWP Patchstudio\patched files\Fade\tra\classic\english\fade.tra	Sun Mar 18 11:33:13 2018
+@@ -722,7 +722,7 @@
+ @719  = ~And what do you think people will say when they hear that a Child of Bhaal, the Lord of Murder, has gone on a killing spree, even if it against so called "evil-doers"? Talk sense, <CHARNAME>.~
+ @720  = ~How dare you speak to me in such a manner, Fade? I do not know why I even deign to speak to one such as you.~
+ @721  = ~Hmm. I suppose I can see your point. It wouldn't be easy as all that. So what would you suggest?~
+-@722  = ~Oh, so the conversation of one "such as me" isn't good enough for our resident <PRO_LORDLADY> of Murder? Very well, I'll make sure your divine ears aren't bothered with it again, ever!~
++@722  = ~Oh, so the conversation of one "such as me" isn't good enough for our resident <PRO_LADYLORD> of Murder? Very well, I'll make sure your divine ears aren't bothered with it again, ever!~
+ @723  = ~No, it wouldn't be easy. And if I knew the answer... well, I certainly wouldn't be a Shadow Thief lackey! I suppose we just have to go along our own paths, doing things as we see fit. It's all anyone can ask.~
+ @724  = ~(shrug) Come on... such thinking is giving me a headache!~
+ @725  = ~So, <CHARNAME>, we've spoken of your previous exploits, but what made you choose to take up the adventuring life in the first place?~

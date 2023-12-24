@@ -1,0 +1,91 @@
+--- Setup-Turambar_fixes_tweaks.TP2	Sun Sep 25 20:13:12 2011
++++ C:\BWP Patchstudio\patched files\Setup-Turambar_fixes_tweaks.TP2	Mon Jul 24 14:54:31 2023
+@@ -1,7 +1,7 @@
+ BACKUP ~Turambar_fixes_tweaks/backup~
+ 
+ AUTHOR ~http://www.shsforums.net/forum/234-miscellaneous-released-mods/~
+-VERSION ~v1.8.1~
++VERSION ~v1.8.1 BWP Fix~
+ AUTO_TRA ~Turambar_fixes_tweaks/%s~
+ README ~Turambar_fixes_tweaks/README.html~
+ 
+@@ -989,7 +989,7 @@
+ 
+ BEGIN @2035		//Keiria and Skeezer chp 4
+ GROUP @2
+-REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~dskeiri5.cre~ @2036		//dsotsc
++REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~dskeiri4.cre~ @2036		//dsotsc
+ 
+ COPY_EXISTING ~ar3800.bcs~ ~override/ar3800.bcs~				//carnival
+ 	DECOMPILE_BCS_TO_BAF
+@@ -2562,8 +2562,8 @@
+ 		PATCH_FAIL @2040
+ 	END
+ 	WRITE_SHORT 0x244 0 // doesn't change
+-	WRITE_BYTE  0x246 ~%kit%~ // the internal name of your kit, surrounded by %
+-	WRITE_BYTE  0x247 0x40 // doesn't change
++	WRITE_SHORT 0x246 0x4000 + ~%kit%~ // the internal name of your kit, surrounded by %
++//	WRITE_BYTE  0x247 0x40 // doesn't change
+ 	READ_BYTE 0x234 lvl
+ 	// how many weapon proficiencies?
+ 	PATCH_IF lvl>=3 BEGIN
+@@ -2707,8 +2707,8 @@
+ 	END
+ 	
+ 	WRITE_SHORT 0x244 0		// doesn't change
+-	WRITE_BYTE  0x246 %kit%		// shar
+-	WRITE_BYTE  0x247 0x40	// doesn't change
++	WRITE_SHORT 0x246 0x4000 + %kit%		// shar
++//	WRITE_BYTE  0x247 0x40	// doesn't change
+ 	READ_BYTE 0x234 lvl
+ 	READ_BYTE 0x23b sag
+ 	WRITE_BYTE 0x23b (%sag%-1)	//reduce wisdom
+@@ -2765,8 +2765,8 @@
+ 		PATCH_FAIL @2040
+ 	END
+ 	WRITE_SHORT 0x244 0		// doesn't change
+-	WRITE_BYTE  0x246 %kit%		// tempus
+-	WRITE_BYTE  0x247 0x40	// doesn't change
++	WRITE_SHORT 0x246 0x4000 + %kit%		// tempus
++//	WRITE_BYTE  0x247 0x40	// doesn't change
+ 	REMOVE_MEMORIZED_SPELL ~spin113~	//the kit will grant it
+ 	REMOVE_KNOWN_SPELL ~spin113~		//the kit will grant it
+ BUT_ONLY
+@@ -2831,7 +2831,7 @@
+ SUBCOMPONENT @501
+ DESIGNATED 5010
+ GROUP @5
+-//FORBID_COMPONENT "level1npcs.tp2" "1215" @2040 no component for keiria
++//FORBID_COMPONENT "level1npcs.tp2" "4060" @2040 no component for keiria
+ REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~dskeiri5.cre~ @2036
+ 
+ OUTER_SET i=4
+@@ -2895,7 +2895,7 @@
+ SUBCOMPONENT @501 (FILE_EXISTS_IN_GAME ~clabtubs.2da~)
+ DESIGNATED 5011
+ GROUP @5
+-//FORBID_COMPONENT "level1npcs.tp2" "1215" @2040 no component for keiria
++//FORBID_COMPONENT "level1npcs.tp2" "4060" @2040 no component for keiria
+ REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~dskeiri5.cre~ @2036
+ 
+ //first: kit number
+@@ -2933,8 +2933,8 @@
+ 		PATCH_FAIL @2040
+ 	END
+ 	WRITE_SHORT 0x244 0		// doesn't change
+-	WRITE_BYTE  0x246 %kit%	// bladesinger
+-	WRITE_BYTE  0x247 0x40	// doesn't change
++	WRITE_SHORT 0x246 0x4000 + %kit%	// bladesinger
++//	WRITE_BYTE  0x247 0x40	// doesn't change
+ 	PATCH_IF i>0 BEGIN
+ 		READ_BYTE 0x234 lvl
+ 		PATCH_IF (lvl<5 OR lvl>7) AND NOT (VARIABLE_IS_SET failure) BEGIN
+@@ -2972,7 +2972,7 @@
+ BEGIN @5012		//will skald
+ DESIGNATED 5012
+ GROUP @5
+-//FORBID_COMPONENT "level1npcs.tp2" "1215" @2040 no component for will
++//FORBID_COMPONENT "level1npcs.tp2" "3400" @2040 no component for will
+ REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~ntwill2.cre~ @150
+ 
+ 

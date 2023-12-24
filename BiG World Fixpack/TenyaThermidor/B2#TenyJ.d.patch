@@ -1,0 +1,11 @@
+--- TenyaThermidor\Dialogue\B2#TenyJ.d	Tue Jan 24 19:28:41 2017
++++ C:\BWP Patchstudio\patched files\TenyaThermidor\Dialogue\B2#TenyJ.d	Sat Jan 14 08:21:38 2017
+@@ -8,7 +8,7 @@
+ IF ~~ THEN BEGIN 0A
+   SAY @1
+   IF ~~ THEN DO ~SetGlobal("JALAPPEAR","GLOBAL",1)
+-CreateCreature("JALANT",[459.531],S)
++CreateCreature("JALANT",[459.531],0)
+ ActionOverride("Jalantha",Dialog([PC]))
+ ~ EXIT
+ END

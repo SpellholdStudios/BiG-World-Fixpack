@@ -1,0 +1,148 @@
+--- Setup-PPK.tp2	Fri Sep 13 08:27:40 2019
++++ C:\BWP Patchstudio\patched files\Setup-PPK.tp2	Tue Mar 23 13:31:22 2021
+@@ -21,6 +21,9 @@
+ BEGIN @20
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
+ 
++APPEND ~KIT.IDS~ ~0x4100 TEMPPRST~ UNLESS ~0x4100 TEMPPRST~
++APPEND ~KIT.IDS~ ~0x4101 OHGMPRST~ UNLESS ~0x4101 OHGMPRST~
++
+ /*일괄 복사*/
+ COPY ~ppk/data~ ~override~
+ COPY ~ppk/spell~ ~override~
+@@ -258,6 +261,7 @@
+ 
+ BEGIN @51
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~DREADNAU~ 
+ /*무기 사용 가능*/
+@@ -306,6 +310,7 @@
+ 
+ BEGIN @53
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~BLACKGUA~ 
+ /*무기 사용 가능*/
+@@ -354,6 +359,7 @@
+ 
+ BEGIN @55
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~SSAULABI~ 
+ /*무기 사용 가능*/
+@@ -402,6 +408,7 @@
+ 
+ BEGIN @57
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~TEMPPRST~ 
+ /*무기 사용 가능*/
+@@ -454,6 +461,7 @@
+ 
+ BEGIN @59
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~OHGMPRST~ 
+ /*무기 사용 가능*/
+@@ -506,6 +514,7 @@
+ 
+ BEGIN @61
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~CHAMPION~ 
+ /*무기 사용 가능*/
+@@ -554,6 +563,7 @@
+ 
+ BEGIN @63
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~PYROMNCR~
+ /*무기 사용 가능*/
+@@ -602,6 +612,7 @@
+ 
+ BEGIN @65
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~DUALISTS~ 
+ /*무기 사용 가능*/
+@@ -650,6 +661,7 @@
+ 
+ BEGIN @67
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~TEMPESTS~ 
+ /*무기 사용 가능*/
+@@ -698,6 +710,7 @@
+ 
+ BEGIN @69
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~TRICKSTE~ 
+ /*무기 사용 가능*/
+@@ -746,6 +759,7 @@
+ 
+ BEGIN @71
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~SHADOWDC~ 
+ /*무기 사용 가능*/
+@@ -794,6 +808,7 @@
+ 
+ BEGIN @73
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~RDRAGOND~ 
+ /*무기 사용 가능*/
+@@ -842,6 +857,7 @@
+ 
+ BEGIN @75
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~BDRAGOND~ 
+ /*무기 사용 가능*/
+@@ -890,6 +906,7 @@
+ 
+ BEGIN @77
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~GDRAGOND~ 
+ /*무기 사용 가능*/
+@@ -938,6 +955,7 @@
+ 
+ BEGIN @79
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~WDRAGOND~ 
+ /*무기 사용 가능*/
+@@ -986,6 +1004,7 @@
+ 
+ BEGIN @81
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~ELEMLIST~ 
+ /*무기 사용 가능*/
+@@ -1034,6 +1053,7 @@
+ 
+ BEGIN @83
+ REQUIRE_PREDICATE (FILE_EXISTS_IN_GAME ~Data/25Dialog.bif~) @2
++REQUIRE_PREDICATE (MOD_IS_INSTALLED ~Setup-PPK.tp2~ 0) ~This component requires Prestige Kit Pack Basic~
+ 
+ ADD_KIT ~SHDWDRUD~ 
+ /*무기 사용 가능*/

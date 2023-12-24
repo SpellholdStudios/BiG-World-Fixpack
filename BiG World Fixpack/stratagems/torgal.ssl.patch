@@ -1,0 +1,48 @@
+--- stratagems\tactical_bg2\ssl\torgal.ssl	Wed Jan 09 16:33:23 2019
++++ C:\BWP Patchstudio\patched files\stratagems\tactical_bg2\ssl\torgal.ssl	Sun Jun 06 22:07:17 2021
+@@ -16,7 +16,7 @@
+      Action(Literal)
+      SetGlobal("DMWWTorgalPrep","MYAREA",1)
+      GiveItemCreate("potn52",Myself,2,0,0)   // extra healing
+-     CreateCreature("dw#kpum1",[2526.500],SW)
++     CreateCreature("dw#kpum1",[2526.500],2)
+      Continue()
+ END
+ 
+@@ -27,8 +27,8 @@
+      Action(Literal)
+      SetGlobal("DMWWTorgalPrep","MYAREA",1)
+      GiveItemCreate("potn52",Myself,2,0,0)   // extra healing
+-     CreateCreature("dw#kpyu1",[2518.370],SW) // yuan-ti mage
+-     CreateCreature("dw#kpum1",[2526.500],SW)
++     CreateCreature("dw#kpyu1",[2518.370],2) // yuan-ti mage
++     CreateCreature("dw#kpum1",[2526.500],2)
+      Continue()
+ END
+ 
+@@ -39,9 +39,9 @@
+      Action(Literal)
+      SetGlobal("DMWWTorgalPrep","MYAREA",1)
+      GiveItemCreate("potn52",Myself,2,0,0)   // extra healing
+-     CreateCreature("dw#kpyu1",[2518.370],SW) // yuan-ti mage
+-     CreateCreature("dw#kpyu2",[2513.315],SW) // yuan-ti mage
+-     CreateCreature("dw#kpum1",[2526.500],SW)
++     CreateCreature("dw#kpyu1",[2518.370],2) // yuan-ti mage
++     CreateCreature("dw#kpyu2",[2513.315],2) // yuan-ti mage
++     CreateCreature("dw#kpum1",[2526.500],2)
+      Continue()
+ END
+ 
+@@ -52,9 +52,9 @@
+      Action(Literal)
+      SetGlobal("DMWWTorgalPrep","MYAREA",1)
+      GiveItemCreate("potn52",Myself,2,0,0)   // extra healing
+-     CreateCreature("dw#kpyi1",[2518.370],SW) // yuan-ti mage
+-     CreateCreature("dw#kpyi2",[2513.315],SW) // yuan-ti mage
+-     CreateCreature("dw#kpum2",[2526.500],SW)
++     CreateCreature("dw#kpyi1",[2518.370],2) // yuan-ti mage
++     CreateCreature("dw#kpyi2",[2513.315],2) // yuan-ti mage
++     CreateCreature("dw#kpum2",[2526.500],2)
+      Continue()
+ END
+ 

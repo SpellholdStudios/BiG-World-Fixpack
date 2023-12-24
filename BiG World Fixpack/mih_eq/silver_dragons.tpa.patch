@@ -1,0 +1,11 @@
+--- mih_eq\general\dragons\silver_dragons.tpa	Wed Oct 14 09:04:40 2020
++++ C:\BWP Patchstudio\patched files\mih_eq\general\dragons\silver_dragons.tpa	Mon Nov 02 08:00:28 2020
+@@ -33,7 +33,7 @@
+     INT_VAR
+     allow_missin	= 1
+     STR_VAR
+-    creature	= "dragsilv hdragsil ohddixth udsilver"
++    creature	= "dragsilv hdragsil udsilver"
+     edits	= "patch_data"
+   END
+ END	// silver_dragons

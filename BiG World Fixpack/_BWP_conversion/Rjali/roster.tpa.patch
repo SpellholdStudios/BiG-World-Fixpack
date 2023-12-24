@@ -1,0 +1,16 @@
+--- Rjali\tpa\roster.tpa	Tue Jan 31 15:16:04 2017
++++ C:\BWP Patchstudio\patched files\Rjali\tpa\roster.tpa	Fri Apr 14 11:11:49 2017
+@@ -20,10 +20,10 @@
+ 
+ // EE
+ 
+-ACTION_IF GAME_IS ~BG2EE~ THEN BEGIN
++// ACTION_IF GAME_IS ~BG2EE~ THEN BEGIN
+ 
+-EXTEND_TOP ~Neera.bcs~ ~Rjali/Scripts/SOA/RJNEER/RJROSSET.baf~
+-EXTEND_TOP ~Neer25.bcs~ ~Rjali/Scripts/SOA/RJNEER/RJROSSET.baf~
++// EXTEND_TOP ~Neera.bcs~ ~Rjali/Scripts/SOA/RJNEER/RJROSSET.baf~
++// EXTEND_TOP ~Neer25.bcs~ ~Rjali/Scripts/SOA/RJNEER/RJROSSET.baf~
+ EXTEND_TOP ~Player1.bcs~ ~Rjali/Scripts/SOA/RJNEER/RJROSTER.baf~
+ EXTEND_TOP ~Player1T.bcs~ ~Rjali/Scripts/SOA/RJNEER/RJROSTER.baf~
+ EXTEND_BOTTOM ~RJPLAY0.bcs~ ~Rjali/Scripts/SOA/RJNEER/RJPLAY0.baf~

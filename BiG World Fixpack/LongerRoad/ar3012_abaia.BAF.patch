@@ -1,0 +1,16 @@
+--- LongerRoad\bcs\ar3012_abaia.BAF	Sun Oct 30 20:55:02 2022
++++ C:\BWP Patchstudio\patched files\LongerRoad\bcs\ar3012_abaia.BAF	Thu Jun 08 17:57:48 2023
+@@ -32,11 +32,11 @@
+ 		DisplayStringNoName("Tran3004",999967)  // No such index
+ 		CreateVisualEffect("SPPORTAL",[998.800])
+ 		SmallWait(1)
+-		CreateCreature("abaia",[998.800],NE)  // Abaia
++		CreateCreature("abaia",[998.800],10)  // Abaia
+ 		SmallWait(1)
+ 		ActionOverride("abaia",MoveToPoint([792.790]))
+ 		Wait(1)
+-		ActionOverride("abaia",Face(NW))
++		ActionOverride("abaia",Face(6))
+ 		EndCutSceneMode()
+ END
+ 

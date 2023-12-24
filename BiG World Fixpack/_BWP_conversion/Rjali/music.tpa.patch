@@ -1,0 +1,28 @@
+--- Rjali\tpa\music.tpa	Sat Feb 20 13:44:52 2016
++++ C:\BWP Patchstudio\patched files\Rjali\tpa\music.tpa	Sat Apr 15 08:27:48 2017
+@@ -16,19 +16,19 @@
+ 
+ COPY_EXISTING ~songlist.2da~ 		~override~
+ SET_2DA_ENTRY 0 2 3 ~blank.mus~
+-COPY_EXISTING ~songlist.ids~ 		~override~
++// COPY_EXISTING ~songlist.ids~ 		~override~
+ 
+ ADD_MUSIC  ~RJ0602~    ~music/RJ0602.MUS~
+-APPEND ~SONGLIST.IDS~ ~%RJ0602% RJ0602~
++// APPEND ~SONGLIST.IDS~ ~%RJ0602% RJ0602~
+ 
+ ADD_MUSIC  ~RJ0605~    ~music/RJ0605.MUS~
+-APPEND ~SONGLIST.IDS~ ~%RJ0605% RJ0605~
++// APPEND ~SONGLIST.IDS~ ~%RJ0605% RJ0605~
+ 
+ ADD_MUSIC  ~RJ0610~    ~music/RJ0610.MUS~
+-APPEND ~SONGLIST.IDS~ ~%RJ0610% RJ0610~
++// APPEND ~SONGLIST.IDS~ ~%RJ0610% RJ0610~
+ 
+ ADD_MUSIC  ~RJ1001~    ~music/RJ1001.MUS~
+-APPEND ~SONGLIST.IDS~ ~%RJ1001% RJ1001~
++// APPEND ~SONGLIST.IDS~ ~%RJ1001% RJ1001~
+ 
+ ADD_MUSIC  ~RJ1101~    ~music/RJ1101.MUS~
+-APPEND ~SONGLIST.IDS~ ~%RJ1101% RJ1101~
++// APPEND ~SONGLIST.IDS~ ~%RJ1101% RJ1101~

@@ -1,0 +1,13 @@
+--- saradas_magic\AR6804.baf	Wed May 01 12:48:49 2019
++++ C:\BWP Patchstudio\patched files\saradas_magic\AR6804.baf	Mon Feb 18 12:16:28 2019
+@@ -1,7 +1,7 @@
+ IF
+-  global("!Saraspawn","GLOBAL",0)
++  global("!1araspawn","GLOBAL",0)
+ THEN
+   RESPONSE #100
+-  CreateCreature("!Saradas",[347.289],0)
+-  setglobal("!Saraspawn","GLOBAL",1)
++  CreateCreature("!1aradas",[347.289],0)
++  setglobal("!1araspawn","GLOBAL",1)
+ END

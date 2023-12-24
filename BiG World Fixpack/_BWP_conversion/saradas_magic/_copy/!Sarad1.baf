@@ -1,0 +1,226 @@
+
+IF
+  AttackedBy([GOODCUTOFF],DEFAULT)
+  !Allegiance(Myself,ENEMY)
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  StealFailed([PC])
+THEN
+  RESPONSE #100
+    setglobal("!1araSteal","GLOBAL",1)
+    wait(1)
+    StartDialogue("!1ARANGR",[PC])
+    continue()
+END
+
+
+IF
+  global("!1araSteal","GLOBAL",2)
+THEN
+  RESPONSE #100
+    setglobal("!1araSteal","GLOBAL",3)
+    reallyforcespell(player1,CHICKEN_CHANGE)
+    reallyforcespell(player2,CHICKEN_CHANGE)
+    reallyforcespell(player3,CHICKEN_CHANGE)
+    reallyforcespell(player4,CHICKEN_CHANGE)
+    reallyforcespell(player5,CHICKEN_CHANGE)
+    reallyforcespell(player6,CHICKEN_CHANGE)
+    SmallWait(1)
+    ClearAllActions()
+    NoAction()
+    wait(2)
+    StartDialogue("!1ARAGO",[PC])
+END
+
+
+IF
+  PickPocketFailed([PC])
+THEN
+  RESPONSE #100
+    Enemy()
+    Continue()
+END
+
+IF
+  See(Nearestenemyof(Myself))
+  Global("!1aradasAggro","LOCALS",0)
+THEN
+  RESPONSE #100
+    SetGlobal("!1aradasAggro","LOCALS",1)
+    SetGlobalTimer("!1timer1","LOCALS",100)
+    Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("!1aradasAggro","LOCALS",1)
+	!Global("!1aradasAngry","LOCALS",1)
+THEN
+	RESPONSE #100
+		SetGlobalTimer("!1timer2","LOCALS",1)
+		SetGlobal("!1aradasAngry","LOCALS",1)
+		StartDialogue("!1ARANGR",[PC])
+END
+
+
+IF
+  GlobalTimerExpired("!1timer1","LOCALS")
+  Global("!1aradasAggro","LOCALS",1)
+THEN
+  RESPONSE #100
+    ClearAllActions()
+    NoAction()
+    ForceSpell(Myself,POOF_GONE)
+    SmallWait(2)
+    StartDialogue("!1ARAGO",[PC])
+    SetGlobal("!1arago","LOCALS",1)
+    SmallWait(1)
+END
+
+IF
+  !See(Nearestenemyof(Myself))
+  Global("!1aradasAggro","LOCALS",1)
+THEN
+  RESPONSE #100
+    MoveToObject(protagonist)
+    Continue()
+END
+
+IF
+OR(2)
+statecheck(myself,state_stunned)
+statecheck(myself,state_helpless)
+THEN
+RESPONSE #100
+applyspell(myself,WIZARD_DISPEL_MAGIC)
+continue()
+END
+
+
+IF
+    Global("!1aradasTalkAfterDavaeorn","GLOBAL",1)
+    Global("!1aradasGaveSpellClassINV","GLOBAL",1)
+THEN
+    RESPONSE #100
+            wait(1)
+            ActionOverride(Protagonist,AddSpecialAbility("!1pcinv"))
+            SetGlobal("!1aradasGaveSpellClassINV","GLOBAL",2)
+End
+
+
+
+IF
+    Global("!1aradasTalkAfterDavaeorn","GLOBAL",1)
+    Global("!1aradasGaveSpellClassABJ","GLOBAL",1)
+THEN
+    RESPONSE #100
+            wait(1)
+            ActionOverride(Protagonist,AddSpecialAbility("!1pcabj"))
+            SetGlobal("!1aradasGaveSpellClassABJ","GLOBAL",2)
+End
+
+
+
+IF
+    Global("!1aradasTalkAfterDavaeorn","GLOBAL",1)
+    Global("!1aradasGaveSpellClassDIV","GLOBAL",1)
+THEN
+    RESPONSE #100
+            wait(1)
+            ActionOverride(Protagonist,AddSpecialAbility("!1pcdiv"))
+            SetGlobal("!1aradasGaveSpellClassDIV","GLOBAL",2)
+End
+
+IF
+    Global("!1aradasTalkAfterDavaeorn","GLOBAL",1)
+    Global("!1aradasGaveSpellClassENC","GLOBAL",1)
+THEN
+    RESPONSE #100
+            wait(1)
+            ActionOverride(Protagonist,AddSpecialAbility("!1pcenc"))
+            SetGlobal("!1aradasGaveSpellClassENC","GLOBAL",2)
+End
+
+IF
+    Global("!1aradasTalkAfterDavaeorn","GLOBAL",1)
+    Global("!1aradasGaveSpellClassILL","GLOBAL",1)
+THEN
+    RESPONSE #100
+            wait(1)
+            ActionOverride(Protagonist,AddSpecialAbility("!1pcill"))
+            SetGlobal("!1aradasGaveSpellClassILL","GLOBAL",2)
+End
+
+IF
+    Global("!1aradasTalkAfterDavaeorn","GLOBAL",1)
+    Global("!1aradasGaveSpellClassNEC","GLOBAL",1)
+THEN
+    RESPONSE #100
+            wait(1)
+            ActionOverride(Protagonist,AddSpecialAbility("!1pcnec"))
+            SetGlobal("!1aradasGaveSpellClassNEC","GLOBAL",2)
+End
+
+IF
+    Global("!1aradasTalkAfterDavaeorn","GLOBAL",1)
+    Global("!1aradasGaveSpellClassCON","GLOBAL",1)
+THEN
+    RESPONSE #100
+            wait(1)
+            ActionOverride(Protagonist,AddSpecialAbility("!1pccon"))
+            SetGlobal("!1aradasGaveSpellClassCON","GLOBAL",2)
+End
+
+IF
+    Global("!1aradasTalkAfterDavaeorn","GLOBAL",1)
+    Global("!1aradasGaveSpellClassWIL","GLOBAL",1)
+THEN
+    RESPONSE #100
+            wait(1)
+            ActionOverride(Protagonist,AddSpecialAbility("!1pcwil"))
+            SetGlobal("!1aradasGaveSpellClassWIL","GLOBAL",2)
+End
+
+IF
+    Global("!1aradasTalkAfterDavaeorn","GLOBAL",1)
+    Global("!1aradasGaveSpellClassALT","GLOBAL",1)
+THEN
+    RESPONSE #100
+            wait(1)
+            ActionOverride(Protagonist,AddSpecialAbility("!1pcalt"))
+            SetGlobal("!1aradasGaveSpellClassALT","GLOBAL",2)
+End
+
+IF
+    Global("!1aradasTalkAfterDavaeorn","GLOBAL",1)
+    Global("!1aradasGaveSpellClassGEN","GLOBAL",1)
+THEN
+    RESPONSE #100
+            wait(1)
+            ActionOverride(Protagonist,AddSpecialAbility("!1pcgen"))
+            SetGlobal("!1aradasGaveSpellClassGEN","GLOBAL",2)
+End
+
+IF
+    Global("!1aradasTalkAfterDavaeorn","GLOBAL",1)
+    Global("!1aradasGaveSpellClassDRA","GLOBAL",1)
+THEN
+    RESPONSE #100
+            wait(1)
+            ActionOverride(Protagonist,AddSpecialAbility("!1pcdra"))
+            SetGlobal("!1aradasGaveSpellClassDRA","GLOBAL",2)
+End
+
+
+IF
+  die()
+THEN
+  RESPONSE #100
+  setglobal("!1aradie","GLOBAL",1)
+  continue()
+END

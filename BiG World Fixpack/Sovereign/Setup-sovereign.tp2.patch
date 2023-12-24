@@ -1,0 +1,11 @@
+--- Sovereign\Setup-sovereign.tp2	Sun Nov 08 12:40:02 2009
++++ C:\BWP Patchstudio\patched files\Sovereign\Setup-sovereign.tp2	Sun Oct 18 21:16:05 2015
+@@ -1,5 +1,8 @@
+ BACKUP ~sovereign/backup~
+ AUTHOR ~L'f (gienio13254@interia.pl)~
++
++VERSION ~v1.3.4 BWP Fix~
++
+ BEGIN ~Er'vonyrah - The Sovereign's Song - Pieœñ W³adaj¹cej~
+ 
+ REQUIRE_FILE ~Data/25Dialog.bif~ ~Musisz mieæ zainstalowany dodatek Tron Bhaala.~

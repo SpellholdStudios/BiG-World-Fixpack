@@ -1,0 +1,20 @@
+--- Rjali\Scripts\SOA\RJPST\RJFAY.BAF	Fri Sep 08 10:55:14 2017
++++ C:\BWP Patchstudio\patched files\Rjali\Scripts\SOA\RJPST\RJFAY.BAF	Sat Feb 03 18:47:03 2018
+@@ -8,7 +8,7 @@
+ THEN
+   RESPONSE #100
+     ClearActions("RJFay")
+-    RunAwayFromNoInterruptNoLeaveArea(NearestEnemyOf(Myself),20)
++    RunAwayFrom(NearestEnemyOf(Myself),20)
+ END
+ 
+ IF
+@@ -17,7 +17,7 @@
+ THEN
+   RESPONSE #100
+     ClearActions("RJFay")
+-    RunAwayFromNoInterruptNoLeaveArea(LastAttackerOf(Myself),20)
++    RunAwayFrom(LastAttackerOf(Myself),20)
+ END
+ 
+ // Fay will follow

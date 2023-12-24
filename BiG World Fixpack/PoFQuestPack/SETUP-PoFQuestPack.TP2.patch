@@ -1,0 +1,13 @@
+--- PoFQuestPack\SETUP-PoFQuestPack.TP2	Thu Jun 18 18:31:45 2020
++++ C:\BWP Patchstudio\patched files\PoFQuestPack\SETUP-PoFQuestPack.TP2	Wed Jun 08 08:15:38 2022
+@@ -4457,8 +4457,8 @@
+   SAY DESC @679 
+ 
+ COPY ~PoFQuestPack/Items/MCAMOD.ITM~         ~override/MCAMOD.ITM~         
+-  SAY NAME2 ~~ [-1] 
+-  SAY UNIDENTIFIED_DESC ~~ [-1] 
++  SAY NAME2 @680 
++  SAY UNIDENTIFIED_DESC @681 
+   SAY DESC @681 
+ 
+ COPY ~PoFQuestPack/Items/MISCMOD.ITM~        ~override/MISCMOD.ITM~        

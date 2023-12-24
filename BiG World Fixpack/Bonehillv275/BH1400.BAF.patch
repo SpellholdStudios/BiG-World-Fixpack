@@ -1,0 +1,10 @@
+--- Bonehillv275\bafs\BH1400.BAF	Fri Aug 27 01:04:20 2004
++++ C:\BWP Patchstudio\patched files\Bonehillv275\bafs\BH1400.BAF	Thu Feb 09 14:45:05 2017
+@@ -2,5 +2,6 @@
+   OnCreation()
+ THEN
+   RESPONSE #100
++    NoAction()
++	 Continue()
+ END
+-

@@ -1,0 +1,38 @@
+--- tb#quest\lotr\compile\tb#lotrw.baf	Thu Sep 09 22:32:04 2004
++++ C:\BWP Patchstudio\patched files\tb#quest\lotr\compile\tb#lotrw.baf	Thu Mar 26 15:34:04 2020
+@@ -49,7 +49,7 @@
+ THEN
+     RESPONSE #100
+     	     ApplySpell(Myself,WIZARD_STONE_SKIN)
+-    	     DisplayStringHead(Myself,"Press B to activate my spell sequencer, which contains StoneSkin, Improved Invisibility and Mirror Images.")
++    	     DisplayStringHead(Myself,~Press B to activate my spell sequencer, which contains StoneSkin, Improved Invisibility and Mirror Images.~)
+     	     SetGlobal("prep","locals",1)
+     	     Ally()
+ END
+@@ -61,7 +61,7 @@
+ THEN
+     RESPONSE #100
+     	     MoveToObject(Player1)
+-    	     DisplayStringHead(Myself,"<CHARNAME> Don't run! We're here to help!")
++    	     DisplayStringHead(Myself,~<CHARNAME> Don't run! We're here to help!~)
+ END
+ 
+ IF
+@@ -70,7 +70,7 @@
+   ActionListEmpty()
+ THEN
+     RESPONSE #100
+-    	     DisplayStringHead(Myself,"Help Me, quick! I'm going to die!")
++    	     DisplayStringHead(Myself,~Help Me, quick! I'm going to die!~)
+     	     SetGlobalTimer("shouted1","locals",6)
+     	     PauseGame()
+ END
+@@ -82,7 +82,7 @@
+   ActionListEmpty()
+ THEN
+     RESPONSE #100
+-	     DisplayStringHead(Myself,"Help!")
++	     DisplayStringHead(Myself,~Help!~)
+     	     SetGlobalTimer("shouted","locals",12)
+ END
+ 

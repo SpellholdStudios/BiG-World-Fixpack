@@ -1,0 +1,13 @@
+--- FotD\lib\bgee.tpa	Thu Nov 13 17:53:04 2014
++++ C:\BWP Patchstudio\patched files\FotD\lib\bgee.tpa	Wed Nov 30 08:48:55 2016
+@@ -261,6 +261,10 @@
+     OUTER_SPRINT "AR5102" "AR5102"
+     OUTER_SPRINT "AR5400" "AR5400"
+     OUTER_SPRINT "AR5403" "AR5403"
++	OUTER_SPRINT "AR1000" "AR1000"
++	OUTER_SPRINT "AR2500" "AR2500"
++	OUTER_SPRINT "AR2501" "AR2501"
++	OUTER_SPRINT "AR4502" "AR4502"
+ 
+     /* AREA_SCRIPTS (Only Includes Partial List Of Ones BG1 NPC Utilized) */
+     OUTER_SPRINT "BelchingDragonTavern_BCS" "AR3709"

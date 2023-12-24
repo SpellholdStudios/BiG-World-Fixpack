@@ -1,0 +1,10 @@
+--- PoFQuestPack\English\SETUP-PoFQuestPack.tra	Wed Jun 09 18:16:45 2021
++++ C:\BWP Patchstudio\patched files\PoFQuestPack\English\SETUP-PoFQuestPack.tra	Wed Jun 08 08:26:06 2022
+@@ -2124,6 +2124,7 @@
+ Requirements: Force 18	
+ Can use: -			
+ ~
++@680 = ~~
+ @681 = ~ Hi!! You can give me minute? ~
+ @682 = ~ Appointment ~
+ @683 = ~ Appointment: Protection during creation of a new cult for Faerun's protection. ~

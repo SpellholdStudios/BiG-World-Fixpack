@@ -1,0 +1,9 @@
+--- TDD\Language\Polish\POCRE001.tra	Sat Oct 28 21:26:06 2006
++++ C:\BWP Patchstudio\patched files\TDD\Language\Polish\POCRE001.tra	Mon Dec 25 10:15:12 2017
+@@ -16,3 +16,5 @@
+ @15   = ~Czy jesteœ gotowy opuœciæ jezioro?~
+ @16   = ~Tak, zabierz mnie st¹d.~
+ @17   = ~Nie, jeszcze nie.~
++@18   = ~Jezioro~
++@19   = ~Gospodzie U S³onecznego Jeziora~
+\ No newline at end of file

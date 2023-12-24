@@ -1,0 +1,20 @@
+--- Rjali\tpa\speed.tpa	Sat Jun 18 12:41:20 2016
++++ C:\BWP Patchstudio\patched files\Rjali\tpa\speed.tpa	Mon Dec 05 09:44:56 2016
+@@ -96,7 +96,7 @@
+  END
+ 
+ // Neera
+-
++/*
+ COPY_EXISTING ~neera.bcs~ ~override~
+               ~neeraj.dlg~ ~override~
+               ~neera25j.dlg~ ~override~
+@@ -107,7 +107,7 @@
+   REPLACE_TEXTUALLY ",5400)" ",RJ_FAST)"
+   REPLACE_TEXTUALLY "EIGHTEEN_HOURS" "RJ_FAST"
+  END
+-
++*/
+ // Dace
+ 
+ ACTION_IF MOD_IS_INSTALLED ~Dace/dace.tp2~ "0" THEN BEGIN

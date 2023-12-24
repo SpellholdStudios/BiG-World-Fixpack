@@ -1,0 +1,11 @@
+--- BG1NPCSoA\scripts\7XGARR.baf	Mon Feb 06 08:44:26 2023
++++ C:\BWP Patchstudio\patched files\BG1NPCSoA\scripts\7XGARR.baf	Thu May 18 08:02:04 2023
+@@ -281,7 +281,7 @@
+ 	RESPONSE #100
+ GivePartyAllEquipment()
+ LeaveParty()
+-EscapeAreaMove("AR0602",-1,-1,N)  // Irenicus's Dungeon 1st Floor
++EscapeAreaMove("AR0602",-1,-1,8)  // Irenicus's Dungeon 1st Floor
+ SetGlobal("GarrickBardQuest","GLOBAL",4)
+ END
+ 

@@ -1,0 +1,13 @@
+--- NeJE\gui_anim\Animate.ids	Sat May 19 18:41:06 2018
++++ C:\BWP Patchstudio\patched files\NeJE\gui_anim\Animate.ids	Tue Aug 27 19:45:10 2019
+@@ -297,8 +297,8 @@
+ 0xE090 IC_MERILITH
+ 0xE0A0 IC_ICE_TROLL
+ 0xE0B0 IC_TROLL1
+-0XE0C0 IC_SNOW_TROLL
+-0XE0D0 IC_UMBERHULK     
++0xE0C0 IC_SNOW_TROLL
++0xE0D0 IC_UMBERHULK     
+ 0xE0E0 IC_CORNUGONSKI                       
+ 0xE0F0 IC_ICE_GOLEM
+ 0xE0F1 IC_GLAB

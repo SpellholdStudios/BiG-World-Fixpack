@@ -1,0 +1,59 @@
+--- HerThiMoney\scripts\encounter_vanilla2.baf	Wed Apr 14 11:03:36 2021
++++ C:\BWP Patchstudio\patched files\HerThiMoney\scripts\encounter_vanilla2.baf	Thu May 06 09:45:12 2021
+@@ -6,12 +6,12 @@
+ 	RESPONSE #100
+ 		MultiPlayerSync()
+ 		SetGlobal("AN_PayEncounter","GLOBAL",0)
+-		ActionOverride(Player1,LeaveAreaLUA("AN0060","",[330.610],SSE))
+-		ActionOverride(Player2,LeaveAreaLUA("AN0060","",[380.660],SSE))
+-		ActionOverride(Player3,LeaveAreaLUA("AN0060","",[300.660],SSE))
+-		ActionOverride(Player4,LeaveAreaLUA("AN0060","",[345.685],SSE))
+-		ActionOverride(Player5,LeaveAreaLUA("AN0060","",[255.685],SSE))
+-		ActionOverride(Player6,LeaveAreaLUA("AN0060","",[310.725],SSE))
++		ActionOverride(Player1,LeaveAreaLUA("AN0060","",[330.610],15))
++		ActionOverride(Player2,LeaveAreaLUA("AN0060","",[380.660],15))
++		ActionOverride(Player3,LeaveAreaLUA("AN0060","",[300.660],15))
++		ActionOverride(Player4,LeaveAreaLUA("AN0060","",[345.685],15))
++		ActionOverride(Player5,LeaveAreaLUA("AN0060","",[255.685],15))
++		ActionOverride(Player6,LeaveAreaLUA("AN0060","",[310.725],15))
+ 		MultiPlayerSync()
+ END
+ 
+@@ -27,12 +27,12 @@
+ 		MultiPlayerSync()
+ 		IncrementGlobal("AN_ALLAREA_RENCOUNTER","GLOBAL",1)
+ 		SetGlobalTimer("AN_RENCOUNTER_TIMER","GLOBAL",TWO_HOURS)
+-		ActionOverride(Player1,LeaveAreaLUA("AN0060","",[330.610],SSE))
+-		ActionOverride(Player2,LeaveAreaLUA("AN0060","",[380.660],SSE))
+-		ActionOverride(Player3,LeaveAreaLUA("AN0060","",[300.660],SSE))
+-		ActionOverride(Player4,LeaveAreaLUA("AN0060","",[345.685],SSE))
+-		ActionOverride(Player5,LeaveAreaLUA("AN0060","",[255.685],SSE))
+-		ActionOverride(Player6,LeaveAreaLUA("AN0060","",[310.725],SSE))
++		ActionOverride(Player1,LeaveAreaLUA("AN0060","",[330.610],15))
++		ActionOverride(Player2,LeaveAreaLUA("AN0060","",[380.660],15))
++		ActionOverride(Player3,LeaveAreaLUA("AN0060","",[300.660],15))
++		ActionOverride(Player4,LeaveAreaLUA("AN0060","",[345.685],15))
++		ActionOverride(Player5,LeaveAreaLUA("AN0060","",[255.685],15))
++		ActionOverride(Player6,LeaveAreaLUA("AN0060","",[310.725],15))
+ 		MultiPlayerSync()
+ END
+ 
+@@ -48,12 +48,12 @@
+ 		MultiPlayerSync()
+ 		IncrementGlobal("AN_ALLAREA_RENCOUNTER","GLOBAL",1)
+ 		SetGlobalTimer("AN_RENCOUNTER_TIMER","GLOBAL",TWO_HOURS)
+-		ActionOverride(Player1,LeaveAreaLUA("AN0060","",[330.610],SSE))
+-		ActionOverride(Player2,LeaveAreaLUA("AN0060","",[380.660],SSE))
+-		ActionOverride(Player3,LeaveAreaLUA("AN0060","",[300.660],SSE))
+-		ActionOverride(Player4,LeaveAreaLUA("AN0060","",[345.685],SSE))
+-		ActionOverride(Player5,LeaveAreaLUA("AN0060","",[255.685],SSE))
+-		ActionOverride(Player6,LeaveAreaLUA("AN0060","",[310.725],SSE))
++		ActionOverride(Player1,LeaveAreaLUA("AN0060","",[330.610],15))
++		ActionOverride(Player2,LeaveAreaLUA("AN0060","",[380.660],15))
++		ActionOverride(Player3,LeaveAreaLUA("AN0060","",[300.660],15))
++		ActionOverride(Player4,LeaveAreaLUA("AN0060","",[345.685],15))
++		ActionOverride(Player5,LeaveAreaLUA("AN0060","",[255.685],15))
++		ActionOverride(Player6,LeaveAreaLUA("AN0060","",[310.725],15))
+ 		MultiPlayerSync()
+ 	RESPONSE #100
+ 		IncrementGlobal("AN_ALLAREA_RENCOUNTER","GLOBAL",1)

@@ -1,0 +1,36 @@
+--- JklHel\dialogue\jkl_hel_banter.d	Fri Jul 02 14:10:59 2021
++++ C:\BWP Patchstudio\patched files\JklHel\dialogue\jkl_hel_banter.d	Fri Jul 02 18:23:24 2021
+@@ -1,5 +1,5 @@
+ BEGIN BJKLHEL
+-
++/*
+ // Neera banter 1: elven ears
+ CHAIN
+ IF ~InParty("JKLHEL")
+@@ -65,7 +65,7 @@
+ == BNEERA ~Wow. I'm really glad I'm not you. It doesn't sound like you've had a very fun life.~
+ == BJKLHEL ~I suppose I haven't...~
+ EXIT
+-
++*/
+ // Tiax banter 1: failure to communicate
+ CHAIN
+ IF ~InParty("JKLHEL")
+@@ -451,7 +451,7 @@
+ == BEDWIN ~(She dares to define the terms? Pah, she can be useful even under such restrictive requirements.) Very well. I expect full cooperation when I come to collect!~
+ == BJKLHEL ~That was close... hopefully he'll waste his favor on healing or something soon. ...It's a good thing he didn't recognize this icon. I guess it's time to say goodbye to this... keepsake, though. I can't risk anyone else finding it.~
+ EXIT
+-
++/*
+ // Dorn banter 1
+ CHAIN
+ IF ~InParty("JKLHEL")
+@@ -508,7 +508,7 @@
+ == BJKLHEL ~I'll keep it to myself, then.~
+ == BDORN ~That would be wise. Now cease your staring and leave me be.~
+ EXIT
+-
++*/
+ // Alora banter 1
+ CHAIN
+ IF ~InParty("JKLHEL")

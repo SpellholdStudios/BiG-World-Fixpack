@@ -1,0 +1,10 @@
+--- PoFQuestPack\English\D\BRMOCMOD.tra	Mon Mar 16 17:22:22 2020
++++ C:\BWP Patchstudio\patched files\PoFQuestPack\English\D\BRMOCMOD.tra	Sun Mar 06 17:46:32 2022
+@@ -6,6 +6,6 @@
+ @6 = ~ But now I do not have students, so I will fight with you, but before this happens, I will mark on your map the location of Gradak's shelter. It's right here ... ~
+ @7 = ~ Thank you, do you still insist on the battle? ~
+ @8 = ~ Yes, I insist ... If you win, so be it! ~
+-@9 = ~ Paladins of Faeríàn.
++@9 = ~ Paladins of Faerun.
+ 
+ I found out where Gradak was hiding, but first I had to go back to the city and owe it to the duke that this group would no longer bother him. ~

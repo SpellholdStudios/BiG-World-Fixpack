@@ -1,0 +1,11 @@
+--- Aeon\SCRIPTS\1xAE25.baf	Thu Aug 04 09:18:04 2011
++++ C:\BWP Patchstudio\patched files\Aeon\SCRIPTS\1xAE25.baf	Fri Feb 24 09:20:11 2017
+@@ -120,7 +120,7 @@
+ THEN
+ RESPONSE #100
+ SetGlobal("AeonEpilogue","GLOBAL",3)
+-ForceSpellRES("AeonFin",Myself)
++ForceSpellRES("AeFin",Myself)
+ LeaveParty()
+ Kill(Myself)
+ END

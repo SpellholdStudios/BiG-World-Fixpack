@@ -1,0 +1,11 @@
+--- setup-CritterParts_v1.1.tp2	Wed Jun 27 07:50:44 2018
++++ C:\BWP Patchstudio\patched files\setup-CritterParts_v1.1.tp2	Wed Jun 27 07:33:58 2018
+@@ -13,7 +13,7 @@
+ 	 
+ BEGIN ~CritterParts~ 
+ 
+-REQUIRE_PREDICATE GAME_IS ~bgee~ ~This component requires the BG:EE version of the game.~
++//REQUIRE_PREDICATE GAME_IS ~bgee~ ~This component requires the BG:EE version of the game.~
+ 
+ APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~
+ 

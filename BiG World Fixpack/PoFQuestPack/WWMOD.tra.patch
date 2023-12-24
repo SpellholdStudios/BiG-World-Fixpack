@@ -1,0 +1,8 @@
+--- PoFQuestPack\English\D\WWMOD.tra	Mon Mar 16 20:08:38 2020
++++ C:\BWP Patchstudio\patched files\PoFQuestPack\English\D\WWMOD.tra	Sun Mar 06 16:48:49 2022
+@@ -1,4 +1,4 @@
+-@1 = ~ Come in, citizen, there’s nothing to look at. ~
++@1 = ~ Come in, citizen, there's nothing to look at. ~
+ @2 = ~ The situation is under control. It doesn't concern you. ~
+ @3 = ~ Lords are already dealing with this issue. Get out of the way. ~
+ @4 = ~ Access to this territory is closed for your own safety. Come in, citizen. ~

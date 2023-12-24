@@ -1,0 +1,11 @@
+--- NeJE\dlg\BLeina.d	Wed Oct 31 23:52:26 2018
++++ C:\BWP Patchstudio\patched files\NeJE\dlg\BLeina.d	Sun Sep 15 19:18:40 2019
+@@ -5853,7 +5853,7 @@
+ == BJAN ~Ah, but Leina my girl, would there be enough paper in Amn to cover all of the Jansen clan? More to the point, could I remember them all because if I was to write about some and not others Jan Jansen would be ostracised and sent to Coventry, wherever Coventry is. Only one other Jansen has been sent there and that was when...~
+ == BLEINA ~Now that is exactly what I mean Jan, someone in your family has done just about everything a person can think of and somethings that no-one would want to think of. You would be famous Jan.~
+ == BJAN ~Jan Jansen the author and the inventor, now I like the sound of that.~
+- 
++= 
+ 	~The question is what to call this book of mine that is going to make me and the Jansen family famous... maybe "The Lord Of The Turnip Field" or... "The Importance Of Being Jansen", or maybe even... "Three Gnomes In A Boat".~
+ = 
+ 	~Then again, perhaps I should go for something simpler like... "The Life And Times Of The Jansens"? What do you think Leina?~

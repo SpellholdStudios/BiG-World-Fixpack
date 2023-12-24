@@ -1,0 +1,6 @@
+
+//Fields of the Dead Area Links Table
+SRC_AREA  SRC_NWSE  TARGET_ARE  ENTRY_NAME  TRV_TIME  DEF_ENTRY  ENC1     ENC2     ENC3     ENC4     ENC5     ENC_PROB
+
+ARU000    N         AR4710      Entrance1        4        1        N        N        N        N        N        0
+AR4710    W         ARU000      ExitNE           4        1        N        N        N        N        N        0

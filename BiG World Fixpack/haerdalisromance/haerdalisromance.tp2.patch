@@ -1,0 +1,11 @@
+--- haerdalisromance\haerdalisromance.tp2	Wed May 16 21:06:26 2018
++++ C:\BWP Patchstudio\patched files\haerdalisromance\haerdalisromance.tp2	Tue Aug 27 19:30:08 2019
+@@ -4,7 +4,7 @@
+ // Basics
+ BACKUP ~haerdalisromance/backup~
+ AUTHOR ~kae@spellholdstudios.net~
+-VERSION ~v2.2~
++VERSION ~v2.2 BWP Fix~
+ README ~haerdalisromance/translations/%LANGUAGE%/haerdalisromance_readme.html~
+ 
+ ALWAYS

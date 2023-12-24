@@ -1,0 +1,67 @@
+--- Setup-SpellPackB6.TP2	Tue May 17 21:11:21 2011
++++ Setup-SpellPackB6.TP2	Sun Feb 07 19:12:33 2016
+@@ -1,10 +1,11 @@
+ BACKUP ~SpellPackB6/Backup~
+ AUTHOR ~galactygon@baraban.com~
+ README ~SpellPackB6/README.html~
++VERSION ~BWP Fix 2~
+ 
+ ALWAYS
+ 	// Macros
+ 	INCLUDE ~SpellPackB6/Macros/add_projectile.tph~
+ 	INCLUDE ~SpellPackB6/Macros/add_sectype.tph~
+ 	INCLUDE ~SpellPackB6/Macros/add_spell.tph~
+ 	INCLUDE ~SpellPackB6/Macros/add_store_itm.tph~
+@@ -2349,15 +2350,16 @@
+ //\\                     //\\
+ //\\ Shield of Lathander //\\
+ //\\                     //\\
+ 
+ BEGIN @15390	DESIGNATED 1539 	GROUP @10002
+ REQUIRE_FILE ~Data/25Dialog.bif~ @2 // ToB  check
+ 
+-OUTER_SPRINT add_spell_ids "CLERIC_SHIELD_OF_LATHANDER"
++APPEND ~SPELL.IDS~ ~1738 CLERIC_GREATER_SHIELD_OF_LATHANDER~
++ UNLESS ~1738 CLERIC_GREATER_SHIELD_OF_LATHANDER~
+ OUTER_SPRINT add_spell_res "LCPR539" // ACTION_MACRO ~ADD_SPELL~ sets this variable to the added spell's SOURCE_RES
+ OUTER_SPRINT add_spell_scroll "*" 
+ OUTER_SPRINT sphere_restrictions "GUARDIAN"
+ OUTER_SPRINT alignment_restrictions "EVIL"
+ OUTER_SPRINT DivineRemix_equivalent "*"
+ LAUNCH_ACTION_MACRO ~ADD_SPELL~ // Includes ACTION_MACRO ~APPEND_LCLIST_SPELLS~
+ 
+@@ -3086,15 +3088,16 @@
+ //\\                //\\
+ //\\ Mist of Eldath //\\
+ //\\                //\\
+ 
+ BEGIN @17430	DESIGNATED 1743 	GROUP @10003
+ REQUIRE_FILE ~Data/25Dialog.bif~ @2 // ToB  check
+ 
+-OUTER_SPRINT add_spell_ids "CLERIC_MIST_OF_ELDATH"
++APPEND ~SPELL.IDS~ ~1739 CLERIC_MIST_OF_ELDATH~
++ UNLESS ~1739 CLERIC_MIST_OF_ELDATH~
+ OUTER_SPRINT add_spell_res "LCPR743" // ACTION_MACRO ~ADD_SPELL~ sets this variable to the added spell's SOURCE_RES
+ OUTER_SPRINT add_spell_scroll "*" 
+ OUTER_SPRINT sphere_restrictions "WEATHER"
+ OUTER_SPRINT alignment_restrictions "EVIL"
+ OUTER_SPRINT DivineRemix_equivalent "*"
+ LAUNCH_ACTION_MACRO ~ADD_SPELL~ // Includes ACTION_MACRO ~APPEND_LCLIST_SPELLS~
+ 
+@@ -3990,15 +3993,15 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ // Hypnotic pattern does not affect mindless creatures, or slime creatures (we assume they don't have a sense of sight).
+ OUTER_SPRINT race_immunity_table "RACESENSITIVE_HYPNOTICPATTERN"
+ LAUNCH_ACTION_MACRO ~ADD_RACE_SENSITIVE_EFFECTS~
+ 
+ // Earlier components used macros to patch REGEXP GLOB spell effects. MACRO_MATRIX makes sure the new files we copied are up to date with the new effects.
+-COPY_EXISTING_REGEXP GLOB ~%add_spell_res%~ ~override~
++COPY_EXISTING_REGEXP GLOB ~%add_spell_res%.spl~ ~override~
+                           ~LCWI240.*.spl~ ~override~
+                           ~LC_HPPA.*.spl~ ~override~
+ 	LAUNCH_PATCH_MACRO ~MACRO_MATRIX~
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //\\       //\\
+ //\\ Knock //\\

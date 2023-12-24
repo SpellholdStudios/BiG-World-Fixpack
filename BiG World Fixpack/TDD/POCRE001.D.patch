@@ -1,0 +1,13 @@
+--- TDD\D\POCRE001.D	Thu Feb 02 20:08:28 2006
++++ C:\BWP Patchstudio\patched files\TDD\D\POCRE001.D	Mon Dec 25 08:19:24 2017
+@@ -26,8 +26,8 @@
+ IF ~~ THEN BEGIN 4 // from: 3.0
+   SAY @9
+   IF ~~ THEN DO ~SetGlobal("pc_knows_lake","AR1700",1)
+-AddMapNote([439.1479],"The Lake")
+-AddMapNote([381.1010],"Sunlake Inn")~ GOTO 5
++AddMapNote([439.1479],@18)
++AddMapNote([381.1010],@19)~ GOTO 5
+ END
+ 
+ IF ~~ THEN BEGIN 5 // from: 4.0

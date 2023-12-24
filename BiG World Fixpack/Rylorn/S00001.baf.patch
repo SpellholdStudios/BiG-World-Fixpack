@@ -1,0 +1,56 @@
+--- Rylorn\Scripts\S00001.baf	Sat Dec 08 22:58:02 2007
++++ C:\BWP Patchstudio\patched files\Rylorn\Scripts\S00001.baf	Sun Mar 19 17:28:01 2023
+@@ -12,7 +12,7 @@
+ Range(Lasttrigger,9)
+ THEN
+ RESPONSE #100
+-DisplayString(Myself,"This Portal appears to be broken, there is no way to pass through at this time")
++DisplayString(Myself,%This Portal appears to be broken, there is no way to pass through at this time%)
+ END
+ 
+ IF
+@@ -21,7 +21,7 @@
+ Range(Lasttrigger,9)
+ THEN
+ RESPONSE #100
+-DisplayString(Myself,"This Portal appears to be broken, there is no way to pass through at this time")
++DisplayString(Myself,%This Portal appears to be broken, there is no way to pass through at this time%)
+ END
+ 
+ IF
+@@ -30,7 +30,7 @@
+ Range(Lasttrigger,9)
+ THEN
+ RESPONSE #100
+-DisplayString(Myself,"This Portal appears to be broken, there is no way to pass through at this time")
++DisplayString(Myself,%This Portal appears to be broken, there is no way to pass through at this time%)
+ END
+ 
+ IF
+@@ -39,7 +39,7 @@
+ Range(Lasttrigger,9)
+ THEN
+ RESPONSE #100
+-DisplayString(Myself,"This Portal appears to be broken, there is no way to pass through at this time")
++DisplayString(Myself,%This Portal appears to be broken, there is no way to pass through at this time%)
+ END
+ 
+ IF
+@@ -48,7 +48,7 @@
+ Range(Lasttrigger,9)
+ THEN
+ RESPONSE #100
+-DisplayString(Myself,"This Portal appears to be broken, there is no way to pass through at this time")
++DisplayString(Myself,%This Portal appears to be broken, there is no way to pass through at this time%)
+ END
+ 
+ IF
+@@ -57,7 +57,7 @@
+ Range(Lasttrigger,9)
+ THEN
+ RESPONSE #100
+-DisplayString(Myself,"This Portal appears to be broken, there is no way to pass through at this time")
++DisplayString(Myself,%This Portal appears to be broken, there is no way to pass through at this time%)
+ END
+ 
+ IF

@@ -1,0 +1,22 @@
+--- Severian\Setup-Severian.tp2	Tue Feb 22 13:29:01 2011
++++ C:\BWP Patchstudio\patched files\Severian\Setup-Severian.tp2	Sat Dec 14 22:39:46 2013
+@@ -6,7 +6,7 @@
+         Installation ToB requise!
+         Important : consultez le Read-Me !
+         Important : l'installation préalable du BG2Fixpack (Correctifs Principaux uniquement !) est vivement recommandée et ce, quel que soit le mod. Consultez le chapitre Conditions d'Installation de la rubrique Téléchargement sur le site !~
+-
++VERSION ~v02a BWP Fix~
+ 
+ LANGUAGE ~Francais~
+ 	 ~french~
+@@ -274,8 +274,8 @@
+ SAY AREA_FOREST ~~ [#SForest]
+ SAY AREA_DAY ~~ [#SDay]
+ SAY AREA_NIGHT ~~ [#SNight]
+-WRITE_BYTE  0x246 ~%PISTEUR%~
+-
++WRITE_SHORT 0x244 0
++WRITE_SHORT 0x246 0x4000 + ~%PISTEUR%~
+ 
+ // Compilation des fichiers dialogues de Severian (SoA)
+ 

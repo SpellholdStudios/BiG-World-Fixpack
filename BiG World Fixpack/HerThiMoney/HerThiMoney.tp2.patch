@@ -1,0 +1,86 @@
+--- HerThiMoney\HerThiMoney.tp2	Wed Apr 14 11:03:36 2021
++++ C:\BWP Patchstudio\patched files\HerThiMoney\HerThiMoney.tp2	Thu May 06 09:33:11 2021
+@@ -79,12 +79,14 @@
+ INCLUDE ~HerThiMoney/lib/trademeet_statue.tph~
+ 
+ //это есть в ЕЕ, но нет в оригинальной игре
+-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dir.ids~ BEGIN
+-COPY "%MOD_FOLDER%/lib/dir.ids" override
+-COPY_EXISTING "action.ids" override
+-    REPLACE_TEXTUALLY "Face\*)" "Face*DIR)"
+-    REPLACE_TEXTUALLY "Direction\*)" "Direction*DIR)"
+-    BUT_ONLY
++ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
++	ACTION_IF NOT FILE_EXISTS_IN_GAME ~dir.ids~ BEGIN
++	COPY "%MOD_FOLDER%/lib/dir.ids" override
++	COPY_EXISTING "action.ids" override
++		REPLACE_TEXTUALLY "Face\*)" "Face*DIR)"
++		REPLACE_TEXTUALLY "Direction\*)" "Direction*DIR)"
++		BUT_ONLY
++	END
+ END
+ 
+ 
+@@ -410,12 +412,14 @@
+ APPEND ~gtimes.ids~ ~6000 TWENTY_HOURS~ UNLESS ~TWENTY_HOURS~
+ APPEND ~gtimes.ids~ ~3000 TEN_HOURS~ UNLESS ~TEN_HOURS~
+ 
+-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dir.ids~ BEGIN
+-COPY "%MOD_FOLDER%/lib/dir.ids" override
+-COPY_EXISTING "action.ids" override
+-    REPLACE_TEXTUALLY "Face\*)" "Face*DIR)"
+-    REPLACE_TEXTUALLY "Direction\*)" "Direction*DIR)"
+-    BUT_ONLY
++ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
++    ACTION_IF NOT FILE_EXISTS_IN_GAME ~dir.ids~ BEGIN
++        COPY "%MOD_FOLDER%/lib/dir.ids" override
++        COPY_EXISTING "action.ids" override
++            REPLACE_TEXTUALLY "Face\*)" "Face*DIR)"
++            REPLACE_TEXTUALLY "Direction\*)" "Direction*DIR)"
++        BUT_ONLY
++    END
+ END
+ 
+ // Добавляем случайную встречу с коллекторами
+@@ -1115,12 +1119,14 @@
+ APPEND ~STATE.IDS~ ~0x80101FEF CD_STATE_NOTVALID~ UNLESS ~CD_STATE_NOTVALID~
+ 
+ //это есть в ЕЕ, но нет в оригинальной игре
+-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dir.ids~ BEGIN
+-COPY "%MOD_FOLDER%/lib/dir.ids" override
+-COPY_EXISTING "action.ids" override
+-    REPLACE_TEXTUALLY "Face\*)" "Face*DIR)"
+-    REPLACE_TEXTUALLY "Direction\*)" "Direction*DIR)"
+-    BUT_ONLY
++ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
++	ACTION_IF NOT FILE_EXISTS_IN_GAME ~dir.ids~ BEGIN
++	COPY "%MOD_FOLDER%/lib/dir.ids" override
++	COPY_EXISTING "action.ids" override
++		REPLACE_TEXTUALLY "Face\*)" "Face*DIR)"
++		REPLACE_TEXTUALLY "Direction\*)" "Direction*DIR)"
++		BUT_ONLY
++	END
+ END
+ 
+ // Добавляем диалог Вилсону
+@@ -1493,12 +1499,14 @@
+ APPEND ~gtimes.ids~ ~50400 SEVEN_DAYS~ UNLESS ~SEVEN_DAYS~
+ 
+ //это есть в ЕЕ, но нет в оригинальной игре
+-ACTION_IF NOT FILE_EXISTS_IN_GAME ~dir.ids~ BEGIN
+-COPY "%MOD_FOLDER%/lib/dir.ids" override
+-COPY_EXISTING "action.ids" override
+-    REPLACE_TEXTUALLY "Face\*)" "Face*DIR)"
+-    REPLACE_TEXTUALLY "Direction\*)" "Direction*DIR)"
+-    BUT_ONLY
++ACTION_IF GAME_IS ~bgee bg2ee eet iwdee~ THEN BEGIN
++	ACTION_IF NOT FILE_EXISTS_IN_GAME ~dir.ids~ BEGIN
++	COPY "%MOD_FOLDER%/lib/dir.ids" override
++	COPY_EXISTING "action.ids" override
++		REPLACE_TEXTUALLY "Face\*)" "Face*DIR)"
++		REPLACE_TEXTUALLY "Direction\*)" "Direction*DIR)"
++		BUT_ONLY
++	END
+ END
+ 
+ ACTION_IF EE_GAME BEGIN

@@ -1,0 +1,11 @@
+--- stratagems\priest\spellchoices_defensive\demivrgvs\druid.tph	Wed Mar 30 06:19:57 2022
++++ C:\BWP Patchstudio\patched files\stratagems\priest\spellchoices_defensive\demivrgvs\druid.tph	Thu Feb 02 10:28:20 2023
+@@ -38,7 +38,7 @@
+       7 BEGIN
+          PUSH spells ~BLESS FLAME_BLADE BARKSKIN~
+          PUSH_RANDOM spells (CURE_DISEASE null)
+-         PUSH_RANDOM spells (DEFENSIVE_HARMONY null
++         PUSH_RANDOM spells (DEFENSIVE_HARMONY null)
+       END
+ /////////////////////////////////////////// level 8 /////////////////////////////////////
+       8 BEGIN

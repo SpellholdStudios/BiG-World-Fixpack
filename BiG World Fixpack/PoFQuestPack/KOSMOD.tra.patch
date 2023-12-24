@@ -1,0 +1,8 @@
+--- PoFQuestPack\English\D\KOSMOD.tra	Mon Mar 16 19:39:28 2020
++++ C:\BWP Patchstudio\patched files\PoFQuestPack\English\D\KOSMOD.tra	Sun Mar 06 16:48:48 2022
+@@ -1,4 +1,4 @@
+-@1 = ~ Welcome to my forge, <SIRMAAM>. I think you look like a serious person. And most likely, you need a blacksmith. Good. I can offer you something if you want. I sell standard items purchased from Shivarasov’s priests, that is, spears, bows, long swords, and the like. ~
++@1 = ~ Welcome to my forge, <SIRMAAM>. I think you look like a serious person. And most likely, you need a blacksmith. Good. I can offer you something if you want. I sell standard items purchased from Shivarasov's priests, that is, spears, bows, long swords, and the like. ~
+ @2 = ~ Well, let's see what you have. ~
+ @3 = ~ No thanks, I'll go. ~
+ @4 = ~ Of course. Choose, don't be shy if you want. ~

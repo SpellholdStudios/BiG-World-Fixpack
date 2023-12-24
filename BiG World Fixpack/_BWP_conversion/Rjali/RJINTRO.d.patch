@@ -1,0 +1,20 @@
+--- Rjali\Dialogue\SOA\RJIMOE\RJINTRO.d	Sun Jun 05 11:38:36 2016
++++ C:\BWP Patchstudio\patched files\Rjali\Dialogue\SOA\RJIMOE\RJINTRO.d	Thu Apr 27 07:59:10 2017
+@@ -23,7 +23,7 @@
+ == VALYGARJ IF ~InParty("Valygar")~ THEN @118
+ == PLAYER1 IF ~InParty("Mazzy")~ THEN @119
+ == MAZZYJ IF ~InParty("Mazzy")~ THEN @120
+-== PLAYER1 IF ~InParty("Hexxat")~ THEN @121
++/* == PLAYER1 IF ~InParty("Hexxat")~ THEN @121
+ == IMOEN2J IF ~InParty("Hexxat")~ THEN @122
+ == HEXXATJ IF ~InParty("Hexxat")~ THEN @123
+ == IMOEN2J IF ~InParty("Neera")~ THEN @124
+@@ -31,7 +31,7 @@
+ == IMOEN2J IF ~InParty("Dorn")~ THEN @126
+ == DORNJ IF ~InParty("Dorn")~ THEN @127
+ == IMOEN2J IF ~InParty("Rasaad")~ THEN @128
+-== RASAADJ IF ~InParty("Rasaad")~ THEN @129
++== RASAADJ IF ~InParty("Rasaad")~ THEN @129 */
+ == IMOEN2J IF ~InParty("Jaheira")~ THEN @130
+ == JAHEIRAJ IF ~InParty("Jaheira")~ THEN @131
+ == IMOEN2J IF ~InParty("Jaheira")~ THEN @132

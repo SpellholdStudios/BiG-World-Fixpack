@@ -1,0 +1,56 @@
+--- Rjali\Dialogue\SOA\RJPST\RJBFAY.d	Thu Mar 23 07:32:40 2017
++++ C:\BWP Patchstudio\patched files\Rjali\Dialogue\SOA\RJPST\RJBFAY.d	Fri Apr 14 17:36:55 2017
+@@ -153,7 +153,7 @@
+ IF ~~ THEN EXIT
+ 
+ //  Rasaad #1 - SoA - Meditation
+-
++/*
+ CHAIN IF ~Global("RJFARAB1","LOCALS",0)
+           InParty("Rasaad")
+           See("Rasaad")
+@@ -166,7 +166,7 @@
+ == BRASAAD @229 = @230
+ END
+ IF ~~ THEN EXIT
+-
++*/
+ //  Nalia #1 - SoA - Home
+ 
+ CHAIN IF ~Global("RJFANAB1","LOCALS",0)
+@@ -278,7 +278,7 @@
+ IF ~~ THEN EXIT
+ 
+ //  Neera #1 - ToB - Contraception
+-
++/*
+ CHAIN IF ~Global("RJFANEB5","LOCALS",0)
+           InParty("Neera")
+           See("Neera")
+@@ -292,7 +292,7 @@
+ == BRJFAY25 @1073 = @1074
+ END
+ IF ~~ THEN EXIT
+-
++*/
+ //  Viconia #1 - ToB - The Hug
+ 
+ CHAIN IF ~Global("RJFAVIB5","LOCALS",0)
+@@ -399,7 +399,7 @@
+ IF ~~ THEN EXIT
+ 
+ //  Rasaad #1 - ToB - Quiet
+-
++/*
+ CHAIN IF ~Global("RJFARAB5","LOCALS",0)
+           InParty("Rasaad")
+           See("Rasaad")
+@@ -414,7 +414,7 @@
+ == BRASAA25 @1231
+ END
+ IF ~~ THEN EXIT
+-
++*/
+ //  Nalia #1 - ToB - Condescension
+ 
+ CHAIN IF ~Global("RJFANAB5","LOCALS",0)

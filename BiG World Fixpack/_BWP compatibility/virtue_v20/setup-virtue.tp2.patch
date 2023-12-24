@@ -1,0 +1,99 @@
+--- virtue\setup-virtue.tp2	Sun Nov 19 10:08:50 2017
++++ C:\BWP Patchstudio\patched files\virtue\setup-virtue.tp2	Mon Jul 31 09:16:12 2023
+@@ -203,6 +203,96 @@
+ 												// ERADICATE THE REPUTATION SYSTEM
+ COPY ~virtue/system/2da~ ~override~
+ 
++
++// LW: EXTEND REPLACE BLOCKS
++// Addition for Gavin
++ACTION_IF FILE_EXISTS ~override/b!gavin.cre~ BEGIN
++COPY ~virtue\system\scripts\RB_1OLD.baf~ ~virtue\system\scripts\RB_1OLD.baf~
++REPLACE_TEXTUALLY ~BreakingPoint()~
++	~BreakingPoint()
++	!CharName("Gavin",Myself)~
++END
++
++// Addition for Glam's NPC Pack
++ACTION_IF FILE_EXISTS ~override/GV#VYND.CRE~ BEGIN
++COPY ~virtue\system\scripts\RB_1OLD.baf~ ~virtue\system\scripts\RB_1OLD.baf~
++REPLACE_TEXTUALLY ~BreakingPoint()~
++	~BreakingPoint()
++	!CharName("Vynd",Myself)
++	!CharName("Moidre",Myself)
++	!CharName("Flara",Myself)
++	!CharName("Dave",Myself)~
++END
++
++// Addition for Edwin Romance
++ACTION_IF FILE_EXISTS ~override/Elvira.cre~ BEGIN
++COPY ~virtue\system\scripts\RB_1OLD.baf~ ~virtue\system\scripts\RB_1OLD.baf~
++REPLACE_TEXTUALLY ~BreakingPoint()~
++	~BreakingPoint()
++	OR(3)
++		!Name("Edwin",Myself)  // Edwin
++		Global("EdwinRomanceActive","GLOBAL",0)
++		Global("EdwinRomanceActive","GLOBAL",3)~
++END
++
++// Addition for Tsujatha
++ACTION_IF FILE_EXISTS ~override/TSUJATH.cre~ BEGIN
++COPY ~virtue\system\scripts\RB_1OLD.baf~ ~virtue\system\scripts\RB_1OLD.baf~
++REPLACE_TEXTUALLY ~BreakingPoint()~
++	~BreakingPoint()
++	!CharName("Tsujatha",Myself)~
++END
++
++// Addition for Solaufein
++ACTION_IF FILE_EXISTS ~override/c#sola12.cre~ BEGIN
++COPY ~virtue\system\scripts\RB_1OLD.baf~ ~virtue\system\scripts\RB_1OLD.baf~
++REPLACE_TEXTUALLY ~BreakingPoint()~
++	~BreakingPoint()
++	!Name("C#Solaufein",Myself)~
++END
++
++// Addition for Adrian
++ACTION_IF FILE_EXISTS ~override/rh#adr.cre~ BEGIN
++COPY ~virtue\system\scripts\RB_1OLD.baf~ ~virtue\system\scripts\RB_1OLD.baf~
++REPLACE_TEXTUALLY ~BreakingPoint()~
++	~BreakingPoint()
++	!Name("rh#Adrian",Myself)~
++END
++
++// Addition for Husam
++ACTION_IF FILE_EXISTS ~override/C#HUSAM1.CRE~ BEGIN
++COPY ~virtue\system\scripts\RB_1OLD.baf~ ~virtue\system\scripts\RB_1OLD.baf~
++REPLACE_TEXTUALLY ~BreakingPoint()~
++	~BreakingPoint()
++	!Name("C#Husam1",Myself)~
++END
++
++// Addition for Sandrah
++ACTION_IF FILE_EXISTS ~override/Sandrah.cre~ BEGIN
++COPY ~virtue\system\scripts\RB_1OLD.baf~ ~virtue\system\scripts\RB_1OLD.baf~
++REPLACE_TEXTUALLY ~BreakingPoint()~
++	~BreakingPoint()
++	!CharName("Shauhana",Myself)
++	!CharName("Sandrah",Myself)
++	!CharName("Jen'lig",Myself)~
++END
++
++// Addition for Grey the Dog
++ACTION_IF FILE_EXISTS ~override/c#grey02.cre~ BEGIN
++COPY ~virtue\system\scripts\RB_1OLD.baf~ ~virtue\system\scripts\RB_1OLD.baf~
++REPLACE_TEXTUALLY ~BreakingPoint()~
++	~BreakingPoint()
++	!Name("C#Grey",Myself)~
++END
++		
++// Addition for Relationship
++ACTION_IF FILE_EXISTS ~override/M_RNPC.bcs~ BEGIN
++COPY ~virtue\system\scripts\RB_1OLD.baf~ ~virtue\system\scripts\RB_1OLD.baf~
++REPLACE_TEXTUALLY ~BreakingPoint()~
++	~BreakingPoint()
++	GlobalLT("M_RNPC","LOCALS",85)~
++END
++
+ 												// ADD THE NEW ONE
+ COPY_EXISTING ~DPLAYER2.BCS~ ~override~
+ REPLACE_BCS_BLOCK ~virtue/system/scripts/RB_1OLD.BAF~ ~virtue/system/scripts/RB_1NEW.BAF~

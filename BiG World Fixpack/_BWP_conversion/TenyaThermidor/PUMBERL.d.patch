@@ -1,0 +1,10 @@
+--- TenyaThermidor\Dialogue\PUMBERL.d	Tue Jul 29 14:22:23 2014
++++ C:\BWP Patchstudio\patched files\TenyaThermidor\Dialogue\PUMBERL.d	Sun Nov 27 21:51:15 2016
+@@ -27,6 +27,6 @@
+ BEGIN
+ "ACTION"
+ ~SetGlobal("TENAPPEAR","GLOBAL",1)
+-CreateCreature("TENYA",[536.648],S)
++CreateCreature("TENYA",[536.648],0)
+ ActionOverride("Tenya",Dialog([PC]))~
+ END

@@ -1,0 +1,28 @@
+--- Rjali\Dialogue\SOA\RJOrphans.d	Tue Sep 12 10:55:02 2017
++++ C:\BWP Patchstudio\patched files\Rjali\Dialogue\SOA\RJOrphans.d	Sat Feb 03 19:05:40 2018
+@@ -263,7 +263,7 @@
+ == RJALIJ @104 DO ~GiveItemCreate("RJDAGGER","RJBobby",0,0,0)~
+ == RJBOBBY @105
+ == RJBOBBY @106
+-== NEERAP @117
++//== NEERAP @117
+ == RJBOBBY @99
+ END
+ ++ @118 DO ~SetGlobal("RjaliOrphanBobby","GLOBAL",3) EscapeAreaMove("AR1304",2654,583,8)~ EXIT
+@@ -273,11 +273,11 @@
+ == RJALIJ @104 DO ~GiveItemCreate("RJDAGGER","RJBobby",0,0,0)~
+ == RJBOBBY @105
+ == RJBOBBY @106
+-== NEERAJ IF ~InParty("Neera")~ THEN @107 = @109
+-== NALIAJ IF ~!InParty("Neera") InParty("Nalia")~ THEN @108 = @109
+-== AERIEJ IF ~!InParty("Neera") !InParty("Nalia") InParty("Aerie")~ THEN @108 = @109
+-== G#TYRISJ IF ~!InParty("Neera") !InParty("Nalia") !InParty("Aerie") InParty("G#Tyris")~ THEN @108 = @109
+-== RJALIJ IF ~!InParty("Neera") !InParty("Nalia") !InParty("Aerie") !InParty("G#Tyris")~ THEN @108 = @109
++//== NEERAJ IF ~InParty("Neera")~ THEN @107 = @109
++== NALIAJ IF ~InParty("Nalia")~ THEN @108 = @109
++== AERIEJ IF ~!InParty("Nalia") InParty("Aerie")~ THEN @108 = @109
++== G#TYRISJ IF ~!InParty("Nalia") !InParty("Aerie") InParty("G#Tyris")~ THEN @108 = @109
++== RJALIJ IF ~!InParty("Nalia") !InParty("Aerie") !InParty("G#Tyris")~ THEN @108 = @109
+ == VICONIJ IF ~InParty("Viconia")~ THEN @110
+ == JAHEIRAJ IF ~InParty("Viconia") InParty("Jaheira")~ THEN @111
+ END

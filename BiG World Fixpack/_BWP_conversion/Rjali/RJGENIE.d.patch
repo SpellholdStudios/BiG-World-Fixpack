@@ -1,0 +1,11 @@
+--- Rjali\Dialogue\SOA\RJGENIE.d	Tue Sep 05 16:33:18 2017
++++ C:\BWP Patchstudio\patched files\Rjali\Dialogue\SOA\RJGENIE.d	Sat Feb 03 19:21:01 2018
+@@ -429,7 +429,7 @@
+ == RJINVJI IF ~GGT("RJiniMet",0)~ THEN @491
+ == RJINVEC IF ~G("RJECFling",1)~ THEN @492
+ == RJINVEC IF ~G("RJECFling",2)~ THEN @493
+-== RJINVNA IF ~!BeenInParty("Nalia") !G("KeepPlot",0)~ THEN @494
++== RJINVNA IF ~!InParty("Nalia") !G("KeepPlot",0)~ THEN @494
+ END RJGENIE tourist5
+ 
+ // Djinn talk 1

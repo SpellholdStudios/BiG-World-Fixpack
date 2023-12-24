@@ -1,0 +1,1 @@
+The IDS-files are like dictionaries that translate human language into computer language. The names are only symbolic identifiers for the literal numbers. It does not matter whether the spelling varies as long as the different spellings are paired with the correct literal numbers.

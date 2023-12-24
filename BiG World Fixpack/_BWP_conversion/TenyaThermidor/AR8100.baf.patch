@@ -1,0 +1,37 @@
+--- TenyaThermidor\Scripts\AR8100.baf	Thu Dec 22 15:29:12 2016
++++ C:\BWP Patchstudio\patched files\TenyaThermidor\Scripts\AR8100.baf	Fri Dec 23 09:21:27 2016
+@@ -6,9 +6,9 @@
+ RESPONSE #100
+ SetGlobal("B2#TenScrap","GLOBAL",1)
+ SetGlobal("B2#NaidExists","AR8100",1)
+-CreateCreature("B2#Naida",[1120.2675],SW)
+-CreateCreature("B2#Kelda",[1070.2630],SW)
+-CreateCreature("B2#Ran",[1190.2690],SW)
++CreateCreature("B2#Naida",[1120.2675],2)
++CreateCreature("B2#Kelda",[1070.2630],2)
++CreateCreature("B2#Ran",[1190.2690],2)
+ END
+ 
+ IF
+@@ -18,10 +18,10 @@
+ RESPONSE #100
+ SetGlobal("B2#TenScrap","GLOBAL",2)
+ SetGlobal("B2#NaidExists","AR8100",1)
+-CreateCreature("B2#Naida",[1120.2675],SW)
+-CreateCreature("B2#Kelda",[1070.2630],SW)
+-CreateCreature("B2#Ran",[1190.2690],SW)
+-CreateCreature("Tenya",[975.2710],NE)
++CreateCreature("B2#Naida",[1120.2675],2)
++CreateCreature("B2#Kelda",[1070.2630],2)
++CreateCreature("B2#Ran",[1190.2690],2)
++CreateCreature("Tenya",[975.2710],10)
+ END
+ 
+ IF
+@@ -32,5 +32,5 @@
+ THEN
+ RESPONSE #100
+ SetGlobal("B2#RanExists","AR8100",1)
+-CreateCreature("B2#Ran2",[1190.2690],NW)
++CreateCreature("B2#Ran2",[1190.2690],6)
+ END

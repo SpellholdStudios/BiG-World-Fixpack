@@ -1,0 +1,15 @@
+--- TenyaThermidor\Scripts\B2#cTL10.baf	Sun Jul 20 02:28:53 2014
++++ C:\BWP Patchstudio\patched files\TenyaThermidor\Scripts\B2#cTL10.baf	Sun Nov 27 22:45:43 2016
+@@ -4,8 +4,10 @@
+   RESPONSE #100
+     CutSceneId("tenya")
+     setGlobal("B2#TenQuest","GLOBAL",13)
+-    TransformItem("B2#BowlG","B2#Bowl1")
+-    CreateCreature("B2#ELEMT",[1370.1490],W)
++    TakePartyItemNum("B2#BowlG",1)
++    DestroyItem("B2#BowlG") 
++    GiveItemCreate("B2#Bowl1",[ANYONE],0,0,0)
++    CreateCreature("B2#ELEMT",[1370.1490],4)
+     Wait(2)
+     StartDialogueNoSet([PC])
+ END

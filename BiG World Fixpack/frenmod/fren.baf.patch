@@ -1,0 +1,14 @@
+--- frenmod\fren.baf	Wed Mar 17 17:46:42 2004
++++ C:\BWP Patchstudio\patched files\frenmod\fren.baf	Thu Mar 26 15:22:21 2020
+@@ -137,9 +137,9 @@
+ 		SetGlobal("FrennedanSpeak","LOCALS",1)
+ 		SetGlobal("FMorph","GLOBAL",1)
+ 		ReallyForceSpellRES("fraufw02",Myself)
+-		DisplayStringHead(Myself,"Was?! Ihr greift mich an?!")
++		DisplayStringHead(Myself,~Was?! Ihr greift mich an?!~)
+ 		Wait(2)
+-		DisplayStringHead(Myself,"Dann werde ich euch alle töten, ihr Dummköpfe!")
++		DisplayStringHead(Myself,~Dann werde ich euch alle töten, ihr Dummköpfe!~)
+ 		CreateVisualEffectObject("SPFLESHS",Myself)
+ 		SetGlobal("Frennedan","AR0603",2)
+ 		Enemy()

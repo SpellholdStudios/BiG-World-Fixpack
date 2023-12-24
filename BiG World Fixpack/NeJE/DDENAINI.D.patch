@@ -1,0 +1,31 @@
+--- NeJE\dlg\DDENAINI.D	Fri Nov 26 08:39:59 2021
++++ C:\BWP Patchstudio\patched files\NeJE\dlg\DDENAINI.D	Mon Nov 22 10:32:51 2021
+@@ -246,7 +246,7 @@
+   IF ~~ THEN REPLY ~Farewell, Denaini.~ DO ~AddexperienceParty(18000)
+ SetGlobal("HolyWaterGiven","GLOBAL",1)
+ SetGlobal("Restore5201","GLOBAL",1)
+-GiveItemCreate("CLCK66", Protagonist, 0, 0, 0)
++GiveItemCreate("CLCK66", Player1, 0, 0, 0)
+ EraseJournalEntry(%To restore the pools of the elven shrine.
+ 
+ We came upon Denaini in Solonor‘s Tower of the Severed Hand.  She told us the sad tale of how the Severed Hand fell and Larrel‘s disastrous attempt at saving his people by casting a Mythal, a form of ancient elven magic.%)
+@@ -260,15 +260,15 @@
+   IF ~OR(2)
+ !InParty("Erevain")
+ Dead("Erevain")~ THEN REPLY ~May you find peace, Denaini. Farewell.~ DO ~AddexperienceParty(36000)
+-GiveItemCreate("SLINGED", Protagonist, 0, 0, 0)
+-GiveItemCreate("ZZG7TS", Protagonist, 0, 0, 0)
++GiveItemCreate("SLINGED", Player1, 0, 0, 0)
++GiveItemCreate("ZZG7TS", Player1, 0, 0, 0)
+ EraseJournalEntry(%To lay the priests of the Severed Hand to rest.
+ 
+ We spoke with Denaini in Solonor Tower of the Severed Hand about the other priests.  She told us of their horrid existence and has asked us to put them to proper rest.%)~ EXIT
+   IF ~InParty("Erevain")
+ !Dead("Erevain")~ THEN REPLY ~May you find peace, Denaini. Farewell.~ DO ~AddexperienceParty(36000)
+-GiveItemCreate("SLINGED", Protagonist, 0, 0, 0)
+-GiveItemCreate("ZZG7TS", Protagonist, 0, 0, 0)
++GiveItemCreate("SLINGED", Player1, 0, 0, 0)
++GiveItemCreate("ZZG7TS", Player1, 0, 0, 0)
+ EraseJournalEntry(%To lay the priests of the Severed Hand to rest.
+ 
+ We spoke with Denaini in Solonor Tower of the Severed Hand about the other priests.  She told us of their horrid existence and has asked us to put them to proper rest.%)~ EXTERN ~EREVAINJ~ 10

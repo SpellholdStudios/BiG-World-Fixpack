@@ -1,0 +1,197 @@
+--- w_psionics_unleashed\setup-w_psionics_unleashed.tp2	Wed Nov 27 01:45:53 2013
++++ C:\BWP Patchstudio\patched files\w_psionics_unleashed\setup-w_psionics_unleashed.tp2	Mon Mar 25 17:12:09 2019
+@@ -1,7 +1,7 @@
+ //liczba mocy w grze: 93
+ BACKUP ~w_psionics_unleashed/backup~
+ AUTHOR ~deadlythoughtsbg2mod[at]gmail.com~
+-
++VERSION ~beta 0.30 BWP Fix~
+ ASK_EVERY_COMPONENT
+ 
+ ALLOW_MISSING ~spwi730.spl~//Teleport
+@@ -208,7 +208,7 @@
+ SAY @0
+ SAY @7
+ SAY @10
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK	END
++////LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK	END
+ END ELSE BEGIN // MIE BGEE
+ ADD_KIT ~W_PSIONIK~ //this is the "internal" name of your kit, like BERSERKER or LATHANDER
+ //CLASWEAP.2DA
+@@ -263,7 +263,7 @@
+ SAY @0
+ SAY @7
+ SAY @10
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK	END
+ END
+ //=======================================================
+ //No discipline
+@@ -284,7 +284,7 @@
+ SAY @0
+ SAY @7
+ SAY @10
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK00	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK00	END
+ //=======================================================
+ //seer
+ ADD_KIT ~W_PSIONIK10~
+@@ -304,7 +304,7 @@
+ SAY @0
+ SAY @1
+ SAY @11
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK10	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK10	END
+ //=======================================================
+ //shaper
+ ADD_KIT ~W_PSIONIK20~
+@@ -324,7 +324,7 @@
+ SAY @0
+ SAY @2
+ SAY @12
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK20	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK20	END
+ //=======================================================
+ //kineticists
+ ADD_KIT ~W_PSIONIK30~
+@@ -344,7 +344,7 @@
+ SAY @0
+ SAY @3
+ SAY @13
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK30	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK30	END
+ //=======================================================
+ //egoist
+ ADD_KIT ~W_PSIONIK40~
+@@ -364,7 +364,7 @@
+ SAY @0
+ SAY @4
+ SAY @14
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK40	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK40	END
+ //=======================================================
+ //nomad
+ ADD_KIT ~W_PSIONIK50~
+@@ -384,7 +384,7 @@
+ SAY @0
+ SAY @5
+ SAY @15
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK50	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK50	END
+ //=======================================================
+ //telepath
+ ADD_KIT ~W_PSIONIK60~
+@@ -404,7 +404,7 @@
+ SAY @0
+ SAY @6
+ SAY @16
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK60	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_PSIONIK60	END
+ 
+ //------------------------------------------------------
+ //!cBegin inne
+@@ -6030,41 +6030,41 @@
+ lower 7203
+ mixed 1081
+ help 9563)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_M_TRUECLASS	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_M_TRUECLASS	END
+ /**************************************************************************/
+ 
+ /**************************************************************************/
+ //W_ABJURER CLABMA02 0x00000040 Mistrz Odrzucania
+ COPY_KIT ~ABJURER~ ~W_ABJURER~ (unusabilities ~0x01000040 1~)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_ABJURER	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_ABJURER	END
+ /**************************************************************************/
+ //W_CONJURER CLABMA06 0x00000080 Mistrz Przywo³añ
+ COPY_KIT ~CONJURER~ ~W_CONJURER~ (unusabilities ~0x01000080 1~)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_CONJURER	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_CONJURER	END
+ /**************************************************************************/
+ //W_DIVINER CLABMA05 0x00000100 Mistrz Poznania
+ COPY_KIT ~DIVINER~ ~W_DIVINER~ (unusabilities ~0x01000100 1~)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_DIVINER	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_DIVINER	END
+ /**************************************************************************/
+ //W_ENCHANTER CLABMA09  0x00000200 Mistrz Zauroczeñ
+ COPY_KIT ~ENCHANTER~ ~W_ENCHANTER~ (unusabilities ~0x01000200 1~)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_ENCHANTER	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_ENCHANTER	END
+ /**************************************************************************/
+ //W_ILLUSIONIST  CLABMA08 0x00000400 Iluzjonista
+ COPY_KIT ~ILLUSIONIST~ ~W_ILLUSIONIST~ (unusabilities ~0x01000400 1~)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_ILLUSIONIST	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_ILLUSIONIST	END
+ /**************************************************************************/
+ //W_INVOKER  CLABMA07 0x00000800 Mistrz Inwokacji
+ COPY_KIT ~INVOKER~ ~W_INVOKER~ (unusabilities ~0x01000800 1~)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_INVOKER	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_INVOKER	END
+ /**************************************************************************/
+ //W_NECROMANCER CLABMA03 0x01001000 Nekromanta
+ COPY_KIT ~NECROMANCER~ ~W_NECROMANCER~ (unusabilities ~0x01001000 1~)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_NECROMANCER	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_NECROMANCER	END
+ /**************************************************************************/
+ //W_TRANSMUTER CLABMA04 0x00002000 Mistrz Przemian
+ COPY_KIT ~TRANSMUTER~ ~W_TRANSMUTER~ (unusabilities ~0x01002000 1~)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_TRANSMUTER	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_TRANSMUTER	END
+ /**************************************************************************/
+ // W_SORCERER & W_WILDMAGE
+ ACTION_IF GAME_IS ~bgee~ BEGIN
+@@ -6083,7 +6083,7 @@
+ //lower 54893
+ //mixed 54894
+ //help 54892)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_SORCERER	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_SORCERER	END
+ END ELSE
+ ACTION_IF (MOD_IS_INSTALLED ~setup-refinements.TP2~ 10) BEGIN
+     PRINT ~Refinements HLAt detected~
+@@ -6101,7 +6101,7 @@
+ //lower 54893
+ //mixed 54894
+ //help 54892)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_SORCERER	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_SORCERER	END
+ END ELSE
+ ACTION_IF GAME_IS ~bg2ee~ BEGIN
+    PRINT ~No Refinements HLAt detected~
+@@ -6119,7 +6119,7 @@
+ //lower 54893
+ //mixed 54894
+ //help 54892)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_SORCERER	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_SORCERER	END
+ END ELSE BEGIN
+    PRINT ~No Refinements HLAt detected~
+ COPY_KIT ~ABJURER~ ~W_SORCERER~ (unusabilities ~0x01004000 19~
+@@ -6136,7 +6136,7 @@
+ //lower 54893
+ //mixed 54894
+ //help 54892)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_SORCERER	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_SORCERER	END
+ END
+ 
+ //COPY_EXISTING ~baldur.bcs~         ~override~
+@@ -6151,7 +6151,7 @@
+ ACTION_IF (MOD_IS_INSTALLED ~SETUP-DRUIDSOR.TP2~ 0) BEGIN
+     PRINT ~Geomantic Sorcerer Kit detected~
+ COPY_KIT ~CA#DSORC~ ~W_CA#DSORC~ (unusabilities ~0x01004000 19~)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_CA#DSORC	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_CA#DSORC	END
+ //CA#AGEO
+ COPY_EXISTING ~CA#AGEO.itm~ ~override/CA#AGEO.itm~
+ //  READ_BYTE "0x2d" "ukit3"
+@@ -6166,7 +6166,7 @@
+ ACTION_IF GAME_IS ~bgee bg2ee~ THEN BEGIN
+     PRINT ~BG(2)EE detected, DRAGON_DISCIPLE corrections~
+ COPY_KIT ~DRAGON_DISCIPLE~ ~W_DRAGON_DISCIPLE~ (unusabilities ~0x01004000 19~)
+-LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_DRAGON_DISCIPLE	END
++//LAF fl#add_kit_ee	INT_VAR	STR_VAR	kit_name = W_DRAGON_DISCIPLE	END
+ COPY_EXISTING ~DPLAYER2.BCS~ ~override/DPLAYER2.BCS~
+ REPLACE_BCS_BLOCK ~w_psionics_unleashed/baf/mody/replace.baf~ ~w_psionics_unleashed/baf/mody/BGEE-DD.baf~
+ END

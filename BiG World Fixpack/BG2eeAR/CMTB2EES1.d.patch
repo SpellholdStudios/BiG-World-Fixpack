@@ -1,0 +1,8 @@
+--- BG2eeAR\dlg\CMTB2EES1.d	Tue Jun 09 10:28:53 2015
++++ C:\BWP Patchstudio\patched files\BG2eeAR\dlg\CMTB2EES1.d	Tue Feb 07 16:20:04 2017
+@@ -1,4 +1,4 @@
+-BEGIN ~CMTBEES1~
++BEGIN ~CMTB2ES1~
+ 
+ IF ~NumTimesTalkedTo(0)~ THEN BEGIN TbgStore1
+ SAY @0

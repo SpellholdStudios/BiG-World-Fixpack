@@ -1,0 +1,23 @@
+--- Rjali\Scripts\SOA\CUTSCENES\RJFCUT01.BAF	Tue Jul 05 14:31:28 2016
++++ C:\BWP Patchstudio\patched files\Rjali\Scripts\SOA\CUTSCENES\RJFCUT01.BAF	Sun Dec 04 18:33:32 2016
+@@ -6,13 +6,13 @@
+     FadeToColor([20.0],0)
+     Wait(1)
+     SetGlobal("RJFinalVisit","GLOBAL",1)
+-    LeaveAreaLUAPanic("AR1306","",[1128.978],N)
+-    LeaveAreaLUA("AR1306","",[1128.978],N)
+-    ActionOverride(Player2,LeaveAreaLUA("AR1306","",[1160.942],N))
+-    ActionOverride(Player3,LeaveAreaLUA("AR1306","",[1176.1002],N))
+-    ActionOverride(Player4,LeaveAreaLUA("AR1306","",[1208.966],N))
+-    ActionOverride(Player5,LeaveAreaLUA("AR1306","",[1224.1026],N))
+-    ActionOverride(Player6,LeaveAreaLUA("AR1306","",[1256.978],N))
++    LeaveAreaLUAPanic("AR1306","",[1128.978],8)
++    LeaveAreaLUA("AR1306","",[1128.978],8)
++    ActionOverride(Player2,LeaveAreaLUA("AR1306","",[1160.942],8))
++    ActionOverride(Player3,LeaveAreaLUA("AR1306","",[1176.1002],8))
++    ActionOverride(Player4,LeaveAreaLUA("AR1306","",[1208.966],8))
++    ActionOverride(Player5,LeaveAreaLUA("AR1306","",[1224.1026],8))
++    ActionOverride(Player6,LeaveAreaLUA("AR1306","",[1256.978],8))
+     FadeFromColor([20.0],0)
+     Wait(1)
+     EndCutSceneMode()

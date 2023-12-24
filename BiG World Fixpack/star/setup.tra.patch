@@ -1,0 +1,11 @@
+--- star\lang\german\setup.tra	Wed Jun 30 22:43:15 2021
++++ C:\BWP Patchstudio\patched files\star\lang\german\setup.tra	Tue Aug 08 15:33:37 2023
+@@ -102,7 +102,7 @@
+ @402 = ~Viele, sehr viele rosa Bänder werden dies alles besser machen! Ja, es sollten mindestens eine Meile oder so helle, rosa Bänder aus Seide sein!~
+ @403 = ~Wieso verschwende ich meine Zeit, um diesen ganzen Schmutz zu reinigen? Wahrscheinlich um es zu einem besseren Ort zu machen, wo einige Lämmer sich erholen können!~
+ @404 = ~Was habt Ihr hier in den letzten zwanzig Jahren getan? Selbst eine Gruppe Oger wäre ordentlicher als Ihr. Ihr hättet Eures Vaters Erbe besser nutzen sollen.~
+-@405 = ~Je mehr Arbeit es gibt, desto höher ist die Zahl der Schafe, die ich als Zahlung verlange. Seid Euch dessen bewusst!~*/
++@405 = ~Je mehr Arbeit es gibt, desto höher ist die Zahl der Schafe, die ich als Zahlung verlange. Seid Euch dessen bewusst!~
+ 
+ // d#crybl1.baf
+ 

@@ -1,0 +1,11 @@
+--- mih_eq\tob\pocket_plane\cyric_challenge.tpa	Tue Jan 17 22:00:18 2023
++++ C:\BWP Patchstudio\patched files\mih_eq\tob\pocket_plane\cyric_challenge.tpa	Mon Jun 12 09:20:19 2023
+@@ -27,7 +27,7 @@
+     script	= "ar4500"
+     match	= ~Global("BeginChallenge4","GLOBAL",4)~
+     swap_out	= ~SmallWait(5)~
+-    swap_in	= ~CreateVisualEffect("SPDIMNDR",[3067.2310]) CreateVisualEffect("SPDIMNDR",[3586.2231]) CreateVisualEffect("SPDIMNDR",[3501.2432]) SmallWait(5) CreateCreature("chalcy02",[3067.2310],S) CreateCreature("chalcy02",[3586.2231],S) CreateCreature("chalcy02",[3501.2432],S)~
++    swap_in	= ~CreateVisualEffect("SPDIMNDR",[3067.2310]) CreateVisualEffect("SPDIMNDR",[3586.2231]) CreateVisualEffect("SPDIMNDR",[3501.2432]) SmallWait(5) CreateCreature("chalcy02",[3067.2310],0) CreateCreature("chalcy02",[3586.2231],0) CreateCreature("chalcy02",[3501.2432],0)~
+   END
+ 
+   LAUNCH_ACTION_FUNCTION ALTER_SCRIPT_BLOCK

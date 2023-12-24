@@ -1,0 +1,11 @@
+--- BP\RITUAL\BAF\ritpont.BAF	Sat Mar 18 20:08:17 2006
++++ C:\BWP Patchstudio\patched files\BP\RITUAL\BAF\ritpont.BAF	Wed Dec 21 08:49:33 2016
+@@ -32,7 +32,7 @@
+     CreateCreatureOffScreen("ritgol3",4)  // ~Sand Golem~
+     Wait(1)
+     CreateCreatureObject("ritdrag",Myself,1,0,0)  // ~Ira'kiou'dneg~
+-    CreateVisualEffectObject("SPPORTAL","ritgrad")
++    CreateVisualEffectObject("SPPORTAL","ritdrag")
+     SmallWait(2)
+     DestroySelf()
+     EndCutSceneMode()

@@ -1,0 +1,22 @@
+--- kittomes\setup-kittomes.tp2	Mon Jun 10 03:20:55 2013
++++ C:\BWP Patchstudio\patched files\kittomes\setup-kittomes.tp2	Mon Oct 07 23:01:54 2013
+@@ -1,6 +1,6 @@
+ BACKUP ~kittomes/backup~
+ AUTHOR ~Smeagolheart~
+-VERSION ~v2.0~
++VERSION ~v2.0 BWP Fix~
+ //README ~kittomes/ReadMe.txt~
+ 
+ ALWAYS
+@@ -36,9 +36,9 @@
+ //--------------------------------------------
+ //Invisibile Creature
+ COPY ~kittomes/CRE/S9KTAdd.cre~ ~override~
+-COMPILE ~kittomes/BAF/S9KTAdd.baf~ ~override~
++COMPILE ~kittomes/BAF/S9KTAdd.baf~
+ //Dialogues
+-COMPILE EVALUATE_BUFFER ~kittomes/dlg~ ~override~
++COMPILE EVALUATE_BUFFER ~kittomes/dlg~
+ //--------------------------------------------
+ //Create Tomes; adds current descriptions of classes to them
+ //====================================================================

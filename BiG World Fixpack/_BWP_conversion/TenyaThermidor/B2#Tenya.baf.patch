@@ -1,0 +1,24 @@
+--- TenyaThermidor\Scripts\B2#Tenya.baf	Thu Jan 12 14:23:31 2017
++++ C:\BWP Patchstudio\patched files\TenyaThermidor\Scripts\B2#Tenya.baf	Fri Jan 13 09:02:18 2017
+@@ -133,7 +133,9 @@
+   PartyHasItem("B2#Bowl1")
+ THEN
+   RESPONSE #100
+-    TransformItem("B2#Bowl1","B2#Bowl2")
++    TakePartyItemNum("B2#Bowl1",1)
++    DestroyItem("B2#Bowl1") 
++    GiveItemCreate("B2#Bowl2",[ANYONE],0,0,0)
+     SetGlobal("TenBowl2","LOCALS",1)
+ END
+ 
+@@ -144,7 +146,9 @@
+   PartyHasItem("B2#Bowl2")
+ THEN
+   RESPONSE #100
+-    TransformItem("B2#Bowl2","B2#Bowl3")
++    TakePartyItemNum("B2#Bowl2",1)
++    DestroyItem("B2#Bowl2") 
++    GiveItemCreate("B2#Bowl3",[ANYONE],0,0,0)
+     SetGlobal("TenBowl3","LOCALS",1)
+ END
+ 

@@ -1,0 +1,12 @@
+--- FotD\lib\bgt.tpa	Thu Nov 13 17:53:01 2014
++++ C:\BWP Patchstudio\patched files\FotD\lib\bgt.tpa	Wed Nov 30 08:48:58 2016
+@@ -261,6 +261,9 @@
+     OUTER_SPRINT "AR5102" "AR4102"
+     OUTER_SPRINT "AR5400" "AR4400"
+     OUTER_SPRINT "AR5403" "AR4403"
++	OUTER_SPRINT "AR2500" "AR4710"
++	OUTER_SPRINT "AR2501" "AR4810"
++	OUTER_SPRINT "AR4502" "AR4910"
+ 
+     /* AREA_SCRIPTS (Only Includes Partial List Of Ones BG1 NPC Utilized) */
+     OUTER_SPRINT "BelchingDragonTavern_BCS" "AR3709"

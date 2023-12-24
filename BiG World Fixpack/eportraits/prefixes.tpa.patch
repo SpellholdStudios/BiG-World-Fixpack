@@ -1,0 +1,13 @@
+--- eportraits\lib\prefixes.tpa	Sat Mar 03 16:53:00 2012
++++ C:\BWP Patchstudio\patched files\eportraits\lib\prefixes.tpa	Sat May 08 13:59:13 2021
+@@ -80,8 +80,8 @@
+  ~nathm~	,	~eportraits/nathanielbrown/nathm.bmp~	=> ~#nknathm~
+  ~cmnikis~  ,   ~eportraits/nikita/cmnikis.bmp~         => ~#nkcmnis~
+  ~cmnikil~  ,   ~eportraits/nikita/cmnikil.bmp~         => ~#nkcmnil~
+- ~ninas~	,	~eportraits/ninafer_undying/ninas.bmp~	=> ~#nkninas~
+- ~ninal~	,	~eportraits/ninafer_undying/ninal.bmp~	=> ~#nkninal~
++ ~cmninas~	,	~eportraits/ninafer_undying/ninas.bmp~	=> ~#nkninas~
++ ~cmninam~	,	~eportraits/ninafer_undying/ninal.bmp~	=> ~#nkninal~
+  ~otakos~	,	~eportraits/otako_ts/otakos.bmp~		=> ~#nkotaks~
+  ~otakol~	,	~eportraits/otako_ts/otakol.bmp~		=> ~#nkotakl~
+  ~wm_rhias~ ,   ~eportraits/rhilato_wm/wm_rhias.bmp~    => ~#nkrhils~

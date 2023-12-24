@@ -1,0 +1,13 @@
+--- ToBR\cleansing\dialogue\WGcleric.d	Thu Jul 09 17:04:02 2009
++++ C:\BWP Patchstudio\patched files\ToBR\cleansing\dialogue\WGcleric.d	Fri Mar 27 11:05:49 2020
+@@ -100,8 +100,8 @@
+ 	SAY ~My thanks!  You have done a great thing here today.  I will rest here a time more, if you have further need of me.~ 
+ 	IF ~~ THEN DO ~SetGlobal("WGClericQuest","GLOBAL",3) 
+ 	AddexperienceParty(30000)
+-	EraseJournalEntry("Cleansing the Temple of Bhaal
+-	A priestess of Kelemvor has asked that I cleanse a neighboring temple of the undead inhabitants.  She gave me a bottle of cleansing and a warning of a fearsome apparition.  However, she does not remember the exact location of the temple.  Perhaps I will find it in time." )
++	EraseJournalEntry(%Cleansing the Temple of Bhaal
++	A priestess of Kelemvor has asked that I cleanse a neighboring temple of the undead inhabitants.  She gave me a bottle of cleansing and a warning of a fearsome apparition.  However, she does not remember the exact location of the temple.  Perhaps I will find it in time.% )
+ 	~ EXIT
+ END
+ 

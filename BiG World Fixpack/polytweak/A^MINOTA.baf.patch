@@ -1,0 +1,11 @@
+--- polytweak\minoscript\A^MINOTA.baf	Sat Jan 11 21:16:26 2014
++++ C:\BWP Patchstudio\patched files\polytweak\minoscript\A^MINOTA.baf	Mon May 01 15:06:07 2023
+@@ -357,7 +357,7 @@
+ 		Range([PC.0.0.MONK],4)
+ 		Range([PC.0.0.PALADIN_ALL],4)
+ 		Range([GOODCUTOFF.0.0.0.0.BOTH],4)
+-		Range([GOODCUTOFF.0.ELEMENTAL.0.0.NIETHER],4)
++		Range([GOODCUTOFF.0.ELEMENTAL.0.0.NEITHER],4)
+ 		HasItem("ENEBLADE",NearestEnemyOf(Myself))
+ 		HasItem("ENEBLADE",SecondNearestEnemyOf(Myself))
+ 		HasItem("ENEBLADE",ThirdNearestEnemyOf(Myself))

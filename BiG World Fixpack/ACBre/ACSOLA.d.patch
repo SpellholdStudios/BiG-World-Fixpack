@@ -1,0 +1,9 @@
+--- ACBre\cross\ACSOLA.d	Tue Jan 16 22:08:37 2018
++++ C:\BWP Patchstudio\patched files\ACBre\cross\ACSOLA.d	Sun Jul 08 22:47:53 2018
+@@ -1,6 +1,5 @@
+ CHAIN
+ IF ~Global("ACBRsola","GLOBAL",0)
+-%BGT_VAR2%
+ InParty("ACBRE")
+ InParty("sola")
+ See("sola")

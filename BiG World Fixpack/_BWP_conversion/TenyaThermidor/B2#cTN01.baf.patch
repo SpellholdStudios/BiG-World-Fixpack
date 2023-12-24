@@ -1,0 +1,11 @@
+--- TenyaThermidor\Scripts\B2#cTN01.baf	Sun Feb 11 17:38:51 2018
++++ C:\BWP Patchstudio\patched files\TenyaThermidor\Scripts\B2#cTN01.baf	Fri Feb 02 07:54:04 2018
+@@ -12,7 +12,7 @@
+     SmallWait(6)
+     DisplayStringHead("Neb",~EEP!~)
+     Wait(1)
+-    ActionOverride("Neb",RunAwayFromNoLeaveArea("tenya",60))
++    ActionOverride("Neb",RunAwayFrom("tenya",60))
+     Wait(2)
+     DisplayStringHead("Tenya",~Get back here, you grimy little gnome!~)
+     Wait(2)

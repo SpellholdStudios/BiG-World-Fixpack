@@ -1,0 +1,13 @@
+--- HerThiMoney\scripts\AR2500.BAF	Wed Apr 14 11:03:36 2021
++++ C:\BWP Patchstudio\patched files\HerThiMoney\scripts\AR2500.BAF	Thu May 06 09:47:58 2021
+@@ -40,8 +40,8 @@
+ THEN
+ 	RESPONSE #100
+ SetGlobal("ANAranTethyr","GLOBAL",4)
+-ActionOverride(Player1,LeaveAreaLUAPanic("AN1204","",[456.397],N)) 
+-ActionOverride(Player1,LeaveAreaLUA("AN1204","",[456.397],N))
++ActionOverride(Player1,LeaveAreaLUAPanic("AN1204","",[456.397],8)) 
++ActionOverride(Player1,LeaveAreaLUA("AN1204","",[456.397],8))
+ END
+ 
+ IF

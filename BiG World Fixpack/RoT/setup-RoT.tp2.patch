@@ -1,0 +1,10 @@
+--- RoT\setup-RoT.tp2	Thu Feb 27 21:28:51 2020
++++ Y:\BWP Patchstudio\patched files\RoT\setup-RoT.tp2	Fri Apr 03 17:43:35 2020
+@@ -1978,6 +1978,6 @@
+ DESIGNATED 1 LABEL ~rot_kits~
+ REQUIRE_PREDICATE (!GAME_IS ~bg2ee eet~) ~Not for EET and BG2EE~
+ REQUIRE_COMPONENT ~RoT/setup-RoT.tp2~      "0"  ~You must have RoT mod installed~
+-FORBID_COMPONENT  "Setup-TDD.tp2"      "1"  ~You must not have "TDD Kit Pack" installed to activate RoT kits successfully~
++// FORBID_COMPONENT  "Setup-TDD.tp2"      "1"  ~You must not have "TDD Kit Pack" installed to activate RoT kits successfully~
+ 
+ INCLUDE ~%MOD_FOLDER%/lib/install-kits.tpa~

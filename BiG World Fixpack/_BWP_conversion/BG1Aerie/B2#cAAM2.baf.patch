@@ -1,0 +1,11 @@
+--- BG1Aerie\Scripts\B2#cAAM2.baf	Tue Jun 26 18:44:28 2018
++++ C:\BWP Patchstudio\patched files\BG1Aerie\Scripts\B2#cAAM2.baf	Mon Jun 25 07:34:00 2018
+@@ -3,7 +3,7 @@
+ THEN
+   RESPONSE #100
+     CutSceneId(Player1)
+-    CreateCreature("B2#Aeri2",[3074.3131],SW)
++    CreateCreature("B2#Aeri2",[3074.3131],2)
+     ActionOverride("B2#Aeri2",MoveToPoint([2774.3370]))
+     Wait(4)
+     ActionOverride("B2#Aeri2",FaceObject(Player1)

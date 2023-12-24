@@ -1,0 +1,24 @@
+--- SandrahNPC\Setup-SandrahNPC.tp2	Fri Mar 25 17:17:34 2016
++++ C:\BWP Patchstudio\patched files\SandrahNPC\Setup-SandrahNPC.tp2	Sat Mar 03 18:57:44 2018
+@@ -7127,8 +7127,10 @@
+               WRITE_ASCII 0x280 ~waukleo~
+ COPY_EXISTING ~nobl10.cre~ ~override/nobl10.cre~
+               WRITE_ASCII 0x280 ~nobl10~
+-COPY_EXISTING ~dsjetlay.cre~ ~override/dsjetlay.cre~
+-              ~dsjetla9.cre~ ~override/dsjetla9.cre~
++COPY_EXISTING ~dsjetla.cre~ ~override/dsjetla.cre~
++              ~dsjetla2.cre~ ~override/dsjetla2.cre~
++              ~dsjetla4.cre~ ~override/dsjetla6.cre~
++              ~dsjetla6.cre~ ~override/dsjetla6.cre~
+               WRITE_ASCII 0x248 ~jetla~
+ COPY_EXISTING ~ironelit.cre~ ~override/ironelit.cre~
+               WRITE_ASCII 0x280 ~ironelit~
+@@ -7161,7 +7163,7 @@
+ 
+ COPY_EXISTING ~mindal01.cre~ ~override/mindal01.cre~
+               WRITE_ASCII 0x280 ~mindal01~
+-COPY_EXISTING ~Dswolf1.cre~ ~override/Dswolf1.cre~
++COPY_EXISTING ~dswlfshd.cre~ ~override/dswlfshd.cre~
+               WRITE_ASCII 0x2cc ~Dswolf1~
+ COPY_EXISTING ~ogrema_d.cre~ ~override/ogrema_d.cre~
+               WRITE_ASCII 0x280 ~ogrema_d~

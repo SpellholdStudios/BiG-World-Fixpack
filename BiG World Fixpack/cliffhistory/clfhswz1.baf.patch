@@ -1,0 +1,14 @@
+--- cliffhistory\compile\clfhswz1.baf	Fri Oct 08 22:13:10 2004
++++ C:\BWP Patchstudio\patched files\cliffhistory\compile\clfhswz1.baf	Fri Mar 27 09:46:03 2020
+@@ -16,9 +16,9 @@
+ 	RESPONSE #100
+ 		SetCutSceneLite(TRUE)
+ 		SetGlobal("CastSpell","LOCALS",1)
+-		EraseJournalEntry("Caco-Fonick, Bard out of Hell
++		EraseJournalEntry(~Caco-Fonick, Bard out of Hell
+ 
+-A troupe of wild mages who have managed to create a monster by accident have enlisted my aid in finding a dispel scroll to rid themselves of the beast.  I am to return to the Five Flagons theatre when I have the scroll.")
++A troupe of wild mages who have managed to create a monster by accident have enlisted my aid in finding a dispel scroll to rid themselves of the beast.  I am to return to the Five Flagons theatre when I have the scroll.~)
+ 		ActionOverride("CLFHSFNX",SetGlobal("ImADemonAndImOK","LOCALS",3))
+ 		DestroyItem("SCRL1E")
+ 		ForceSpell("CLFHSFNX",WIZARD_DISPEL_MAGIC_VISUALS_ONLY)

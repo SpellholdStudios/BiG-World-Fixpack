@@ -1,0 +1,19 @@
+--- Rjali\Dialogue\SOA\equip.d	Thu Apr 06 23:52:06 2017
++++ C:\BWP Patchstudio\patched files\Rjali\Dialogue\SOA\equip.d	Fri Apr 14 10:29:59 2017
+@@ -89,14 +89,14 @@
+   DO ~SetGlobal("RjaliAerieStuff","GLOBAL",2)~
+ == JANJ IF ~G("RjaliJanStuff",1) See("Jan")~ THEN @213
+   DO ~SetGlobal("RjaliJanStuff","GLOBAL",2)~
+-== NEERAJ IF ~G("RjaliNeeraStuff",1) See("Neera")~ THEN @221
++/* == NEERAJ IF ~G("RjaliNeeraStuff",1) See("Neera")~ THEN @221
+   DO ~SetGlobal("RjaliNeeraStuff","GLOBAL",2)~
+ == RASAADJ IF ~G("RjaliRasaadStuff",1) See("Rasaad")~ THEN @222
+   DO ~SetGlobal("RjaliRasaadStuff","GLOBAL",2)~
+ == HEXXATJ IF ~G("RjaliHexxatStuff",1) See("Hexxat")~ THEN @223
+   DO ~SetGlobal("RjaliHexxatStuff","GLOBAL",2)~
+ == DORNJ IF ~G("RjaliDornStuff",1) See("Dorn")~ THEN @224
+-  DO ~SetGlobal("RjaliDornStuff","GLOBAL",2)~
++  DO ~SetGlobal("RjaliDornStuff","GLOBAL",2)~ */
+ == IMOENJ IF ~InParty("Imoen") G("RjaliImoenStuff",1) See("Imoen")~ THEN @225
+   DO ~SetGlobal("RjaliImoenStuff","GLOBAL",2)~
+ == IMOEN2J IF ~InParty("Imoen2") G("RjaliImoenStuff",1) See("Imoen2")~ THEN @225

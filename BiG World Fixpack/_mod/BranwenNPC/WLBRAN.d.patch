@@ -1,0 +1,78 @@
+--- BranwenNPC\WLBRAN.d	Tue Jun 03 00:21:58 2008
++++ C:\BWP Patchstudio\patched files\BranwenNPC\WLBRAN.d	Mon Nov 11 10:53:18 2019
+@@ -1,28 +1,28 @@
+ BEGIN WLBRAN
+ 
+-IF ~NumTimesTalkedTo(0)
++IF ~NumTimesTalkedToGT(0)
+     Name("Imoen",LastTalkedToBy)
+-    OpenState("Cell04",FALSE)~ THEN BEGIN GetBranImoen
++    OpenState("Cell07",FALSE)~ THEN BEGIN GetBranImoen
+  SAY @1
+  IF ~~ THEN EXTERN IMOENJ ImoenPickLock
+ END
+ 
+-IF ~NumTimesTalkedTo(0)
++IF ~NumTimesTalkedToGT(0)
+     Name("Minsc",LastTalkedToBy)
+-    OpenState("Cell04",FALSE)~ THEN BEGIN GetBranMinsc
++    OpenState("Cell07",FALSE)~ THEN BEGIN GetBranMinsc
+  SAY @3
+  IF ~~ THEN EXTERN MINSCJ MinscBashLock
+ END
+ 
+-IF ~NumTimesTalkedTo(0)
++IF ~NumTimesTalkedToGT(0)
+     Name("Jaheira",LastTalkedToBy)
+-    OpenState("Cell04",FALSE)~ THEN BEGIN GetBranJaheira
++    OpenState("Cell07",FALSE)~ THEN BEGIN GetBranJaheira
+  SAY @5
+  IF ~~ THEN EXTERN JAHEIRAJ JaheiraCallHelp
+ END
+ 
+ IF ~NumTimesTalkedTo(0)
+-    OpenState("Cell04",FALSE)~ THEN BEGIN GetBranPC
++    OpenState("Cell07",FALSE)~ THEN BEGIN GetBranPC
+  SAY @7
+  IF ~Class(LastTalkedToBy,THIEF_ALL)~ THEN REPLY @8 EXIT
+  IF ~CheckStatGT(LastTalkedToBy,15,STR)~ THEN REPLY @9 EXIT
+@@ -31,13 +31,13 @@
+  IF ~~ THEN REPLY @12 GOTO BranWaiting
+ END
+ 
+-IF ~OpenState("Cell04",FALSE)~ THEN BEGIN BranWaiting
++IF ~OpenState("Cell07",FALSE)~ THEN BEGIN BranWaiting
+  SAY @13
+  IF ~~ THEN EXIT
+ END
+ 
+ IF ~Global("BranwenJoined","GLOBAL",0)
+-    OpenState("Cell04",TRUE)~ THEN BEGIN GotBran
++    OpenState("Cell07",TRUE)~ THEN BEGIN GotBran
+  SAY @14 = @15
+  IF ~~ THEN REPLY @16 DO ~SetGlobal("BranwenJoined","GLOBAL",1)
+                           JoinParty()~ EXIT
+@@ -47,8 +47,9 @@
+ IF ~~ THEN BEGIN ImoenPickLock
+  SAY @2
+  IF ~~ THEN DO ~ClearActions("Imoen")
+-                ActionOverride("Imoen",PickLock("Cell04"))
+-                ActionOverride("Imoen",OpenDoor("Cell04"))~ EXIT
++                ActionOverride("Imoen",PickLock("Cell07"))
++                Unlock("Cell07")
++                ActionOverride("Imoen",OpenDoor("Cell07"))~ EXIT
+ END
+ END /* APPEND */
+ 
+@@ -56,8 +57,9 @@
+ IF ~~ THEN BEGIN MinscBashLock
+  SAY @4
+  IF ~~ THEN DO ~ClearActions("Minsc")
+-                ActionOverride("Minsc",BashDoor("Cell04"))
+-                ActionOverride("Minsc",OpenDoor("Cell04"))~ EXIT
++                ActionOverride("Minsc",BashDoor("Cell07"))
++                Unlock("Cell07")
++                ActionOverride("Minsc",OpenDoor("Cell07"))~ EXIT
+ END
+ END /* APPEND */
+ 

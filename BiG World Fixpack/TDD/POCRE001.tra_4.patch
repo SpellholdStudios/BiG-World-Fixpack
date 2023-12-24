@@ -1,0 +1,9 @@
+--- TDD\Language\Russian\POCRE001.tra	Tue Mar 28 16:06:00 2006
++++ C:\BWP Patchstudio\patched files\TDD\Language\Russian\POCRE001.tra	Mon Dec 25 10:17:06 2017
+@@ -16,3 +16,5 @@
+ @15 = ~Вы готовы отправиться к озеру?~
+ @16 = ~Да, вытащи меня отсюда.~
+ @17 = ~Нет, еще нет.~
++@18   = ~Oзеро~
++@19   = ~Sunlake Inn~
+\ No newline at end of file

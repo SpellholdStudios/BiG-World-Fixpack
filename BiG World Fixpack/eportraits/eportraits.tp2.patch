@@ -1,0 +1,37 @@
+--- eportraits\eportraits.tp2	Mon Mar 26 17:53:29 2012
++++ C:\BWP Patchstudio\patched files\eportraits\eportraits.tp2	Sun May 02 19:55:08 2021
+@@ -1,6 +1,6 @@
+ BACKUP ~eportraits/backup~
+ AUTHOR ~http://www.shsforums.net/topic/54227-enkidas-portrait-pack-v2/~
+-VERSION ~v2.0~
++VERSION ~v2.0 BWP Fix~
+ README ~eportraits/eportraits_readme.html~
+ 
+ // Other flags above this comment
+@@ -443,7 +443,7 @@
+ 
+ BEGIN ~Alternate Kachiko~ DESIGNATED 207
+ GROUP ~Mod NPCs~
+-REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~Kachil.bmp~ ~You do not appear to have Tortured Souls installed~
++REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~Kachim.bmp~ ~You do not appear to have Tortured Souls installed~
+ 
+ ACTION_IF FILE_EXISTS_IN_GAME ~Kachim.bmp~ BEGIN
+ 	OUTER_SPRINT sz ~lms~ //portraits to be copied
+@@ -572,7 +572,7 @@
+ 
+ BEGIN ~Alternate Ninafer~ DESIGNATED 242
+ GROUP ~Mod NPCs~
+-REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~cmninag.bmp~ ~You do not appear to have The Undying installed~
++REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~cmninal.bmp~ ~You do not appear to have The Undying installed~
+ LAF replace_backup_all STR_VAR folder=~eportraits/ninafer_undying~ END
+ 
+ BEGIN ~Alternate Otako~ DESIGNATED 243
+@@ -586,7 +586,7 @@
+ LAF replace_backup_all STR_VAR folder=~eportraits/rhilato_wm~ END
+ COPY_EXISTING ~wm_rhia1.cre~   ~override~
+               ~wm_rhia2.cre~   ~override~
+-              ~wm_rhia3.cre~   ~override~
++//            ~wm_rhia3.cre~   ~override~
+   WRITE_BYTE 0x2f 84 // skin colour:  84 Peach, was Shiny Gold
+   WRITE_BYTE 0x32 0  // hair colour:  0 Red Tinted Black, was Purple
+ BUT_ONLY_IF_IT_CHANGES

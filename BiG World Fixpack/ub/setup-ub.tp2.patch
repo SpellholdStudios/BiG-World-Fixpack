@@ -1,0 +1,11 @@
+--- ub\setup-ub.tp2	Thu Jan 28 01:13:07 2021
++++ C:\BWP Patchstudio\patched files\ub\setup-ub.tp2	Sat Apr 17 10:14:24 2021
+@@ -15,7 +15,7 @@
+ AUTO_EVAL_STRINGS
+ 
+ ALWAYS
+-  OUTER_SPRINT external_loc "weidu_external"
++  OUTER_SPRINT MOD_FOLDER ub
+   OUTER_SPRINT tra_base "lang"
+   OUTER_SPRINT tra_setup "ubsetup"
+   OUTER_SPRINT ini_file "ub"

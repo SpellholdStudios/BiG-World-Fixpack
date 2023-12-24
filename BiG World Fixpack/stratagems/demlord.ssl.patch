@@ -1,0 +1,11 @@
+--- stratagems\fiend\ssl\demlord.ssl	Sun Oct 04 21:49:20 2020
++++ C:\BWP Patchstudio\patched files\stratagems\fiend\ssl\demlord.ssl	Sun Sep 18 08:26:02 2022
+@@ -67,7 +67,7 @@
+ 		Wait(3)
+ 		CreateVisualEffectObject("SPPORTAL",Myself)
+ 		SetGlobal("DemonWalks","GLOBAL",2)
+-		MoveBetweenAreasEffect("AR2200","SPPORTAL",[4092.2503],S)
++		MoveBetweenAreasEffect("AR2200","SPPORTAL",[4092.2503],0)
+ END
+ 
+ IF

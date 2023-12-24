@@ -1,0 +1,10 @@
+--- Faren\setup-faren.tp2	Sat May 23 14:57:34 2015
++++ C:\BWP Patchstudio\patched files\Faren\setup-faren.tp2	Sat Aug 26 18:37:15 2017
+@@ -1,6 +1,6 @@
+ BACKUP ~Faren/backup~
+ AUTHOR ~http://www.spellholdstudios.net~
+-VERSION @132
++VERSION ~v3 BWP fix~
+ 
+ README ~Faren/FarenReadme.html~
+ 

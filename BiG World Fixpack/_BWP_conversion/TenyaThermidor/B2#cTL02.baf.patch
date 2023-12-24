@@ -1,0 +1,24 @@
+--- TenyaThermidor\Scripts\B2#cTL02.baf	Sun Jul 20 02:30:19 2014
++++ C:\BWP Patchstudio\patched files\TenyaThermidor\Scripts\B2#cTL02.baf	Sun Nov 27 22:45:43 2016
+@@ -9,7 +9,9 @@
+     ActionOverride("tenya",ApplySpell(Myself,RESTORE_FULL_HEALTH))
+     Wait(2)
+     FaceObject("tenya")
+-    ActionOverride("tenya",TransformItem("B2#Bowl","B2#BowlG"))
++    ActionOverride("tenya",TakePartyItemNum("B2#Bowl",1))
++    ActionOverride("tenya",DestroyItem("B2#Bowl"))
++    ActionOverride("tenya",GiveItemCreate("B2#BowlG",[ANYONE],0,0,0))
+     DisplayStringHead("B2#LETHE",~Thank you, child.~)
+     Wait(2)
+     FaceObject("tenya")
+@@ -25,8 +27,8 @@
+     ReallyForceSpell(Player4,MEPHIT_ICE_SHARD)
+     ReallyForceSpell(Player5,MEPHIT_ICE_SHARD)
+     ReallyForceSpell(Player6,MEPHIT_ICE_SHARD)
+-    CreateCreature("B2#ELEML",[1370.1490],SW)
+-    CreateCreature("B2#ELEML",[1110.1480],SE)
++    CreateCreature("B2#ELEML",[1370.1490],2)
++    CreateCreature("B2#ELEML",[1110.1480],14)
+     SmallWait(12)
+     ActionOverride(Player1,SetSequence(SEQ_SLEEP))
+     ActionOverride(Player2,SetSequence(SEQ_SLEEP))

@@ -1,0 +1,13 @@
+--- HerThiMoney\scripts\AN1204.BAF	Wed Apr 14 11:03:36 2021
++++ C:\BWP Patchstudio\patched files\HerThiMoney\scripts\AN1204.BAF	Thu May 06 09:51:55 2021
+@@ -105,8 +105,8 @@
+ SmallWait(5)
+ FadeToColor([20.20],0)
+ SmallWait(5)
+-ActionOverride(Player1,LeaveAreaLUAPanic("AR2500","",[456.397],N)) 
+-ActionOverride(Player1,LeaveAreaLUA("AR2500","",[456.397],N))
++ActionOverride(Player1,LeaveAreaLUAPanic("AR2500","",[456.397],8)) 
++ActionOverride(Player1,LeaveAreaLUA("AR2500","",[456.397],8))
+ RestorePartyLocations()
+ EndCutSceneMode()
+ Continue()

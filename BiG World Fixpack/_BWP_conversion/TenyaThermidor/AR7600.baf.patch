@@ -1,0 +1,9 @@
+--- TenyaThermidor\Scripts\AR7600.baf	Thu Dec 22 15:29:12 2016
++++ C:\BWP Patchstudio\patched files\TenyaThermidor\Scripts\AR7600.baf	Fri Dec 23 09:18:38 2016
+@@ -7,5 +7,5 @@
+ RESPONSE #100
+ SetGlobal("B2#TenRan2","GLOBAL",3)
+ SetGlobal("B2#RanExists","AR7600",1)
+-CreateCreature("B2#Ran2",[1175.761],S)
++CreateCreature("B2#Ran2",[1175.761],0)
+ END

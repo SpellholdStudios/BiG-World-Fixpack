@@ -1,0 +1,15 @@
+--- butchery\lang\english\setup.tra	Fri Oct 12 07:54:20 2018
++++ C:\BWP Patchstudio\patched files\butchery\lang\english\setup.tra	Fri Apr 16 20:11:57 2021
+@@ -1,5 +1,5 @@
+ /* DEPRECATED
+-@1 = ~/****************************************~
++@1 = ~****************************************~
+ @2 = ~*BuTcHeRy Mod Version 1.0        *~
+ @3 = ~*DrAzTiK01@msn.com	  *~
+ @4 = ~*Copyright 2009                         *~
+@@ -16,4 +16,5 @@
+ @10 = ~DrAzTiK's revisited fight against Tazok and DigDag~
+ @20 = ~Rebalancing a few generic creatures (orcs and ogres)~
+ @30 = ~Rebalanced Tazok and DigDag~
++
+ 

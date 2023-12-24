@@ -1,0 +1,65 @@
+--- HerThiMoney\scripts\AR0700_4.baf	Wed Apr 14 11:03:36 2021
++++ C:\BWP Patchstudio\patched files\HerThiMoney\scripts\AR0700_4.baf	Tue May 04 06:57:16 2021
+@@ -8,7 +8,7 @@
+ ActionOverride("moose01",DestroySelf())
+ ActionOverride("ANbelka",DestroySelf())
+ Wait(1)
+-CreateCreatureImpassable("ANtroll",[2404.1935],S)
++CreateCreatureImpassable("ANtroll",[2404.1935],0)
+ Continue()
+ END
+ 
+@@ -29,7 +29,7 @@
+ THEN
+   RESPONSE #100
+ SetGlobal("ANtrollExists","AR0700",2)  
+-CreateCreatureImpassable("ANtroll",[2404.1935],S)
++CreateCreatureImpassable("ANtroll",[2404.1935],0)
+ END
+ 
+ IF 
+@@ -97,7 +97,7 @@
+   RESPONSE #100
+ ActionOverride("ANtroll",DestroySelf())
+ SmallWait(3)
+-CreateCreatureImpassable("ANtroll",[2404.1935],S)
++CreateCreatureImpassable("ANtroll",[2404.1935],0)
+ END
+ 
+ IF 
+@@ -149,7 +149,7 @@
+ ActionOverride("ANtroll",DestroySelf())
+ CreateVisualEffect("MSUMM1H",[2410.1937])
+ Wait(1)
+-CreateCreatureImpassable("ANsirene",[2410.1937],S)
++CreateCreatureImpassable("ANsirene",[2410.1937],0)
+ AddexperienceParty(25000)
+ Wait(1)
+ EndCutSceneMode()
+@@ -173,7 +173,7 @@
+ ActionOverride("ANtroll",DestroySelf())
+ CreateVisualEffect("MSUMM1H",[2410.1937])
+ Wait(1)
+-CreateCreatureImpassable("ANsirene",[2410.1937],S)
++CreateCreatureImpassable("ANsirene",[2410.1937],0)
+ AddexperienceParty(25000)
+ Wait(1)
+ EndCutSceneMode()
+@@ -219,7 +219,7 @@
+ ActionOverride("ANtroll",DestroySelf())
+ CreateVisualEffect("MSUMM1H",[2410.1937])
+ Wait(1)
+-CreateCreatureImpassable("ANsirene",[2410.1937],S)
++CreateCreatureImpassable("ANsirene",[2410.1937],0)
+ AddexperienceParty(25000)
+ Wait(1)
+ EndCutSceneMode()
+@@ -243,7 +243,7 @@
+ ActionOverride("ANtroll",DestroySelf())
+ CreateVisualEffect("MSUMM1H",[2410.1937])
+ Wait(1)
+-CreateCreatureImpassable("ANsirene",[2410.1937],S)
++CreateCreatureImpassable("ANsirene",[2410.1937],0)
+ AddexperienceParty(25000)
+ Wait(1)
+ EndCutSceneMode()

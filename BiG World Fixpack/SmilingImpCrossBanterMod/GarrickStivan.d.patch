@@ -1,0 +1,20 @@
+--- SmilingImpCrossBanterMod\dlg\GarrickStivan.d	Wed Mar 10 20:53:38 2021
++++ C:\BWP Patchstudio\patched files\SmilingImpCrossBanterMod\dlg\GarrickStivan.d	Sun Jan 09 17:55:10 2022
+@@ -31,7 +31,7 @@
+ Global("StivanGarrick","GLOBAL",1)~ THEN ~B7XGar~ StivanGarrick_2
+ @13
+ =
+-@14 DO ~SetGlobal("StivanGarrick","GLOBAL"2)~
++@14 DO ~SetGlobal("StivanGarrick","GLOBAL",2)~
+ == TB#STIVB @15
+ =
+ @16
+@@ -53,7 +53,7 @@
+ Global("StivanGarrick","GLOBAL",2)~ THEN ~B7XGar~ StivanGarrick_3
+ @25
+ =
+-@26 DO ~SetGlobal("StivanGarrick","GLOBAL"3)~
++@26 DO ~SetGlobal("StivanGarrick","GLOBAL",3)~
+ == TB#STIVB @27
+ =
+ @28

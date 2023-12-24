@@ -1,0 +1,52 @@
+This version only manages mods compatible with BG2 and BGT. BGEE, BG2EE and EET will NOT be managed.
+
+Bug fixes
+
+    Baldurdash v1.75
+        Error while modifying MAZZYP.DLG file which causes script parsing error (SetSetGlobal instead of SetGlobal)
+
+    Big Picture v181
+        Corrections to entries added in stats.ids file
+        The "Forest Encounters" component needs the CLERIC_ANIMATE_TREE spell, but it was not always installed for it.
+
+    Generalized Biffing v2.5
+        Weidu version 247 causes a crash when launching the game. Version 246 is forced when installing the mod.
+
+    Item Upgrade v45
+        Missing translations in the itemupgrade / languages ​​/ french / lolwot.tra file prevented the mod from installing in French.
+
+    Stratagems v33.7
+        Correction of a typo error: east_antimagic in easy_antimagic
+        Fixed an error where sometimes the lev_max variable was empty (not sure this is the correct way to correct).
+
+    Wheels of Prophecy v8.3
+        Wrong path saved in mod_root variable
+
+Compatibility fixes
+
+    Area patcher
+        Components 5000 and 5001 were based on component 15 of BG1NPC which became 80.
+
+    Ascension v2.0
+        Some directions were written as a letter, not a number.
+        It modifies the action.ids file to handle the directions in letter form.
+
+    BG1 NPCs at Beginning v3.0
+        Removed BG1NPC conditions that prevent certain components from being installed. The components in question no longer exist in BG1NPC.
+
+    Big Picture v181
+        Some directions were written as a letter, not a number.
+
+    Gerri's BGT NPC Portraits v3.0
+        The component "Portraits for BG1 Romantic Encounters" was based on component 0 of "BG1 Romantics Encounters" which no longer exists and replaced by components 100 to 105.
+
+    Kiara-Zaiya NPCs v1.6.2
+        The mod replaced several .ids files with older versions that did not contain all the required entries. Which caused a crash right after character creation.
+
+    Rogue Rebalancing v4.92
+        The Blademaster description, coupled with Stratagems' "4250 - Change spell sequencers and contingencies to special abilities" component, generated a description of more than 4096 characters, causing the game to crash when trying to select this kit. The description of the ability "Martial Demonstration" has been reduced.
+
+    Stratagems v33.7
+        Some directions were written as a letter, not a number.
+        He was modifying the action.ids file to handle the directions in letter form.
+

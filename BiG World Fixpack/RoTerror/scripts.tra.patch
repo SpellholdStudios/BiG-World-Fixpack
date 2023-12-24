@@ -1,0 +1,11 @@
+--- RoTerror\Language\English\scripts.tra	Fri Sep 22 19:56:10 2006
++++ C:\BWP Patchstudio\patched files\RoTerror\Language\English\scripts.tra	Sun Feb 26 14:47:22 2017
+@@ -226,7 +226,7 @@
+ @569882 = ~Shar, please, help me!~
+ 
+ @570004 = ~I will take your souls!~
+-@570013 = ~As you enter the dungeon, a strange feeling of the presence of an unspeakable evil makes you intrested.~
++@570013 = ~As you enter the dungeon, a strange feeling of the presence of an unspeakable evil makes you interested.~
+ @570046 = ~You get the strange feeling that something evil approaches...~
+ @570102 = ~Shar...Shar! Guide us to eternal darkness. Guide us to the source of all evil...~
+ @570104 = ~Lead us to the highest! Lead us to you...~

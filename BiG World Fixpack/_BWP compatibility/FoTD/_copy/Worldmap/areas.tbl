@@ -1,0 +1,5 @@
+
+//Fields of the Dead New Areas Table
+SHORT_NAME  CONTENT  LONG_NAME  FLAGS  BAM_ANIM  X_POS  Y_POS  NAME         TOOLTIP      LOAD_IM
+
+AR4710      AR4710   AR4710     7      106       2510    2750  @AR4710      @AR4710      N        //Battle of Bones

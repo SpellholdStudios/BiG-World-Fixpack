@@ -1,0 +1,11 @@
+--- PoFQuestPack\English\D\BOYMOD.tra	Mon Mar 16 17:22:22 2020
++++ C:\BWP Patchstudio\patched files\PoFQuestPack\English\D\BOYMOD.tra	Sun Mar 06 16:48:46 2022
+@@ -3,7 +3,7 @@
+ @2 = ~ Pirates attacked our village, I ask you to help us. ~
+ @3 = ~ Where is your village located? ~
+ @4 = ~ It's about two dozen days east. Please help us. ~
+-@5 = ~ I'm sorry, but it's too far, I don’t have time for this. ~
++@5 = ~ I'm sorry, but it's too far, I don't have time for this. ~
+ @6 = ~ Pirate Island.
+ 
+ Job failed. ~

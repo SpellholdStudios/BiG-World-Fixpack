@@ -1,0 +1,3233 @@
+--- Setup-VCv21.tp2	Tue Dec 25 14:28:06 2018
++++ Y:\BWP Patchstudio\patched files\Setup-VCv21.tp2	Thu Mar 19 10:21:53 2020
+@@ -1,6 +1,6 @@
+ BACKUP ~NeJE\backup~
+ AUTHOR ~Vladislav Papper (vladp6@gmail.com)~
+-
++VERSION ~v2.1 BWP adaptation~
+ /////////////////////////////////////////
+ //			Vlad's Compilation
+ /////////////////////////////////////////
+@@ -10,21 +10,21 @@
+ LANGUAGE ~English~
+          ~english~
+          ~NeJE\bdash\Language\english\setup.tra~
+-
++/*
+ LANGUAGE ~Deutsch~
+          ~deutsch~
+          ~NeJE\bdash\Language\deutsch\korrektur.tra~
+-
++*/
+ BEGIN ~MY COMPILATION~
+ REQUIRE_FILE ~Data/25Dialog.bif~ ~Please install "Throne Of Bhaal" and the official ToB 26498 patch before installation of this mod.~
+-
++/*
+ ACTION_IF (FILE_EXISTS ~data/CTB-RULE.BIF~)
+        OR (FILE_EXISTS ~data/SOS-RULE.BIF~)
+        OR (FILE_EXISTS ~data/TDD-RULE.BIF~)
+ THEN BEGIN
+   FAIL ~You have incompatible mods installed!~
+ END
+-
++*/
+ ACTION_IF FILE_EXISTS ~Setup-GUI.tp2~
+ THEN BEGIN
+   UNINSTALL ~Setup-GUI.tp2~ ~0~
+@@ -48,7 +48,7 @@
+   UNINSTALL ~Setup-GUI.tp2~ ~18~
+   UNINSTALL ~Setup-GUI.tp2~ ~19~
+ END
+-
++/*
+ MKDIR ~NeJE\dlgialog.bak~
+ 
+ COPY + ~dialog.tlk~ ~NeJE\dlgialog.bak\dialog.tlk~
+@@ -57,14 +57,14 @@
+ THEN BEGIN
+   COPY + ~dialogF.tlk~ ~NeJE\dlgialog.bak\dialogF.tlk~
+ END
+-
++*/
+ //PRINT ~Throne of Bhaal Extender (TobEx) v0026 (by Ascension64)~
+ 
+ //OUTER_SPRINT TOBEX_MOD_DIRECTORY "./NeJE"
+ //LOAD_TRA "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx.tra"
+ //ACTION_INCLUDE "%TOBEX_MOD_DIRECTORY%/TobEx_redist/TobEx.tpa"
+ 
+-PRINT ~Baldurdash Fix Pack for SoA-ToB, v1.76 WeiDU~
++BEGIN ~Baldurdash Fix Pack for SoA-ToB, v1.76 WeiDU~
+ 
+ COPY ~NeJE\bdash\copy_2da~													~override~
+ COPY ~NeJE\bdash\copy_bcs~													~override~
+@@ -75,13 +75,13 @@
+ COPY ~NeJE\bdash\copy_spl~													~override~
+ COPY ~NeJE\bdash\copy_sto~													~override~
+ COPY ~NeJE\bdash\copy_wav~													~override~
+-COPY ~NeJE\gui_anim~																~override~
++//COPY ~NeJE\gui_anim~																~override~
+ //COPY ~NeJE\bdash\ionstone~													~override~
+ //New animation for water element
+ COPY ~NeJE\bdash\new_wat~ ~override~
+-COPY ~NeJE\bdash\intro\Theme\themea.acm~					~music\Theme\themea.acm~
+-
+-//Fixing AreaType - thanks to Ardanis
++//COPY ~NeJE\bdash\intro\Theme\themea.acm~					~music\Theme\themea.acm~
++/*
++//Fixing AreaType - thanks to Ardanis                      (LW: included in fixpack)
+ //alter missing areatype check to match banter trigger
+ //for example, Minsc in Umar Hills reminder, Nalia-Edwina banter
+ COPY_EXISTING ~aerie.bcs~ ~override~
+@@ -94,11 +94,11 @@
+ COMPILE_BAF_TO_BCS
+ BUT_ONLY_IF_IT_CHANGES
+ 
+-//Fixing Imoen's banters
++//Fixing Imoen's banters                                   (LW: included in fixpack)
+ COPY_EXISTING ~interdia.2da~ ~override~
+     			SET_2DA_ENTRY 17 1 2 ~BIMOEN2~
+     		BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ //NPC adding to areas
+ COPY_EXISTING ~AR0604.bcs~ ~override~
+   EXTEND_TOP ~AR0604.bcs~ ~NeJE\bdash\npc\eAR0604.baf~
+@@ -151,14 +151,14 @@
+ COPY ~NeJE/Leina/ends/LEINAND2.2da~ ~override~
+ REPLACE ~leina2fi~ ~After half-a-dozen visits by Samuel's messengers it became evident to <CHARNAME> and Leina that it was time to visit Athkatla again. It was not much of a surprise to <CHARNAME> that Samuel decided to retire and sold his tavern and inn to Leina. Leina took over the Five Flagons Inn and hosted many beautiful shows and perfomances there. The tavern became so popular that many famous bards, bands and performers, as well as respectable audience, from all over the world visited it frequently. Even Volo himself was always staying for a few nights in the Five Flagons Inn on his way from Calimshan to Baldur's Gate. <CHARNAME> helped Leina managing the Five Flagons Inn, and they lived happily in Athkatla, in the house of Leina's father. However, the happy life did not stop them from leading the nomadic lifestyle and together they traveled the land for many years. In their travels, Leina wrote many new songs and poems, and when they returned to Athkatla, she published a collection of her poetry with the title "All You Need Is Love". It is said that the couple has seen the birth of a son and a daughter. Eventually the tales about <CHARNAME> and Leina became so unbelievable that one can only assume that they were no more.~
+ 
+-PRINT ~Core Baldurdash Fixes (by Kevin Dorner)~
++BEGIN ~Core Baldurdash Fixes (by Kevin Dorner)~
+ 
+ //***********************************************************************************************
+ //   RULESETS
+ //***********************************************************************************************
+ PRINT ~Patching rulestes(.2DA) ...~
+-
+-//Alignment By Class Table Fix
++/*
++//Alignment By Class Table Fix		                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ // all multi-class thieves were restricted from all Lawful Alignments (Lawful Good\Neutral\Evil) 
+ // rather than just from that of Lawful Good, as per AD&D standards. 
+@@ -179,7 +179,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Triple-Class Mages Missing High-Level Spell Slots Abilities Fix
++//Triple-Class Mages Missing High-Level Spell Slots Abilities Fix		(LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~Luabbr.2da~ ~override~
+  COUNT_2DA_ROWS 2 "rows_cnt"
+@@ -195,7 +195,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Multiclass Thieves' Multiple Assassination Abilities Fix
++//Multiclass Thieves' Multiple Assassination Abilities Fix		(LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~LUBA1.2DA~ ~override~
+               ~LUTH2.2DA~ ~override~
+@@ -245,7 +245,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Raise Dead Temple Prices Fix
++//Raise Dead Temple Prices Fix		                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~RAISDEAD.2DA~ ~override~
+  COUNT_2DA_ROWS 2 "rows_cnt"
+@@ -276,7 +276,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Rogue & Wizard Saving Throw Tables Fixes
++//Rogue & Wizard Saving Throw Tables Fixes		   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SAVEROG.2DA~ ~override~
+  COUNT_2DA_ROWS 41 "rows_cnt"
+@@ -344,7 +344,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Echoey Waukeen's Promenade Fix
++//Echoey Waukeen's Promenade Fix		           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SndResRf.2da~ ~override~
+  COUNT_2DA_ROWS 2 "rows_cnt"
+@@ -357,7 +357,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//No failure and no limitation in spell memorisation
++//No failure and no limitation in spell memorisat          (agb1: new in 1.73)
+ //-------------------------------------------------------------------------
+ 
+ COPY_EXISTING ~intmod.2da~ ~override~
+@@ -371,7 +371,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Throne Of Bhaal Weapons Proficiency Table Fix
++//Throne Of Bhaal Weapons Proficiency Table Fix		   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~WEAPPROF.2DA~ ~override\WEAPPROF.2DA~
+  SET C_T_column=1000
+@@ -437,7 +437,7 @@
+   BUT_ONLY_IF_IT_CHANGES
+   
+ //-------------------------------------------------------------------------
+-//Gromnir Il-Khan Quest Experience Reward Fix
++//Gromnir Il-Khan Quest Experience Reward Fix		     (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~XPLIST.2DA~ ~override~
+  COUNT_2DA_ROWS 40 "rows_cnt"
+@@ -448,14 +448,14 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ //***********************************************************************************************
+ //   AREAS
+ //***********************************************************************************************
+ PRINT ~Patching areas(.ARE) ...~
+-
++/*
+ //-------------------------------------------------------------------------
+-//Outdoor Encounter Areas Flags Fixes
++//Outdoor Encounter Areas Flags Fixes	                     (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~AR0041.ARE~ ~override~
+               ~AR0042.ARE~ ~override~
+@@ -467,7 +467,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Area Type Flag Various Fixes
++//Area Type Flag Various Fixes	                            (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~AR0303.ARE~ ~override~
+               ~AR0305.ARE~ ~override~
+@@ -538,7 +538,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Thieves' Guild Stronghold Outdoor Flags & Resting Fixes
++//Thieves' Guild Stronghold Outdoor Flags & Resting Fixes	     (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~AR0321.ARE~ ~override~
+  READ_SHORT  0x48 "flags"
+@@ -576,7 +576,7 @@
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xAR0324.BAF~ ~NeJE\bdash\BAF_r\rAR0324.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Watcher's Keep Lowest Level Outdoor Area Trigger Fix
++//Watcher's Keep Lowest Level Outdoor Area Trigger Fix	     (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~AR3000.ARE~ ~override~
+  READ_SHORT 0x5a  "infotrig_num"
+@@ -592,15 +592,15 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ 
+ //***********************************************************************************************
+ //   Scripts
+ //***********************************************************************************************
+ PRINT ~Patching script-based issues...~
+-
++/*
+ //-------------------------------------------------------------------------
+-//Anomen Title Lost In Throne Of Bhaal and Wisdom In Red Fixes
++//Anomen Title Lost In Throne Of Bhaal and Wisdom In Red Fixes	     (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ EXTEND_TOP ~Anom25.bcs~ ~NeJE\bdash\BAF_t\tANOM25.BAF~
+ 
+@@ -624,20 +624,20 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Unseeing Eye Not Appearing Fix
++//Unseeing Eye Not Appearing Fix	                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~ar0205.bcs~ ~override~
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xAR0205.BAF~ ~NeJE\bdash\BAF_r\rAR0205.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Planar Sphere Assassins Not Appearing Fix + rMGTEOS1.D
++//Planar Sphere Assassins Not Appearing Fix + rMGTEOS1.D	     (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~ar0411.bcs~ ~override~
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xAR0411.BAF~ ~NeJE\bdash\BAF_r\rAR0411.BAF~
+  EXTEND_BOTTOM ~ar0411.bcs~ ~NeJE\bdash\BAF_b\bAR0411.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Paladin Tyrianna Assassin Quest Fixes
++//Paladin Tyrianna Assassin Quest Fixes	                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~ar0415.bcs~ ~override~
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xAR0415.BAF~ ~NeJE\bdash\BAF_r\rAR0415.BAF~
+@@ -648,70 +648,72 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Bodhi's Lair Inaccessible Fix
++//Bodhi's Lair Inaccessible Fix	                           (LW: identical in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~ar0800.bcs~ ~override~
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xAR0800.BAF~ ~NeJE\bdash\BAF_r\rAR0800.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Unstakable Vampires Fix
++//Unstakable Vampires Fix                                  (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ EXTEND_BOTTOM ~ar0801.bcs~ ~NeJE\bdash\BAF_b\bAR0801.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Paladin Resting In Stronghold Fix
++//Paladin Resting In Stronghold Fix                        (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ EXTEND_TOP ~ar0903.bcs~ ~NeJE\bdash\BAF_t\tAR0903.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Trapped In Twisted Rune Lair Fix
++//Trapped In Twisted Rune Lair Fix                         (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ EXTEND_BOTTOM ~ar1008.bcs~ ~NeJE\bdash\BAF_b\bAR1008.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Captain Arat Dialog Fixes + rKPCAPT1.D
++//Captain Arat Dialog Fixes + rKPCAPT1.D                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ EXTEND_BOTTOM ~ar1300.bcs~ ~NeJE\bdash\BAF_b\bAR1300.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Tombelthen's Journal Fix
++//Tombelthen's Journal Fix                                 (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ EXTEND_TOP ~ar1401.bcs~ ~NeJE\bdash\BAF_t\tAR1401.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Spellhold Asylum Entry Trap & Sequence Looping Fix
++//Spellhold Asylum Entry Trap & Sequence Looping Fix       (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~ar1515.bcs~ ~override~
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\x1AR1515.BAF~ ~NeJE\bdash\BAF_r\r1AR1515.BAF~
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\x2AR1515.BAF~ ~NeJE\bdash\BAF_r\r2AR1515.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Sime Dialog Loop Fix
++//Sime Dialog Loop Fix                                     (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~ar1600.bcs~ ~override~
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xAR1600.BAF~ ~NeJE\bdash\BAF_r\rAR1600.BAF~
+-
++*/
+ //-------------------------------------------------------------------------
+-//Druid Multi\Dual-Class Stronghold Fix + rCECHALL.D
++//Druid Multi\Dual-Class Stronghold Fix + rCECHALL.D       (agb1: same as 1.68, not in Fixpack)
+ //-------------------------------------------------------------------------
+-COPY_EXISTING ~ar1901.bcs~ ~override~
+- DECOMPILE_BCS_TO_BAF
++COPY_EXISTING ~ar1901.bcs~ ~override~                      // (agb1: not in Fixpack)
++// DECOMPILE_BCS_TO_BAF
++/* agb1: seems unnecessary to remove animations when adding these creatures
+  REPLACE_TEXTUALLY ~CreateCreatureObjectEffect("Drshsp01","SPFLESHS",Player1)~ ~CreateCreatureObject("Drshsp01",Player1,0,0,0)~
+  REPLACE_TEXTUALLY ~CreateCreatureObjectEffect("TREVIL03","SPDIMNDR",Player1)~ ~CreateCreatureObject("TREVIL03",Player1,0,0,0)~
+- COMPILE_BAF_TO_BCS
+- EXTEND_BOTTOM ~ar1901.bcs~ ~NeJE\bdash\BAF_b\bAR1901.BAF~
+-
++*/
++// COMPILE_BAF_TO_BCS
++ EXTEND_BOTTOM ~ar1901.bcs~ ~NeJE\bdash\BAF_b\bAR1901.BAF~ // (agb1: not in Fixpack)
++/*
+ //-------------------------------------------------------------------------
+ //Drow Longsword Protagonist Check Fix
+ //-------------------------------------------------------------------------
+-COPY_EXISTING ~ar2500.bcs~ ~override~
+- DECOMPILE_BCS_TO_BAF
++COPY_EXISTING ~ar2500.bcs~ ~override~                      (agb1: modified in Fixpack)
++// DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~CreateCreatureObjectEffect("c6elvenw","spportal",Player1)~ ~CreateCreatureObject("c6elvenw",Player1,0,0,0)~
+  REPLACE_TEXTUALLY ~DWCSW1H01~ ~DWSW1H01~
+  COMPILE_BAF_TO_BCS
+ 
+ //-------------------------------------------------------------------------
+-//Tears Of Bhaal Fear & Selfish Test Results and Already-Evil Alignment-Shifting Fixes
++//Tears Of Bhaal Fear & Selfish Test Results and Already-Evil Alignment-Shifting Fixes         (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~ar2900.bcs~ ~override~
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xAR2900.BAF~ ~NeJE\bdash\BAF_r\rAR2900.BAF~
+@@ -753,7 +755,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Tears Of Bhaal Tests Paladin & Ranger Falling Fixes
++//Tears Of Bhaal Tests Paladin & Ranger Falling Fixes                (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ EXTEND_BOTTOM ~ar2901.bcs~ ~NeJE\bdash\BAF_b\bAR2901.BAF~
+ EXTEND_BOTTOM ~ar2902.bcs~ ~NeJE\bdash\BAF_b\bAR2902.BAF~
+@@ -765,13 +767,13 @@
+ EXTEND_BOTTOM ~ar2905.bcs~ ~NeJE\bdash\BAF_b\bAR2905.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Drow Item\Avatar Fixes
++//Drow Item\Avatar Fixes                                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~baldur.bcs~ ~override~
+  EXTEND_TOP ~baldur.bcs~ ~NeJE\bdash\BAF_t\tBALDUR.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Spellhold Return Invisiblity & Bhaalpower Loss Notification Fixes
++//Spellhold Return Invisiblity & Bhaalpower Loss Notification Fixes         (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~Cut41i.bcs~ ~override~
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xCUT41I.BAF~ ~NeJE\bdash\BAF_r\rCUT41I.BAF~
+@@ -780,7 +782,7 @@
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xCUT41J.BAF~ ~NeJE\bdash\BAF_r\rCUT41J.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Edwin's Nether Scroll Quest Fixes + rEDWINJ.D
++//Edwin's Nether Scroll Quest Fixes + rEDWINJ.D            (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~Edwin.bcs~ ~override~
+  DECOMPILE_BCS_TO_BAF
+@@ -875,13 +877,13 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Throne Of Bhaal Jaheira Romance Fix
++//Throne Of Bhaal Jaheira Romance Fix                      (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~Jahe25.bcs~ ~override~
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xJAHE25.BAF~ ~NeJE\bdash\BAF_r\rJAHE25.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Mazzy & Valygar Enemies When One Charmed Fix
++//Mazzy & Valygar Enemies When One Charmed Fix             (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~Mazzy.bcs~ ~override~
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\x1MAZZY.BAF~ ~NeJE\bdash\BAF_r\r1MAZZY.BAF~
+@@ -891,7 +893,7 @@
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xVALYGAR.BAF~ ~NeJE\bdash\BAF_r\rVALYGAR.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Arkanis Gath Infinite Spawn & Spawn When Workng For Bodhi Bugs
++//Arkanis Gath Infinite Spawn & Spawn When Workng For Bodhi Bugs         (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~Mvally.bcs~ ~override~
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xMVALLY.BAF~ ~NeJE\bdash\BAF_r\rMVALLY.BAF~
+@@ -903,14 +905,14 @@
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xSTDEATH.BAF~ ~NeJE\bdash\BAF_r\rSTDEATH.BAF~
+ 
+ //-------------------------------------------------------------------------
+-//Drow Egg Guards Make Ust Natha Hostile Fix
++//Drow Egg Guards Make Ust Natha Hostile Fix               (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~Udeggs.bcs~ ~override~
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xUDEGGS.BAF~ ~NeJE\bdash\BAF_r\rUDEGGS.BAF~
+-
++*/
+ 
+ //-------------------------------------------------------------------------
+-//17-06-2005  -  incorrect drow items disintegration sequence (KD)
++//17-06-2005  -  incorrect drow items disintegration sequence (KD)         (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~AR4500.BCS~ ~override~
+               ~AR6100.BCS~ ~override~
+@@ -1111,16 +1113,16 @@
+ //   Creatures
+ //***********************************************************************************************
+ PRINT ~Patching creatures and related issues...~
+-
++/*
+ //-------------------------------------------------------------------------
+-//North Forest Skeleton Warrior Avatar Fix
++//North Forest Skeleton Warrior Avatar Fix		   (LW: identical in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~AR18SKEL.CRE~ ~override~
+  WRITE_SHORT 0x28 60176   //Animation changing to IC_SKELETONA
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Summoning Limit Exploit Fixes
++//Summoning Limit Exploit Fixes		                   (LW: identical in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~BEARBLSU.CRE~ ~override~
+               ~BEARGRSU.CRE~ ~override~  //KD
+@@ -1134,7 +1136,7 @@
+  WRITE_BYTE 0x0275 6                     //SUMMONED gender
+ 
+ //-------------------------------------------------------------------------
+-//Paladin Harbinger Drives Away Allies In Bodhi Battle Fix + MISC83BD.ITM
++//Paladin Harbinger Drives Away Allies In Bodhi Battle Fix + MISC83BD.ITM		(LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~C6ERIC.CRE~ ~override~
+               ~C6ERIC3.CRE~ ~override~
+@@ -1171,7 +1173,8 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Lady Delicia Caan Dialog Interruption Fix
++//Lady Delicia Caan Dialog Interruption Fix		   (LW: modified in Fixpack)
++// agb1: Fixpack handles differently (Delicia's guard dialogue pauses game)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~DELCIA.CRE~ ~override~
+  WRITE_ASCII 0x260 ~None~             //drop General Script
+@@ -1179,7 +1182,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Druid Messenger 'No Valid Replies Or Links' Fix
++//Druid Messenger 'No Valid Replies Or Links' Fix          (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~DRUIDAD.CRE~ ~override~
+  WRITE_ASCII 0x248 ~DRUIDAD~          //set new scripts
+@@ -1189,7 +1192,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Edwin's Initial Spell Slots Fixes
++//Edwin's Initial Spell Slots Fixes                        (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~EDWIN7.CRE~ ~override~
+  READ_LONG  0x02a8  "sp_offset"
+@@ -1262,7 +1265,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Fairy Dragon Familiar HP\Resistances Fix
++//Fairy Dragon Familiar HP\Resistances Fix                 (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~FAMFAI25.CRE~ ~override~
+  WRITE_SHORT 0x24 48     //HP
+@@ -1273,14 +1276,14 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Pseudo-Dragon Familiar Magic Resistance Fix
++//Pseudo-Dragon Familiar Magic Resistance Fix              (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~FAMPSD.CRE~ ~override~
+  WRITE_BYTE  0x5d 50     //Res Magic
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Quasit Familiar Blur Ability & Melee Attack Fixes
++//Quasit Familiar Blur Ability & Melee Attack Fixes        (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~FAMQUAS.CRE~ ~override~
+  READ_LONG   0x02a0  "known_sp_offset"
+@@ -1308,7 +1311,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Imnesvale Chicken Pickpocket Exploit Fix
++//Imnesvale Chicken Pickpocket Exploit Fix                 (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~GEMCH02.CRE~ ~override~
+  READ_LONG 0x2b8 "slots_off"
+@@ -1331,7 +1334,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Watcher's Keep Temple Level 'Stolen' Halberd Fix
++//Watcher's Keep Temple Level 'Stolen' Halberd Fix         (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~GORSTA09.CRE~ ~override~
+  READ_LONG 0x02bc "items_offset"
+@@ -1345,7 +1348,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Haer'Dalis Pickpocketing & Spells Fixes
++//Haer'Dalis Pickpocketing & Spells Fixes                  (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~HAER10.CRE~ ~override~
+  WRITE_BYTE 0x59  0    //Res Fire
+@@ -1439,7 +1442,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Enslaved Genie Pickpocket Exploit & Journal Entry Fixes + rHELLGEN.D
++//Enslaved Genie Pickpocket Exploit & Journal Entry Fixes + rHELLGEN.D          (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~HELLGEN.CRE~ ~override~
+  READ_LONG 0x2b8 "slots_off"
+@@ -1462,7 +1465,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Kangaxx Ring of Gaxx Pickpocket Exploit Fix
++//Kangaxx Ring of Gaxx Pickpocket Exploit Fix              (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~HLKANG.CRE~ ~override~
+  READ_LONG 0x2b8 "slots_off"
+@@ -1485,7 +1488,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Imoen's Thieving Skills Fixes
++//Imoen's Thieving Skills Fixes                            (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~IMOEN10.CRE~ ~override~
+               ~IMOEN15.CRE~ ~override~
+@@ -1505,7 +1508,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Mazzy Level 9 & 12 Weapon Proficiencies Fixes
++//Mazzy Level 9 & 12 Weapon Proficiencies Fixes            (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~MAZZY9.CRE~ ~override~
+  READ_LONG 0x2c4 "eff_offset"
+@@ -1530,7 +1533,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Minsc Missing Spells Onjoin Fix
++//Minsc Missing Spells Onjoin Fix                          (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~MINSC8.CRE~ ~override~
+  READ_LONG 0x2a4 "n_spells"
+@@ -1630,7 +1633,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Planetar Summon Fixes
++//Planetar Summon Fixes                                    (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~PLANEVIL.CRE~ ~override~
+  WRITE_BYTE 0x273  3    //CLERIC class
+@@ -1675,7 +1678,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Spellhold Irenicus Fixes
++//Spellhold Irenicus Fixes                                 (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~PPIRENI1.CRE~ ~override~
+               ~PPIRENI2.CRE~ ~override~
+@@ -1694,7 +1697,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Arbane's Short Sword Fix
++//Arbane's Short Sword Fix                                 (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~RESUNA.CRE~ ~override~
+  READ_LONG 0x2bc "it_off"
+@@ -1708,9 +1711,9 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ //-------------------------------------------------------------------------
+-//Botomless Bag of Holding
++//Botomless Bag of Holding	                           (agb1: new in 1.73)
+ //-------------------------------------------------------------------------
+ 
+ /*COPY_EXISTING_REGEXP GLOB ~^.+\.sto$~ ~override~
+@@ -1719,9 +1722,9 @@
+     WRITE_SHORT 0x22 999
+   END
+ BUT_ONLY_IF_IT_CHANGES*/
+-
++/*
+ //-------------------------------------------------------------------------
+-//Stackable items
++//Stackable items	                                   (agb1: new in 1.73)
+ //-------------------------------------------------------------------------
+ 
+ //Potions
+@@ -1781,14 +1784,14 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Errard Alignment Fix
++//Errard Alignment Fix                                     (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SARMAG01.CRE~ ~override~
+  WRITE_BYTE 0x27b  17 //LAWFULL_GOOD
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Suldanessellar Irenicus Fixes
++//Suldanessellar Irenicus Fixes                            (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SUJON.CRE~ ~override~
+               ~SUJON2.CRE~ ~override~
+@@ -1797,7 +1800,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Ihtafeer Pickpocket Exploit Fix
++//Ihtafeer Pickpocket Exploit Fix                          (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~TRRAK01.CRE~ ~override~
+  READ_LONG 0x2b8 "slots_off"
+@@ -1820,7 +1823,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Kuo-Toan Prince Pickpocket Exploit Fix
++//Kuo-Toan Prince Pickpocket Exploit Fix                    (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~UDPRINCE.CRE~ ~override~
+  READ_LONG 0x2b8 "slots_off"
+@@ -1843,11 +1846,11 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Viconia Weapon Proficiencies Fix
++//Viconia Weapon Proficiencies Fix                         (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ //proficiency effects added so can't do anything beside direct copy
+ //until WeiDU will be capable to add effects as well - cre_copy
+-
++*/
+ 
+ //***********************************************************************************************
+ //  Dialogs
+@@ -1886,7 +1889,8 @@
+ //Solaufein Phaere Rescue Fix - UDSOLA1.D
+ //Valygar Ranger Ally Unprovoked Attack- VALRAN1.D
+ //Mazzy party leaving dialog typo - MAZZYP.D
+-
++//(LW: modified in Fixpack) //		(agb1: same as 1.68)
++/*
+ COPY_EXISTING ~AERIE.DLG~ ~override~
+  DECOMPILE_DLG_TO_D
+  REPLACE_TEXTUALLY ~StartDialogueNoSet()~ ~StartDialogueNoSet([PC])~
+@@ -2358,16 +2362,16 @@
+ Attack("Viconia")~
+  COMPILE_D_TO_DLG
+  BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ //HERE
+ 
+ //***********************************************************************************************
+ //   Items
+ //***********************************************************************************************
+ PRINT ~Patching items...~
+-
++/*
+ //-------------------------------------------------------------------------
+-//Amulet Of Power Usability Fix
++//Amulet Of Power Usability Fix	                           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~Amul21.itm~ ~override~
+  WRITE_BYTE 0x1e 0     //unusability
+@@ -2380,7 +2384,7 @@
+ //-------------------------------------------------------------------------
+ //Shadows Of Amn Fixes Imported Unchanged From Previous FixPacks
+ //-------------------------------------------------------------------------
+-//Flash Master Bruiser Mate Enchantment Fix
++//Flash Master Bruiser Mate Enchantment Fix	           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~AROW04.ITM~ ~override~
+               ~BOLT07.ITM~ ~override~
+@@ -2388,7 +2392,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Amkethran Smuggler Duplicated Gem Bags Fix
++//Amkethran Smuggler Duplicated Gem Bags Fix	           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ //Bag02j.itm and bag02j.STO in itm_copy
+ 
+@@ -2417,7 +2421,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Boots Of Speed Fix
++//Boots Of Speed Fix	                                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~BOOT01.ITM~ ~override~
+  WRITE_LONG 0x1e 0    //usable by all
+@@ -2435,7 +2439,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Heartseeker Bow THAC0 Bonus Exploit Fix
++//Heartseeker Bow THAC0 Bonus Exploit Fix	           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~BOW10.ITM~ ~override~
+  READ_LONG 0x64 "ability_offset"
+@@ -2461,7 +2465,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Gauntlets Of Ogre Power Usability Fix
++//Gauntlets Of Ogre Power Usability Fix	                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~BRAC06.ITM~ ~override~
+  READ_LONG  0x1e "unus"
+@@ -2469,7 +2473,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Gauntlets Of Crushing Usability Fix
++//Gauntlets Of Crushing Usability Fix	                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~BRAC19.ITM~ ~override~
+  WRITE_LONG 0x1e 0     //usable for all
+@@ -2477,7 +2481,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Gauntlets Of Extraordinary Specialization Fix
++//Gauntlets Of Extraordinary Specialization Fix	           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~BRAC21.ITM~ ~override~
+  READ_LONG  0x1e "unus"
+@@ -2487,7 +2491,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//White Dragon Scale Armour Usability Fix
++//White Dragon Scale Armour Usability Fix	           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~CHAN20.ITM~ ~override~
+  READ_LONG  0x1e "unus"
+@@ -2496,14 +2500,14 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Crimson Dart Kensai Usage Fix
++//Crimson Dart Kensai Usage Fix	                           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~DART08.ITM~ ~override~
+  WRITE_BYTE 0x2f 0x0c     //setting unusable cavs & kensai
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Drow Item Usability (and other) Fixes
++//Drow Item Usability (and other) Fixes	                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~DWBLUN01.ITM~ ~override~
+               ~DWSPER01.ITM~ ~override~
+@@ -2551,7 +2555,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Cat Familiar No Attacks Fix
++//Cat Familiar No Attacks Fix	                           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~HASTRING.ITM~ ~override~
+  READ_LONG  0x6a "eff_offset"
+@@ -2566,7 +2570,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Helm Of Brilliane Magic Resistance Failure
++//Helm Of Brilliane Magic Resistance Failure	           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~HELM16.ITM~ ~override~
+  READ_LONG 0x64 "ability_offset"
+@@ -2586,7 +2590,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Imp Familiar Melee Attack Fix
++//Imp Familiar Melee Attack Fix	                           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~IMP.ITM~ ~override~
+  READ_LONG 0x64 "ability_offset"
+@@ -2600,7 +2604,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Grandmaster's Armour Movement Rate Effect Fix
++//Grandmaster's Armour Movement Rate Effect Fix	           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~LEAT24.ITM~ ~override~
+  WRITE_LONG 0x1e 0    //usable by all
+@@ -2618,7 +2622,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Disappearing Daily Use Figurines Fixes
++//Disappearing Daily Use Figurines Fixes	           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~MISC3D.ITM~ ~override~
+               ~MISC3E.ITM~ ~override~
+@@ -2688,7 +2692,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Harp Paladin Exploit Fixes
++//Harp Paladin Exploit Fixes	                           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~MISC3M.ITM~ ~override~
+               ~MISC3O.ITM~ ~override~
+@@ -2697,7 +2701,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Minor Quest Item Weapon Usability Exploit Fixes
++//Minor Quest Item Weapon Usability Exploit Fixes	   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~MISC4Q.ITM~ ~override~
+  WRITE_BYTE 0x2b 0x02     //setting unusable beastmaster
+@@ -2709,7 +2713,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Illithid Control Circlets Preventing Party Members Rejoining Fix
++//Illithid Control Circlets Preventing Party Members Rejoining Fix	(LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~MISC9X.ITM~ ~override~
+  READ_LONG 0x64 "ability_offset"
+@@ -2730,23 +2734,23 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ //-------------------------------------------------------------------------
+-//Brine Potion Wizard Slayer Usability Fix
++//Brine Potion Wizard Slayer Usability Fix	(LW: not in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~MISC9Y.ITM~ ~override~
+  WRITE_BYTE 0x2f 0x02     //setting unusable wizardslayer
+ BUT_ONLY_IF_IT_CHANGES
+-
++/*
+ //-------------------------------------------------------------------------
+-//Svirfneblin Patrol Leader's Helmet Usability Exploit Fixes
++//Svirfneblin Patrol Leader's Helmet Usability Exploit Fixes	(LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~MISCA6.ITM~ ~override~
+  WRITE_LONG 0x1e 0x204c0040     //setting unusable flags
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Neb's Nasty Cutter Fix
++//Neb's Nasty Cutter Fix	                           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~NEBDAG.ITM~ ~override~
+  READ_LONG 0x64 "ability_offset"
+@@ -2761,7 +2765,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Mazzy Weapon Usability Exploit Fixes
++//Mazzy Weapon Usability Exploit Fixes	                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~NPBOW.ITM~ ~override~
+               ~NPSW01.ITM~ ~override~
+@@ -2770,14 +2774,14 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Hallowed Redeemer Fix
++//Hallowed Redeemer Fix	                                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~Keldorn.spl~ ~override~
+  WRITE_SHORT 0x1c  2   //Priest spell
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Full Plate Armours THAC0 & Movement Rate Penalties
++//Full Plate Armours THAC0 & Movement Rate Penalties       (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~PLAT19.ITM~ ~override~ //effects removed
+               ~PLAT22.ITM~ ~override~ //effects removed
+@@ -2817,7 +2821,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Potion Of Storm Giant Strength Magic Resistance Failure Fix
++//Potion Of Storm Giant Strength Magic Resistance Failure Fix           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~POTN07.ITM~ ~override~
+  READ_LONG 0x64 "ability_offset"
+@@ -2839,7 +2843,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-----------------------------------------------------------------------
+-//Regis Amulet Usability Fix
++//Regis Amulet Usability Fix                               (LW: modified in Fixpack)
+ //-----------------------------------------------------------------------
+ COPY_EXISTING ~REGISAMU.ITM~ ~override~
+  WRITE_BYTE 0x2f 0x02        //WS
+@@ -2871,7 +2875,7 @@
+  Wizard Slayer~
+   
+ //-------------------------------------------------------------------------
+-//Ring Of Gaxx Portrait Icons Fix
++//Ring Of Gaxx Portrait Icons Fix                          (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~RING39.ITM~ ~override~
+  READ_LONG  0x6a  "eff_offset"
+@@ -2911,9 +2915,9 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
+- 
++*/
+ //-------------------------------------------------------------------------
+-//Protection Scrolls Magic Resistance Failure Fixes + Wizardslayer usability
++//Protection Scrolls Magic Resistance Failure Fixes + Wizardslayer usability                (LW: not in Fixpack)
+ //-------------------------------------------------------------------------
+ 
+ COPY_EXISTING ~SCRL07.ITM~ ~override~
+@@ -2930,9 +2934,9 @@
+  WRITE_BYTE 0x2f 0x02
+ COPY_EXISTING ~SCRL16.ITM~ ~override~
+  WRITE_BYTE 0x2f 0x02
+-
++/*
+ //-------------------------------------------------------------------------
+-//Monk Wizard Scroll Exploit Fixes
++//Monk Wizard Scroll Exploit Fixes                          (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SCRL3G.ITM~ ~override~
+               ~SCRL5G.ITM~ ~override~
+@@ -2940,9 +2944,9 @@
+               ~SCRL8C.ITM~ ~override~
+  WRITE_LONG 0x1e 0x60725e80  //usability
+ BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ //-------------------------------------------------------------------------
+-//Cursed Scroll Of Ailment Offensive Use Exploit Fix
++//Cursed Scroll Of Ailment Offensive Use Exploit Fix       (LW: not in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SCRL17.ITM~ ~override~
+  WRITE_BYTE 0x2f 0x02
+@@ -2963,9 +2967,9 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
++/*
+ //-------------------------------------------------------------------------
+-//Pantaloons Rewards Usage Fixes
++//Pantaloons Rewards Usage Fixes                           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SECRET01.ITM~ ~override~
+               ~SECRET02.ITM~ ~override~
+@@ -2980,7 +2984,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Shield Of Harmony Dispellable Protections Fix
++//Shield Of Harmony Dispellable Protections Fix            (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SHLD25.ITM~ ~override~
+  READ_LONG  0x6a "eff_offset"
+@@ -2991,7 +2995,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Staff Of The Magi Fix
++//Staff Of The Magi Fix                                    (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~STAF11.ITM~ ~override~
+  READ_LONG  0x6a  "eff_offset"
+@@ -3048,7 +3052,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Staff Of The Woodlands Fix
++//Staff Of The Woodlands Fix                               (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~STAF14.ITM~ ~override~
+  READ_LONG  0x6a  "eff_offset"
+@@ -3138,7 +3142,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Habib's 'Mighty Scimitar' Fix
++//Habib's 'Mighty Scimitar' Fix                            (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SW1H57.ITM~ ~override~
+  READ_LONG 0x64 "ability_offset"
+@@ -3173,7 +3177,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Soul Reaver THAC0 Drain Fix
++//Soul Reaver THAC0 Drain Fix                              (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SW2H08.ITM~ ~override~
+  READ_LONG 0x64 "ability_offset"
+@@ -3195,7 +3199,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Carsomyr Base Damage Fix
++//Carsomyr Base Damage Fix                                 (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SW2H10.ITM~ ~override~
+  READ_LONG 0x64 "ability_offset"
+@@ -3210,7 +3214,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Lilarcor Confusion Immunity Fix
++//Lilarcor Confusion Immunity Fix                          (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SW2H14.ITM~ ~override~
+  READ_LONG  0x6a "eff_offset"
+@@ -3224,7 +3228,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Healing Exploit Items Fixes
++//Healing Exploit Items Fixes                              (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~WA2AMU.ITM~ ~override~
+  READ_LONG  0x6a "eff_offset"
+@@ -3249,7 +3253,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Vhailor's Helm Simulacrum Magic Resistance Failure Fix
++//Vhailor's Helm Simulacrum Magic Resistance Failure Fix             (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~WA2HELM.ITM~ ~override~
+  READ_LONG 0x64 "ability_offset"
+@@ -3271,7 +3275,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Sling Of Everard Fix
++//Sling Of Everard Fix                                     (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~WASLING.ITM~ ~override~
+  WRITE_BYTE 0x2f 0x0c
+@@ -3287,7 +3291,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Wands Fixes
++//Wands Fixes                                              (LW: unsure, whether in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~WAND02.ITM~ ~override~
+               ~WAND04.ITM~ ~override~
+@@ -3302,6 +3306,9 @@
+  WRITE_LONG 0x1e 0x20720800
+ BUT_ONLY_IF_IT_CHANGES
+ 
++// fix wand of cloudkill bypassing MR
++// agb1: identical fix in BG2 Fixpack
++
+ COPY_EXISTING ~WAND13.ITM~ ~override~
+  WRITE_LONG 0x1e 0x20720800
+  READ_LONG 0x64 "ability_offset"
+@@ -3321,34 +3328,35 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ 
+ //***********************************************************************************************
+ //   Stores
+ //***********************************************************************************************
+ PRINT ~Patching stores...~
+-
++/*
++//                                                         (LW: modified in Fixpack)
+ COPY_EXISTING ~SAHPR1.STO~ ~override~
+  WRITE_LONG 0x14 120  //sell markup
+  WRITE_LONG 0x18 50   //buy markup
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Reirra Store Prices Exploit Fix
++//Reirra Store Prices Exploit Fix                          (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SUELF10.STO~ ~override~
+  WRITE_LONG 0x14 120  //sell markup
+  WRITE_LONG 0x18 50   //buy markup
+ BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ 
+ //***********************************************************************************************
+ //   Spells
+ //***********************************************************************************************
+ PRINT ~Patching spells...~
+-
++/*
+ //-------------------------------------------------------------------------
+-//Detect Evil Magic Resistance Failure Fix
++//Detect Evil Magic Resistance Failure Fix                 (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPCL212.SPL~ ~override~   //Detect Evil Priest spell
+               ~SPPR104.SPL~ ~override~   //Detect Evil Innate spell
+@@ -3373,7 +3381,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Cavalier Resist Fear Ability Magic Resistance Failure Fix
++//Cavalier Resist Fear Ability Magic Resistance Failure Fix          (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPCL222.SPL~ ~override~   //Remove Fear spell
+  READ_LONG  0x64 "ability_offset"
+@@ -3404,7 +3412,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Inquisitor Hold Person Animation Fix
++//Inquisitor Hold Person Animation Fix                     (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~Spcl233b.spl~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -3434,7 +3442,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Cumulative Effect Spells and Abilities Fixes
++//Cumulative Effect Spells and Abilities Fixes             (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPCL907.SPL~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -3589,7 +3597,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Chromatic Orb Fixes
++//Chromatic Orb Fixes                                      (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPDR101.SPL~ ~override~
+               ~SPWI118.SPL~ ~override~
+@@ -3636,7 +3644,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Improved Invisibility AC\Save Bonus Fix
++//Improved Invisibility AC\Save Bonus Fix                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPDR401.SPL~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -3731,7 +3739,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Necromantic Spell Hit Point Bonus Magic Resistance Failure
++//Necromantic Spell Hit Point Bonus Magic Resistance Failure                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPIN104.SPL~ ~override~   //Larloch's Minor Drain spell
+               ~SPWI119.SPL~ ~override~   //
+@@ -3780,7 +3788,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Deck Of Many Things Moon Spell Fix
++//Deck Of Many Things Moon Spell Fix                       (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPIN618.SPL~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -3802,7 +3810,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Deck Of Many Things Emperor Spell Fix
++//Deck Of Many Things Emperor Spell Fix                    (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPIN632.SPL~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -3833,7 +3841,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Tears Of Bhaal Stat. Bonuses Fixes
++//Tears Of Bhaal Stat. Bonuses Fixes                       (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPIN750.SPL~ ~override~
+               ~SPIN749.SPL~ ~override~
+@@ -3857,7 +3865,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//City-Of-Caverns Heal Party Magic Resistance Failure Fix
++//City-Of-Caverns Heal Party Magic Resistance Failure Fix            (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPIN923.SPL~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -3876,7 +3884,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Illithid Healing Magic Resistance Failure Fix
++//Illithid Healing Magic Resistance Failure Fix            (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPIN958.SPL~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -3895,7 +3903,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Cumulative Effect Spells and Abilities Fixes
++//Cumulative Effect Spells and Abilities Fixes             (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPPR113.SPL~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -4192,7 +4200,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Holy Smite Permanent Blindness Fix
++//Holy Smite Permanent Blindness Fix                       (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPPR313.SPL~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -4225,7 +4233,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Globes Of Invulnerability Skull Trap Protection
++//Globes Of Invulnerability Skull Trap Protection          (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPWI406.SPL~ ~override~
+               ~SPWI602.SPL~ ~override~
+@@ -4272,7 +4280,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Protection From Acid Casting Time Fix
++//Protection From Acid Casting Time Fix                    (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPWI517.SPL~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -4287,7 +4295,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Mordenkainen's Sword Invisibility Exploit Fix
++//Mordenkainen's Sword Invisibility Exploit Fix            (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPWI716.SPL~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -4302,7 +4310,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Absolute Immunity Duration Fix
++//Absolute Immunity Duration Fix                           (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPWI907.SPL~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -4324,7 +4332,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Wild Surge #17 Target Gold Destruction Fix
++//Wild Surge #17 Target Gold Destruction Fix               (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPWM117.SPL~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -4341,15 +4349,16 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ 
+ ////////////////////////////////////////////////////////////////////////////////
+-//Detectable spells compatibility related
++//Detectable spells compatibility related		   (LW: modified in Fixpack)
+ ////////////////////////////////////////////////////////////////////////////////
+ 
+ //******************************************************************************
+ //******************* SPCL321.SPL **********************************************
+ //******************************************************************************
++/*
+ //-------------------------------------------------------------------------
+ //Berserker Enrage Stun Immunity Fix
+ //-------------------------------------------------------------------------
+@@ -4404,10 +4413,11 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ //******************************************************************************
+ //******************* SPCL423.SPL **********************************************
+ //******************************************************************************
++/*
+ //-------------------------------------------------------------------------
+ //Cumulative Effect Spells and Abilities Fixes
+ //-------------------------------------------------------------------------
+@@ -4437,11 +4447,12 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ 
+ //******************************************************************************
+ //******************* SPIN117.SPL **********************************************
+ //******************************************************************************
++/*
+ //-------------------------------------------------------------------------
+ //Minsc Enrage Stun Immunity Fix
+ //-------------------------------------------------------------------------
+@@ -4473,10 +4484,11 @@
+    INSERT_FILE haste_offset ~NeJE\bdash\BIN\SPIN117.SP_~ //insert prot. from Stun
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ //******************************************************************************
+ //******************* SPPR111.SPL **********************************************
+ //******************************************************************************
++/*
+ //-------------------------------------------------------------------------
+ //Cumulative Effect Spells and Abilities Fixes
+ //-------------------------------------------------------------------------
+@@ -4510,11 +4522,12 @@
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ 
+ //******************************************************************************
+ //******************* SPPR406.SPL **********************************************
+ //******************************************************************************
++/*
+ //-------------------------------------------------------------------------
+ //Cumulative Effect Spells and Abilities Fixes
+ //-------------------------------------------------------------------------
+@@ -4544,11 +4557,12 @@
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ 
+ //******************************************************************************
+ //******************* SPPR412.SPL **********************************************
+ //******************************************************************************
++/*
+ //-------------------------------------------------------------------------
+ //Cumulative Effect Spells and Abilities Fixes
+ //-------------------------------------------------------------------------
+@@ -4630,10 +4644,11 @@
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ //******************************************************************************
+ //******************* SPWI702.SPL **********************************************
+ //******************************************************************************
++/*
+ //-------------------------------------------------------------------------
+ //Cumulative Effect Spells and Abilities Fixes
+ //-------------------------------------------------------------------------
+@@ -4679,11 +4694,12 @@
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ 
+ //******************************************************************************
+ //******************* SPWI803.SPL **********************************************
+ //******************************************************************************
++/*
+ //-------------------------------------------------------------------------
+ //Cumulative Effect Spells and Abilities Fixes
+ //-------------------------------------------------------------------------
+@@ -4729,11 +4745,12 @@
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ 
+ //******************************************************************************
+ //******************* SPWI804.SPL **********************************************
+ //******************************************************************************
++/*
+ //-------------------------------------------------------------------------
+ //Simulacrum Invisibility Exploit Fix
+ //-------------------------------------------------------------------------
+@@ -4805,12 +4822,13 @@
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
++*/
+ //**************************************************************************************************
+ //Detectable spells END
+ //**************************************************************************************************
+-
++/*
+ //-------------------------------------------------------------------------
+-//Magic Missile Damage Fix
++//Magic Missile Damage Fix                                 (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPWI003.SPL~ ~override~
+               ~SPWI112.SPL~ ~override~
+@@ -4834,7 +4852,7 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ 
+ //////////////////////////////////////////////////////////////\
+ //   Custom fixes, not included in the original Baldurdash
+@@ -4844,8 +4862,9 @@
+ PRINT ~Patching items...~
+ 
+ //********************
+-// Books
++// Books                                                   (LW: modified in Fixpack)
+ //********************
++/*
+ COPY_EXISTING ~BOOK05.ITM~ ~override~
+               ~BOOK07.ITM~ ~override~
+               ~BOOK08.ITM~ ~override~
+@@ -4858,55 +4877,56 @@
+               ~BOOK96.ITM~ ~override~
+  WRITE_SHORT 0x1c  37  //Category : Books instead of Misc
+  BUT_ONLY_IF_IT_CHANGES
+-
+-//********************
++*/
++//**************
+ // Weapons
+ //********************
+-COPY_EXISTING ~BOW07.ITM~ ~override~
++/*
++COPY_EXISTING ~BOW07.ITM~ ~override~ //		           (agb1: identical in Fixpack)
+  WRITE_BYTE 0x31 104  //Proficiency - Long Bow
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~BRUENAXE.ITM~ ~override~
++COPY_EXISTING ~BRUENAXE.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_BYTE 0x31 92  //Proficiency - Axe
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~CHEVIL10.ITM~ ~override~
++*/
++COPY_EXISTING ~CHEVIL10.ITM~ ~override~	//		   (agb1: not in Fixpack)
+  WRITE_SHORT 0x1c  20  //Category : Long Swords instead of Short Swords
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~DAGG10.ITM~ ~override~
++/*
++COPY_EXISTING ~DAGG10.ITM~ ~override~ //		   (agb1: identical in Fixpack)
+  WRITE_SHORT 0x1c  16  //Category : Daggers instead of Misc
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~MISC5T.ITM~ ~override~
++COPY_EXISTING ~MISC5T.ITM~ ~override~ //		   (agb1: identical in Fixpack)
+  WRITE_BYTE 0x31 102  //Proficiency - quarterstaff
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~MISC72.ITM~ ~override~
++COPY_EXISTING ~MISC72.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_BYTE 0x2f 0x02  //not usable by Wizardslayer
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~MISC73.ITM~ ~override~
++COPY_EXISTING ~MISC73.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_BYTE 0x2f 0x02  //not usable by Wizardslayer
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~MISC9Q.ITM~ ~override~
++COPY_EXISTING ~MISC9Q.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_BYTE 0x2b 0x02  //not usable by Beastmaster
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~MISC9W.ITM~ ~override~
++COPY_EXISTING ~MISC9W.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_BYTE 0x2f 0x02  //not usable by Wizardslayer
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~PLAT05.ITM~ ~override~
++*/
++COPY_EXISTING ~PLAT05.ITM~ ~override~ //		   (agb1: not in Fixpack, Full Plate Mail +1)
+  WRITE_BYTE 0x26 15  //min STR
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~POTN56.ITM~ ~override~
++/*
++COPY_EXISTING ~POTN56.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_LONG 0x1e 0x603cfd80  //usability - add Cleric-Thief
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~RING08.ITM~ ~override~
++*/
++COPY_EXISTING ~RING08.ITM~ ~override~ //		   (agb1: not in Fixpack, Ring of Wizardry)
+  WRITE_LONG 0x1e 0x60725ec0
+  READ_LONG  0x6a  "eff_offset"
+  READ_SHORT 0x70  "glob_eff_cnt"
+@@ -4914,207 +4934,207 @@
+    WRITE_LONG ("%eff_offset%"+0x30*cnt+0x0d)  0   //Not dispel\Bypass resistance
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~RING22.ITM~ ~override~
++/*
++COPY_EXISTING ~RING22.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_LONG 0x1e 0x207f2840
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~RING35.ITM~ ~override~
++COPY_EXISTING ~RING35.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_LONG 0x1e 0x6034fd80
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~RING36.ITM~ ~override~
++*/
++COPY_EXISTING ~RING36.ITM~ ~override~ //		   (agb1: not in Fixpack, Ring of Danger Sense)
+  WRITE_LONG 0x1e 0x4034fdc0
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~RING40.ITM~ ~override~
++/*
++COPY_EXISTING ~RING40.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_LONG 0x1e 0x60725ec0  //usability - remove Monk
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~RODS01.ITM~ ~override~
++COPY_EXISTING ~RODS01.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_LONG 0x1e 0x60721840
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~RODS05.ITM~ ~override~
++COPY_EXISTING ~RODS05.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_LONG 0x1e 0x20000000
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~RODS06.ITM~ ~override~
++COPY_EXISTING ~RODS06.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_LONG 0x1e 0x604c07c0
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~SENDAI.ITM~ ~override~
++COPY_EXISTING ~SENDAI.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_BYTE 0x2b 0x02    //not by beastmaster
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~WA2RING.ITM~ ~override~
++COPY_EXISTING ~WA2RING.ITM~ ~override~ //		   (agb1: modified in Fixpack)
+  WRITE_LONG 0x1e 0x6034fdc0
+  BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ ////////////////////////////////////
+ //   Scripts fixes : version 1.2
+ ////////////////////////////////////
+ PRINT ~Patching scripts...~
+ 
+ COMPILE ~NeJE\bdash\baf~
+-
+-COPY_EXISTING ~APPRENTI.BCS~ ~override~
++/*
++COPY_EXISTING ~APPRENTI.BCS~ ~override~ //		   (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~CreateVisualEffectObject("ANCALL",Myself)~ ~CreateVisualEffectObject("AMCALL",Myself)~
+  COMPILE_BAF_TO_BCS
+  REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xAPPRENT.BAF~ ~NeJE\bdash\BAF_r\rAPPRENT.BAF~
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~AR2200.BCS~ ~override~
++COPY_EXISTING ~AR2200.BCS~ ~override~ //		   (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~jeloli01~ ~jelgre01~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~AR3020.BCS~ ~override~
++COPY_EXISTING ~AR3020.BCS~ ~override~ //		   (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~ChangeAIScript("one",OVERRIDE)~ ~ChangeAIScript("",OVERRIDE)~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~AR4000.BCS~ ~override~
++COPY_EXISTING ~AR4000.BCS~ ~override~ //		   (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~DWCSW1H01~ ~DWSW1H01~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~CAULDRON.BCS~ ~override~
++COPY_EXISTING ~CAULDRON.BCS~ ~override~ //		   (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~PlaySound("EFF_38")~ ~PlaySound("EFF_M38")~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~CUT01.BCS~ ~override~
++COPY_EXISTING ~CUT01.BCS~ ~override~ //		           (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~None~ ~~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~CUT215A.BCS~ ~override~
++COPY_EXISTING ~CUT215A.BCS~ ~override~ //		   (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~SPDOOR~ ~SPDIMNDR~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~CUT31Q.BCS~ ~override~
++COPY_EXISTING ~CUT31Q.BCS~ ~override~ //		   (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~bdcoun04~ ~bdcoun03~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~CUT49E.BCS~ ~override~
++COPY_EXISTING ~CUT49E.BCS~ ~override~ //		   (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~PlaySound("ISC_03A")~ ~PlaySound("MISC_03A")~ //exists in BGT
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~CUT57C.BCS~ ~override~
++COPY_EXISTING ~CUT57C.BCS~ ~override~ //		   (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~CreateVisualEffectObject("SPOWWRD",Player1)~ ~CreateVisualEffectObject("SPPOWWRD",Player1)~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~CUTD1.BCS~ ~override~
++COPY_EXISTING ~CUTD1.BCS~ ~override~ //		   (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~None~ ~~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~DDGUARD7.BCS~ ~override~
++COPY_EXISTING ~DDGUARD7.BCS~ ~override~ //		   (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~CreateVisualEffectObject("yself","SPFLESHS")~ ~CreateVisualEffectObject("SPFLESHS","DDGUARD7")~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~FINSOL04.BCS~ ~override~
++COPY_EXISTING ~FINSOL04.BCS~ ~override~ //		   (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~SPPLOYMP~ ~SPPOLYMP~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~IDIOT01.BCS~ ~override~
++COPY_EXISTING ~IDIOT01.BCS~ ~override~ //		   (LW: identical in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~OR(31)~ ~OR(30)~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~KILLGOOD.BCS~ ~override~
++*/
++COPY_EXISTING ~KILLGOOD.BCS~ ~override~ //		   (LW: not in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~ChangeAIScript("DEATHK",OVERRIDE)~ ~ChangeAIScript("DEATHKNI",OVERRIDE)~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~PIPE04.BCS~ ~override~
++/*
++COPY_EXISTING ~PIPE04.BCS~ ~override~ //		   (LW: modified in Fixpack, but Fixpack changes to EFF_P54)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~PlaySound("MISC_02A")~ ~PlaySound("MISC_01A")~ //exists in BGT
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~PPSHAD01.BCS~ ~override~
++COPY_EXISTING ~PPSHAD01.BCS~ ~override~ //		   (LW: modified in Fixpack, but Fixpack changes to MISC_15B)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~PlaySound("ISC_15B")~ ~PlaySound("MISC_03B")~ //exists in BGT
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~PPSHAD02.BCS~ ~override~
++COPY_EXISTING ~PPSHAD02.BCS~ ~override~ //		   (LW: modified in Fixpack, but Fixpack changes to MISC_15A)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~PlaySound("ISC_15A")~ ~PlaySound("MISC_03A")~ //exists in BGT
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~PPSHAD03.BCS~ ~override~
++COPY_EXISTING ~PPSHAD03.BCS~ ~override~ //		   (LW: modified in Fixpack, but Fixpack changes to MISC_15A)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~PlaySound("ISC_15A")~ ~PlaySound("MISC_03A")~ //exists in BGT
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+-  	
+-COPY_EXISTING ~PPSHAD04.BCS~ ~override~
++
++COPY_EXISTING ~PPSHAD04.BCS~ ~override~ //		   (LW: modified in Fixpack, but Fixpack changes to MISC_15A)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~PlaySound("ISC_15A")~ ~PlaySound("MISC_03A")~ //exists in BGT
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~PPSHAD05.BCS~ ~override~
++COPY_EXISTING ~PPSHAD05.BCS~ ~override~ //		   (LW: modified in Fixpack, but Fixpack changes to MISC_15A)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~PlaySound("ISC_15A")~ ~PlaySound("MISC_03A")~ //exists in BGT
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~PPSHAD06.BCS~ ~override~
++COPY_EXISTING ~PPSHAD06.BCS~ ~override~ //		   (LW: modified in Fixpack, but Fixpack changes to MISC_15A)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~PlaySound("ISC_15A")~ ~PlaySound("MISC_03A")~ //exists in BGT
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~SPWNRAK.BCS~ ~override~
++COPY_EXISTING ~SPWNRAK.BCS~ ~override~ //		   (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~dogre01~ ~ogre01~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~VICG.BCS~ ~override~
++COPY_EXISTING ~VICG.BCS~ ~override~ //		           (LW: identical in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~OR(4)~ ~OR(2)~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~VICG1.BCS~ ~override~
++COPY_EXISTING ~VICG1.BCS~ ~override~ //		           (LW: identical in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~OR(4)~ ~OR(2)~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ //////////////////////////////////////////////////////
+ //Custom fixes for BG1 - invalid resources references
+ //////////////////////////////////////////////////////
+ PRINT ~Custom fixes - fixing invalid resources references...~
+-
+-COPY_EXISTING ~AMCARRAS.CRE~ ~override~
++/*
++COPY_EXISTING ~AMCARRAS.CRE~ ~override~ //		   (LW: modified in Fixpack)
+  READ_LONG 0x2a0 "known_spell_off"
+  READ_LONG 0x2a4 "known_spell_cnt"
+  READ_LONG 0x2b0 "mem_spell_off"
+@@ -5159,7 +5179,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~AMUL15.ITM~ ~override~
++COPY_EXISTING ~AMUL15.ITM~ ~override~ //		   (LW: modified in Fixpack)
+  READ_LONG  0x64 "ability_offset"
+  READ_SHORT 0x68 "abil_cnt"
+  READ_LONG  0x6a "eff_offset"
+@@ -5179,7 +5199,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~ARNTRA01.CRE~ ~override~
++COPY_EXISTING ~ARNTRA01.CRE~ ~override~ //		   (LW: modified in Fixpack)
+  READ_LONG 0x2bc "it_off"
+  READ_LONG 0x2c0 "it_cnt"
+  FOR( cnt=0; cnt<"%it_cnt%"; cnt=cnt+1 ) BEGIN
+@@ -5191,7 +5211,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~AROW1A.ITM~ ~override~
++COPY_EXISTING ~AROW1A.ITM~ ~override~ //		   (LW: modified in Fixpack)
+  READ_LONG  0x64 "ability_offset"
+  READ_SHORT 0x68 "abil_cnt"
+  READ_LONG  0x6a "eff_offset"
+@@ -5206,11 +5226,11 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~BAZPAT03.CRE~ ~override~
++COPY_EXISTING ~BAZPAT03.CRE~ ~override~ //		   (LW: modified in Fixpack)
+  WRITE_ASCII  0x268 "WTASIGHT"
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~BHELM.CRE~ ~override~
++COPY_EXISTING ~BHELM.CRE~ ~override~ //		           (LW: modified in Fixpack)
+  READ_LONG 0x2bc "it_off"
+  READ_LONG 0x2c0 "it_cnt"
+  FOR( cnt=0; cnt<"%it_cnt%"; cnt=cnt+1 ) BEGIN
+@@ -5221,7 +5241,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~BHGHOUL5.CRE~ ~override~
++COPY_EXISTING ~BHGHOUL5.CRE~ ~override~ //		   (LW: modified in Fixpack)
+  READ_LONG 0x2bc "it_off"
+  READ_LONG 0x2c0 "it_cnt"
+  FOR( cnt=0; cnt<"%it_cnt%"; cnt=cnt+1 ) BEGIN
+@@ -5232,11 +5252,11 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~BOY1.CRE~ ~override~
++COPY_EXISTING ~BOY1.CRE~ ~override~ //		           (LW: identical in Fixpack)
+  WRITE_ASCII  0x258 "RUNENEMY"
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~COR.CRE~ ~override~
++COPY_EXISTING ~COR.CRE~ ~override~ //		           (LW: identical in Fixpack)
+  READ_LONG 0x2bc "it_off"
+  READ_LONG 0x2c0 "it_cnt"
+  FOR( cnt=0; cnt<"%it_cnt%"; cnt=cnt+1 ) BEGIN
+@@ -5247,24 +5267,24 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~DADROW10.CRE~ ~override~
++COPY_EXISTING ~DADROW10.CRE~ ~override~ //		   (LW: identical in Fixpack)
+  WRITE_ASCII  0x250 "PRIES10B"
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~DADROW12.CRE~ ~override~
++COPY_EXISTING ~DADROW12.CRE~ ~override~ //		   (LW: identical in Fixpack)
+  WRITE_ASCII  0x250 "PRIES14T"
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~DADROW15.CRE~ ~override~
++COPY_EXISTING ~DADROW15.CRE~ ~override~ //		   (LW: identical in Fixpack)
+               ~DADROW9.CRE~ ~override~
+  WRITE_ASCII  0x258 "MAGE8A"
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~DAGHAUN1.CRE~ ~override~
++COPY_EXISTING ~DAGHAUN1.CRE~ ~override~ //		   (LW: identical in Fixpack)
+  WRITE_ASCII  0x258 "PRIES14T"
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~CULTIST1.CRE~ ~override~
++COPY_EXISTING ~CULTIST1.CRE~ ~override~ //		   (LW: identical in Fixpack)
+               ~EXCULT1.CRE~ ~override~
+               ~EXCULT2.CRE~ ~override~
+  READ_LONG 0x2bc "it_off"
+@@ -5278,7 +5298,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~GORJE.CRE~ ~override~
++COPY_EXISTING ~GORJE.CRE~ ~override~ //		           (LW: identical in Fixpack)
+  READ_LONG 0x2bc "it_off"
+  READ_LONG 0x2c0 "it_cnt"
+  FOR( cnt=0; cnt<"%it_cnt%"; cnt=cnt+1 ) BEGIN
+@@ -5289,8 +5309,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-
+-COPY_EXISTING ~GORSTA10.CRE~ ~override~
++COPY_EXISTING ~GORSTA10.CRE~ ~override~ //		   (LW: identical in Fixpack)
+  READ_LONG 0x2bc "it_off"
+  READ_LONG 0x2c0 "it_cnt"
+  FOR( cnt=0; cnt<"%it_cnt%"; cnt=cnt+1 ) BEGIN
+@@ -5302,7 +5321,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~GORWOM01.CRE~ ~override~
++COPY_EXISTING ~GORWOM01.CRE~ ~override~ //		   (LW: identical in Fixpack)
+  READ_LONG 0x2bc "it_off"
+  READ_LONG 0x2c0 "it_cnt"
+  FOR( cnt=0; cnt<"%it_cnt%"; cnt=cnt+1 ) BEGIN
+@@ -5316,7 +5335,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~KILLSW01.ITM~ ~override~
++COPY_EXISTING ~KILLSW01.ITM~ ~override~ //		   (LW: modified in Fixpack)
+  READ_LONG  0x64 "ability_offset"
+  READ_SHORT 0x68 "abil_cnt"
+  READ_LONG  0x6a "eff_offset"
+@@ -5332,7 +5351,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~LAUNE.CRE~ ~override~
++COPY_EXISTING ~LAUNE.CRE~ ~override~ //		           (LW: identical in Fixpack)
+  READ_LONG 0x2bc "it_off"
+  READ_LONG 0x2c0 "it_cnt"
+  FOR( cnt=0; cnt<"%it_cnt%"; cnt=cnt+1 ) BEGIN
+@@ -5343,32 +5362,31 @@
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~MISC1H.ITM~ ~override~
++*/
++COPY_EXISTING ~MISC1H.ITM~ ~override~ //		   (LW: not in Fixpack)
+  WRITE_ASCII 0x44 "CBLUN06"   //ground icon
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~MISC66.ITM~ ~override~
++COPY_EXISTING ~MISC66.ITM~ ~override~ //		   (LW: not in Fixpack)
+  WRITE_ASCII 0x44 "GMISC13"   //ground icon
+  WRITE_BYTE 0x44+7 0
+  WRITE_ASCII 0x58 "CMISC80"   //carried icon
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~MISC9S.ITM~ ~override~
++COPY_EXISTING ~MISC9S.ITM~ ~override~ //		   (LW: not in Fixpack)
+  WRITE_ASCII 0x58 "IMISC9S"   //carried icon
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~MISCA4.ITM~ ~override~
++COPY_EXISTING ~MISCA4.ITM~ ~override~ //		   (LW: not in Fixpack)
+  WRITE_ASCII 0x44 "GPOTN01"   //ground icon
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~MISCAV.ITM~ ~override~
++COPY_EXISTING ~MISCAV.ITM~ ~override~ //		   (LW: not in Fixpack)
+  WRITE_ASCII 0x3a "IMISCAJ"   //icon
+  WRITE_ASCII 0x58 "CMISC50"   //carried icon
+  BUT_ONLY_IF_IT_CHANGES
+-
+-
+-COPY_EXISTING ~PIREXE01.CRE~ ~override~
++/*
++COPY_EXISTING ~PIREXE01.CRE~ ~override~ //		   (LW: modified in Fixpack)
+  READ_LONG 0x2bc "it_off"
+  READ_LONG 0x2c0 "it_cnt"
+  FOR( cnt=0; cnt<"%it_cnt%"; cnt=cnt+1 ) BEGIN
+@@ -5380,7 +5398,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~PIRSEA01.CRE~ ~override~
++COPY_EXISTING ~PIRSEA01.CRE~ ~override~ //		   (LW: modified in Fixpack)
+  READ_LONG 0x2bc "it_off"
+  READ_LONG 0x2c0 "it_cnt"
+  FOR( cnt=0; cnt<"%it_cnt%"; cnt=cnt+1 ) BEGIN
+@@ -5392,7 +5410,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~JAEL01.CRE~ ~override~
++COPY_EXISTING ~JAEL01.CRE~ ~override~ //		   (LW: modified in Fixpack)
+               ~PPUMB01.CRE~  ~override~
+               ~PRIES18B.CRE~ ~override~
+  READ_LONG 0x2a0 "known_spell_off"
+@@ -5415,19 +5433,19 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~MUMGRE01.CRE~ ~override~
++COPY_EXISTING ~MUMGRE01.CRE~ ~override~ //		   (LW: modified in Fixpack)
+               ~RIFTCR03.CRE~ ~override~
+  WRITE_ASCII 0x248 "MUMMY01"           //script
+  WRITE_BYTE 0x248+7 0
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~SCRLADJ.ITM~ ~override~
++*/
++COPY_EXISTING ~SCRLADJ.ITM~ ~override~ //		   (LW: not in Fixpack)
+               ~SCRLZY.ITM~ ~override~
+               ~SCRLZZ.ITM~ ~override~
+  WRITE_ASCII 0x58 "CSCRL01"   //carried icon
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~SENDRO03.CRE~ ~override~
++/*
++COPY_EXISTING ~SENDRO03.CRE~ ~override~ //		   (LW: modified in Fixpack)
+  READ_LONG 0x2bc "it_off"
+  READ_LONG 0x2c0 "it_cnt"
+  FOR( cnt=0; cnt<"%it_cnt%"; cnt=cnt+1 ) BEGIN
+@@ -5438,7 +5456,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~SLMAGE2.CRE~ ~override~
++COPY_EXISTING ~SLMAGE2.CRE~ ~override~ //		   (LW: modified in Fixpack)
+  READ_LONG 0x2a0 "known_spell_off"
+  READ_LONG 0x2a4 "known_spell_cnt"
+  READ_LONG 0x2b0 "mem_spell_off"
+@@ -5458,12 +5476,12 @@
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~SLNG03.ITM~ ~override~
++*/
++COPY_EXISTING ~SLNG03.ITM~ ~override~ //		   (LW: not in Fixpack)
+  WRITE_ASCII 0x58 "ISLNG03"   //carried icon
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~SPCL900.SPL~ ~override~
++COPY_EXISTING ~SPCL900.SPL~ ~override~ //		   (LW: all the following spell icons not in Fixpack)
+  WRITE_ASCII 0x3a "SPCL900B"   //spell icon
+  BUT_ONLY_IF_IT_CHANGES
+ 
+@@ -5550,8 +5568,8 @@
+ COPY_EXISTING ~SPCL922.SPL~ ~override~
+  WRITE_ASCII 0x3a "SPCL920B"   //spell icon
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~SPWI995.SPL~ ~override~
++/*
++COPY_EXISTING ~SPWI995.SPL~ ~override~ //		   (LW: modified in Fixpack)
+  READ_LONG  0x64 "ability_offset"
+  READ_SHORT 0x68 "abil_cnt"
+  READ_LONG  0x6a "eff_offset"
+@@ -5571,7 +5589,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~DEMOSUM4.CRE~ ~override~
++COPY_EXISTING ~DEMOSUM4.CRE~ ~override~ //		   (LW: modified in Fixpack)
+               ~GORCAMB.CRE~ ~override~
+               ~GORCAMB6.CRE~ ~override~
+               ~GORCAMB7.CRE~ ~override~
+@@ -5587,7 +5605,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~TIRTHOLD.CRE~ ~override~
++COPY_EXISTING ~TIRTHOLD.CRE~ ~override~ //		   (LW: modified in Fixpack)
+  READ_LONG 0x2bc "it_off"
+  READ_LONG 0x2c0 "it_cnt"
+  FOR( cnt=0; cnt<"%it_cnt%"; cnt=cnt+1 ) BEGIN
+@@ -5598,8 +5616,8 @@
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~DDGUARD3.CRE~ ~override~
++*/
++COPY_EXISTING ~DDGUARD3.CRE~ ~override~//		   (LW: not all modified in Fixpack)
+               ~GENIE01.CRE~ ~override~
+               ~GENIE02.CRE~ ~override~
+               ~GENIE03.CRE~ ~override~
+@@ -5621,8 +5639,8 @@
+    END
+  END
+  BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~CUPHAER.CRE~ ~override~
++/*
++COPY_EXISTING ~CUPHAER.CRE~ ~override~ //		   (LW: identical in Fixpack)
+               ~DROW05.CRE~ ~override~
+               ~UDCHAL.CRE~ ~override~
+               ~UDPHAE02.CRE~ ~override~
+@@ -5636,7 +5654,7 @@
+  END
+  BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~VVSTAND3.CRE~ ~override~
++COPY_EXISTING ~VVSTAND3.CRE~ ~override~ //		   (LW: modified in Fixpack)
+  WRITE_ASCII 0x258 "RUNENEMY"
+  BUT_ONLY_IF_IT_CHANGES
+ 
+@@ -5646,7 +5664,7 @@
+ //////////////////////////////////////////////////////////////////////////\
+ PRINT ~Fixing invalid Dead("...") triggers ...~
+ 
+-COPY_EXISTING_REGEXP GLOB ~.+\.bcs$~ ~override~
++COPY_EXISTING_REGEXP GLOB ~.+\.bcs$~ ~override~  //		     (LW: modified in Fixpack)
+  DECOMPILE_BCS_TO_BAF
+  REPLACE_TEXTUALLY ~!Dead("astSeenBy())")~        ~HPGT(LastSeenBy(),0)~
+  REPLACE_TEXTUALLY ~!Dead("astSeenBy(Myself))")~  ~HPGT(LastSeenBy(Myself),0)~
+@@ -5659,35 +5677,35 @@
+  REPLACE_TEXTUALLY ~Dead("astTrigger)")~          ~HPLT(LastTrigger,1)~
+  COMPILE_BAF_TO_BCS
+  BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ 
+ //////////////////////////////////////////////////////////////////////////
+ //22-05-2005
+ //////////////////////////////////////////////////////////////////////////\
+-COPY_EXISTING ~IGIBBER.CRE~ ~override~
++COPY_EXISTING ~IGIBBER.CRE~ ~override~ //		   (LW: not in Fixpack)
+  WRITE_BYTE 0x23f  10   //Morale was 1
+ 
+-COPY_EXISTING ~MISC4G.ITM~ ~override~  //Irenicus' Portal Key
++COPY_EXISTING ~MISC4G.ITM~ ~override~  //Irenicus' Portal Key //     (LW: not in Fixpack)
+  WRITE_LONG 0x18 0x0000002d   //add Droppable flag
+-
++/*
+ //////////////////////////////////////////////////////////////////////////
+ //24-05-2005
+ //////////////////////////////////////////////////////////////////////////\
+-COPY_EXISTING ~AERIE10.CRE~ ~override~
++COPY_EXISTING ~AERIE10.CRE~ ~override~ //                  (LW: modified in Fixpack)       
+  WRITE_SHORT 0xe5c 0xffff   //move Studded Leather from quick slot to inventory slot
+  WRITE_SHORT 0xe62 4   
+ 
+ //////////////////////////////////////////////////////////////////////////
+ //23-06-2005
+ //////////////////////////////////////////////////////////////////////////\
+-COPY_EXISTING ~JAHEIR12.CRE~ ~override~
++COPY_EXISTING ~JAHEIR12.CRE~ ~override~ //                 (LW: modified in Fixpack)
+  WRITE_BYTE 0x23c 17       //only this Jaheira has DEX=14, all others - 17
+ 
+ 
+ //////////////////////////////////////////////////////////////////////////
+ //06-08-2005 - working on TDD
+ //////////////////////////////////////////////////////////////////////////\
+-COPY_EXISTING ~AR1303.are~           ~override~
++COPY_EXISTING ~AR1303.are~           ~override~ //         (LW: unsure, whether in Fixpack)
+  READ_LONG  0x70  "cont_offset"
+  READ_SHORT 0x74  "cont_num"
+  READ_SHORT 0x76  "items_num"
+@@ -5710,9 +5728,9 @@
+      END
+    END
+  END
+-BUT_ONLY_IF_IT_CHANGES  //********************************************************  ~AR1303.are~
++BUT_ONLY_IF_IT_CHANGES  //========================================================  ~AR1303.are~
+ 
+-COPY_EXISTING ~AR2812.are~           ~override~
++COPY_EXISTING ~AR2812.are~           ~override~ //         (LW: unsure, whether in Fixpack)
+  READ_SHORT 0x5a  "infotrig_num"
+  READ_LONG  0x5c  "infotrig_offset"
+  FOR( cnt=0; cnt<"%infotrig_num%"; cnt=cnt+1 ) BEGIN  //info\triggers loop
+@@ -5721,11 +5739,11 @@
+      WRITE_LONG ("%infotrig_offset%"+0xc4*cnt+0x60) 4  //party required flag
+    END
+  END
+-BUT_ONLY_IF_IT_CHANGES //********************************************************  ~AR2812.are~
++BUT_ONLY_IF_IT_CHANGES //========================================================  ~AR2812.are~
+ 
+ 
+ //-------------------------------------------------------------------------
+-//Silver Dragon Adalon Pickpocket Exploit Fix
++//Silver Dragon Adalon Pickpocket Exploit Fix              (LW: modified in Fixpack; this component copies MISC8H and MISCCC into the wrong slot)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~UDSILVER.CRE~ ~override~
+  READ_LONG 0x2b8 "slots_off"
+@@ -5751,10 +5769,9 @@
+  WRITE_SHORT ("%slots_off%"+2*3) index1        //put Blood to Gloves slot to avoid pickpocketing
+  WRITE_SHORT ("%slots_off%"+2*6) index2        //put Note to Amulet slot to avoid pickpocketing
+ BUT_ONLY_IF_IT_CHANGES
++*/
+ 
+-
+-
+-COPY_EXISTING ~SPWI608.spl~          ~override~  //Pierce Magic
++COPY_EXISTING ~SPWI608.spl~          ~override~  //Pierce Magic //             (LW: not in Fixpack)
+               ~SPWI322.spl~          ~override~  //Detect Illusion
+               ~SPWI513.spl~          ~override~  //Breach
+               ~SPWI514.spl~          ~override~  //Lower Resistance
+@@ -5776,8 +5793,7 @@
+  END
+ BUT_ONLY_IF_IT_CHANGES
+ 
+-
+-COPY_EXISTING ~SPWI423.spl~          ~override~    //Spider Spawn
++COPY_EXISTING ~SPWI423.spl~          ~override~    //Spider Spawn //           (LW: not in Fixpack)
+  READ_LONG  0x64  "ability_offset"
+  READ_SHORT 0x68  "abil_cnt"
+  READ_LONG  0x6a "eff_offset"
+@@ -5793,8 +5809,7 @@
+  END
+ BUT_ONLY_IF_IT_CHANGES
+ 
+-
+-COPY_EXISTING ~SPPR317.spl~          ~override~    //Cure Disease
++COPY_EXISTING ~SPPR317.spl~          ~override~    //Cure Disease //           (LW: not in Fixpack)
+               ~SPIN201.spl~          ~override~    //Neutralize Poison
+               ~SPPR404.spl~          ~override~    //Neutralize Poison
+               ~DEVAHEAL.spl~         ~override~    //Heal
+@@ -5816,8 +5831,8 @@
+  END
+ BUT_ONLY_IF_IT_CHANGES
+ 
+-
+-COPY_EXISTING ~SPWI103.spl~          ~override~    //Burning Hands
++/*
++COPY_EXISTING ~SPWI103.spl~          ~override~    //Burning Hands             (LW: modified in Fixpack)
+  READ_LONG  0x64  "ability_offset"
+  READ_SHORT 0x68  "abil_cnt"
+  READ_LONG  0x6a "eff_offset"
+@@ -5835,9 +5850,9 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
++*/
+ 
+-
+-COPY_EXISTING ~SPWI408.spl~          ~override~    //Stoneskin
++COPY_EXISTING ~SPWI408.spl~          ~override~    //Stoneskin                 (LW: not in Fixpack)
+               ~SPWI512.spl~          ~override~    //Prot. from Electricity
+  READ_LONG  0x64  "ability_offset"
+  READ_SHORT 0x68  "abil_cnt"
+@@ -5855,17 +5870,17 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ 
+-COPY_EXISTING ~MISC2A.ITM~ ~override~
++COPY_EXISTING ~MISC2A.ITM~ ~override~ //                   (LW: not in Fixpack)
+  WRITE_ASCII 0x58 "CMISC8V"  #8 //carried icon
+  BUT_ONLY_IF_IT_CHANGES
+ 
+ 
+-COPY_EXISTING ~UNDHIT2.EFF~ ~override~
++COPY_EXISTING ~UNDHIT2.EFF~ ~override~ //                  (LW: not in Fixpack)
+  WRITE_LONG 0x60 2   //effect parameter
+  BUT_ONLY_IF_IT_CHANGES
+ 
+ 
+-COPY_EXISTING ~RING97.ITM~          ~override~
++COPY_EXISTING ~RING97.ITM~          ~override~ //          (LW: not in Fixpack)
+  READ_LONG  0x6a "eff_offset"
+  READ_SHORT 0x70 "eff_cnt"
+  FOR( cnt2=0; cnt2<"%eff_cnt%"; cnt2=cnt2+1 ) BEGIN
+@@ -5874,7 +5889,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ 
+-COPY_EXISTING ~SPCL122.SPL~  ~override~
++COPY_EXISTING ~SPCL122.SPL~  ~override~ //                 (LW: not in Fixpack)
+               ~SPCL131.SPL~  ~override~
+               ~SPCL133.SPL~  ~override~
+               ~SPCL141.SPL~  ~override~
+@@ -6013,7 +6028,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ 
+-COPY_EXISTING ~SPCL642.SPL~ ~override~
++COPY_EXISTING ~SPCL642.SPL~ ~override~ //                  (LW: not in Fixpack)
+  READ_LONG  0x64  "ability_offset"
+  READ_SHORT 0x68  "abil_cnt"
+  READ_LONG  0x6a  "eff_offset"
+@@ -6030,7 +6045,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ 
+-COPY_EXISTING ~SPCL908.SPL~ ~override~
++COPY_EXISTING ~SPCL908.SPL~ ~override~ //                  (LW: not in Fixpack)
+  READ_LONG  0x64  "ability_offset"
+  READ_SHORT 0x68  "abil_cnt"
+  READ_LONG  0x6a  "eff_offset"
+@@ -6056,7 +6071,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ 
+-COPY_EXISTING ~SPWI505.SPL~  ~override~  //Shadow Door
++COPY_EXISTING ~SPWI505.SPL~  ~override~  //Shadow Door               (LW: not in Fixpack)
+               ~SPPR505.SPL~  ~override~  //True Seeing
+               ~SPPR505D.SPL~  ~override~  //True Seeing
+               ~SPCL232.SPL~  ~override~  //True Sight
+@@ -6084,8 +6099,8 @@
+  END
+ BUT_ONLY_IF_IT_CHANGES
+ 
+-
+-COPY_EXISTING ~SPWI211.spl~          ~override~  //Melf's Acid Arrow
++/*
++COPY_EXISTING ~SPWI211.spl~          ~override~  //Melf's Acid Arrow           (LW: modified in Fixpack)
+  READ_LONG  0x64  "ability_offset"
+  READ_SHORT 0x68  "abil_cnt"
+  READ_LONG  0x6a "eff_offset"
+@@ -6100,9 +6115,9 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
++*/
+ 
+-
+-COPY_EXISTING ~SPPR610.SPL~ ~override~
++COPY_EXISTING ~SPPR610.SPL~ ~override~ //                  (LW: not in Fixpack)
+  READ_LONG  0x64  "ability_offset"
+  READ_SHORT 0x68  "abil_cnt"
+  READ_LONG  0x6a  "eff_offset"
+@@ -6122,8 +6137,8 @@
+  END
+ BUT_ONLY_IF_IT_CHANGES
+ 
+-
+-COPY_EXISTING ~SPIN114.SPL~ ~override~
++/*
++COPY_EXISTING ~SPIN114.SPL~ ~override~ //                  (LW: modified in Fixpack)
+  READ_LONG  0x64  "ability_offset"
+  READ_SHORT 0x68  "abil_cnt"
+  READ_LONG  0x6a  "eff_offset"
+@@ -6145,26 +6160,26 @@
+ //Extremist Fixes
+ 
+ //-------------------------------------------------------------------------
+-//Improved Mace Of Disruption Fix by Extremist
++//Improved Mace Of Disruption Fix by Extremist             (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY ~NeJE\bdash\extrem\BLUN25.ITM~ ~override~  //effects added
+ COPY_EXISTING ~MACEDISR.EFF~ ~override\MACEDIS1.EFF~
+     WRITE_BYTE  0x60   0x01
+ 
+ //-------------------------------------------------------------------------
+-//Azuredge Axe Fixes by Extremist
++//Azuredge Axe Fixes by Extremist                          (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~AX1H10.ITM~ ~override~  //effects added
+ COPY_EXISTING ~MACEDISR.EFF~ ~override\MACEDIS4.EFF~
+     WRITE_BYTE  0x60   0x04
+-    
+-//Other weapon fixes by Extremist
++*/    
++//Other weapon fixes by Extremist                          (LW: not in Fixpack)
+ 
+ COPY_EXISTING ~BLUN03.ITM~ ~override\BLUN03.ITM~
+     WRITE_BYTE  0x4C   0x0C
+-
++/*
+ //-------------------------------------------------------------------------
+-//Mace Of Disruption Fix
++//Mace Of Disruption Fix                                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~BLUN12.ITM~ ~override~
+  READ_LONG 0x64 "ability_offset"
+@@ -6203,7 +6218,7 @@
+     WRITE_BYTE   0x222 0x03
+ 
+ //-------------------------------------------------------------------------
+-//Short Bow +1 Graphics Fix
++//Short Bow +1 Graphics Fix                                (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~BOW06.ITM~ ~override~
+  WRITE_ASCII 0x3a "IBOW06"     //icon
+@@ -6245,7 +6260,7 @@
+ BUT_ONLY_IF_IT_CHANGES
+ 
+ //-------------------------------------------------------------------------
+-//Dwarven Thrower Usability\Damage Fixes
++//Dwarven Thrower Usability\Damage Fixes                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~HAMM06.ITM~ ~override~
+  WRITE_LONG 0x1e 0xfefdb740     //unusability
+@@ -6266,12 +6281,13 @@
+     WRITE_LONG  0x1E   0xFEFDB740
+     WRITE_BYTE  0x7C   0x35
+     WRITE_BYTE  0xC4   0x03
+-
+-COPY_EXISTING ~SLNG06.ITM~ ~override\SLNG06.ITM~
++*/
++COPY_EXISTING ~SLNG06.ITM~ ~override\SLNG06.ITM~ //        (LW: not in Fixpack)
+     WRITE_BYTE  0x7C   0x36
+-COPY_EXISTING ~SPER06.ITM~ ~override\SPER06.ITM~
++/*	
++COPY_EXISTING ~SPER06.ITM~ ~override\SPER06.ITM~ //        (LW: modified in Fixpack)
+     WRITE_BYTE  0x4C   0x03
+-COPY_EXISTING ~STAF05.ITM~ ~override\STAF05.ITM~
++COPY_EXISTING ~STAF05.ITM~ ~override\STAF05.ITM~ //        (LW: modified in Fixpack, unsure about this fix)
+     WRITE_LONG  0x84   0x00000001
+ 
+     
+@@ -6281,7 +6297,7 @@
+     WRITE_BYTE  0x1CE  0x01
+     
+ //-------------------------------------------------------------------------
+-//Scimitar Usability Fixes
++//Scimitar Usability Fixes                                 (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SW1H20.ITM~ ~override~
+               ~SW1H22.ITM~ ~override~
+@@ -6291,13 +6307,13 @@
+               ~SW1H56.ITM~ ~override~
+  WRITE_BYTE 0x2b 0x02   //beastmaster
+ BUT_ONLY_IF_IT_CHANGES
+-    
+-COPY_EXISTING ~SW1H40.ITM~ ~override\SW1H40.ITM~
++*/
++COPY_EXISTING ~SW1H40.ITM~ ~override\SW1H40.ITM~ //        (LW: not in Fixpack)
+     WRITE_BYTE  0x88   0x04
+     WRITE_BYTE  0x8A   0x02
+ 
+ //***************************************************************************
+-COPY_EXISTING ~SW2H12.ITM~  ~override~
++COPY_EXISTING ~SW2H12.ITM~  ~override~ //                  (LW: not in Fixpack)
+  READ_LONG  0x6a  "eff_offset"
+  READ_SHORT 0x70  "glob_eff_cnt"
+  SET ccc=0
+@@ -6308,17 +6324,18 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
+-COPY_EXISTING ~FLAMENOR.EFF~  ~override~
++/*
++COPY_EXISTING ~FLAMENOR.EFF~  ~override~ //                (LW: identical in Fixpack)
+   WRITE_LONG 0x1c   51        //CHAOTIC_EVIL
+ BUT_ONLY_IF_IT_CHANGES
+-    
+-COPY_EXISTING ~SW2H12.ITM~ ~override\SW2H12.ITM~
++*/
++COPY_EXISTING ~SW2H12.ITM~ ~override\SW2H12.ITM~ //        (LW: not in Fixpack)
+     WRITE_BYTE  0x1A2  0x02
+ COPY_EXISTING ~FLAMENOR.EFF~ ~override\FLAMENOR.EFF~
+     WRITE_BYTE  0x1C   0x33
+ //***************************************************************************
+-
++//		(LW: all the following modified in Fixpack)
++/*
+ COPY_EXISTING ~RODS04.ITM~ ~override\RODS04.ITM~
+     WRITE_LONG  0x1E   0x60721840
+     WRITE_LONG  0xAC   0x00000001
+@@ -6394,7 +6411,7 @@
+     WRITE_BYTE  0x177  0x02
+     WRITE_BYTE  0x1A7  0x02
+     WRITE_BYTE  0x1D7  0x02
+-
++*/
+ //-------------------------------------------------------------------------
+ //Ring Of Free Action Fix
+ //-------------------------------------------------------------------------
+@@ -6412,36 +6429,40 @@
+  END
+ BUT_ONLY_IF_IT_CHANGES*/
+ 
+-COPY_EXISTING ~BRAC18.ITM~ ~override\BRAC18.ITM~
++COPY_EXISTING ~BRAC18.ITM~ ~override\BRAC18.ITM~ //        (LW: not in Fixpack)
+     WRITE_LONG  0x1E   0x00000000
+     WRITE_BYTE  0x72   0x03
+-//COPY_EXISTING ~PLAT06.ITM~ ~override\PLAT06.ITM~ //Druids can wear ankheg plate
++//COPY_EXISTING ~PLAT06.ITM~ ~override\PLAT06.ITM~ //Druids can wear ankheg plate        (LW: not in Fixpack)
+ //    WRITE_BYTE  0x21   0x60
+-COPY_EXISTING ~PLAT11.ITM~ ~override\PLAT11.ITM~
++COPY_EXISTING ~PLAT11.ITM~ ~override\PLAT11.ITM~ //        (LW: not in Fixpack)
+     DELETE_BYTES 0x1F2 48
+     WRITE_BYTE   112   0x08
+ 
+-COPY_EXISTING ~SHLD07.ITM~ ~override\SHLD07.ITM~
++COPY_EXISTING ~SHLD07.ITM~ ~override\SHLD07.ITM~ //        (LW: not in Fixpack)
+     WRITE_BYTE  0x76   0x01
+-COPY_EXISTING ~SHLD28.ITM~ ~override\SHLD28.ITM~
++/*
++COPY_EXISTING ~SHLD28.ITM~ ~override\SHLD28.ITM~ //        (LW: modified in Fixpack, unsure about this fix)
+     WRITE_BYTE  118    0xFD
+-COPY_EXISTING ~RODS02.ITM~ ~override\RODS02.ITM~
++COPY_EXISTING ~RODS02.ITM~ ~override\RODS02.ITM~ //        (LW: modified in Fixpack, unsure about this fix)
+     WRITE_BYTE  0x1F   0x03
+     WRITE_BYTE  0x21   0x60
+-COPY_EXISTING ~RODSPEAR.ITM~ ~override\RODSPEAR.ITM~
++COPY_EXISTING ~RODSPEAR.ITM~ ~override\RODSPEAR.ITM~ //    (LW: modified in Fixpack, unsure about this fix)
+     WRITE_BYTE  0x16A  0x06
+-COPY_EXISTING ~POTN09.ITM~ ~override\POTN09.ITM~
++*/
++COPY_EXISTING ~POTN09.ITM~ ~override\POTN09.ITM~ //        (LW: not in Fixpack)
+     WRITE_BYTE  0xDC   0x01
+-COPY_EXISTING ~POTN13.ITM~ ~override\POTN13.ITM~
++/*
++COPY_EXISTING ~POTN13.ITM~ ~override\POTN13.ITM~ //        (LW: modified in Fixpack, unsure about this fix)
+     WRITE_BYTE  0xC6   0x05
+     WRITE_BYTE  0xCA   0x03
+     WRITE_BYTE  0x126  0x05
+     WRITE_BYTE  0x12A  0x03
+-COPY_EXISTING ~POTN34.ITM~ ~override\POTN34.ITM~
++*/
++COPY_EXISTING ~POTN34.ITM~ ~override\POTN34.ITM~ //        (LW: not in Fixpack)
+     WRITE_BYTE  0xE2   0x3F
+ 
+ //-------------------------------------------------------------------------
+-//Rings Of Air & Fire Control Saving Throws Fixes
++//Rings Of Air & Fire Control Saving Throws Fixes          (LW: modified in Fixpack, unsure about this fix, apparently not in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~RING27.ITM~ ~override~
+               ~RING28.ITM~ ~override~
+@@ -6463,9 +6484,9 @@
+    END
+  END
+ BUT_ONLY_IF_IT_CHANGES
+-
++/*
+ //-------------------------------------------------------------------------
+-//Ring Of Earth Control Fix
++//Ring Of Earth Control Fix                                (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ 
+ COPY ~NeJE\bdash\extrem\CHRMSPEC.EFF~ ~override~
+@@ -6490,11 +6511,11 @@
+     WRITE_BYTE  0x106  0x01
+     WRITE_BYTE  0x10A  0x02
+     
+-COPY_EXISTING ~MISC9O.ITM~ ~override\MISC9O.ITM~
++COPY_EXISTING ~MISC9O.ITM~ ~override\MISC9O.ITM~/          (LW: modified in Fixpack, unsure about this fix)
+     WRITE_BYTE  33    0x20
+ 
+ //-------------------------------------------------------------------------
+-//Hostile authorities fix by Extremist
++//Hostile authorities fix by Extremist                     (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ 
+ COPY_EXISTING ~AMNTRP01.BCS~  ~override\AMNTRP01.BCS~
+@@ -6505,21 +6526,21 @@
+ 	REPLACE_BCS_BLOCK ~NeJE\bdash\extrem\sfixes\oamntrp.BCS~ ~NeJE\bdash\extrem\sfixes\namntrp.BCS~
+ 
+ //-------------------------------------------------------------------------
+-//Glaicas fix by Extremist
++//Glaicas fix by Extremist                                 (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ 
+ COPY_EXISTING ~AR1303.BCS~ ~override\AR1303.BCS~
+     REPLACE_TEXTUALLY ~2326~ ~3866~
+ 
+ //-------------------------------------------------------------------------
+-//Open the chest in Aran's guild fix by Extremist
++//Open the chest in Aran's guild fix by Extremist          (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ 
+ COPY_EXISTING ~AR0327.ARE~ ~override\AR0327.ARE~
+     WRITE_BYTE  0x15D6  0x5A
+ 
+ //-------------------------------------------------------------------------
+-//Major fixes in Slums by Extremist
++//Major fixes in Slums by Extremist                        (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+      
+ COPY_EXISTING ~AR0400.BCS~  ~override\AR0400.BCS~
+@@ -6529,57 +6550,58 @@
+ 
+ //Creature fixes by Extremist
+ 
+-COPY_EXISTING ~BODTAN.CRE~ ~override\BODTAN.CRE~
++COPY_EXISTING ~BODTAN.CRE~ ~override\BODTAN.CRE~ //        (LW: modified in Fixpack)
+     WRITE_BYTE  0x271   0x04
+-COPY_EXISTING ~DDGUARD2.CRE~ ~override\DDGUARD3.CRE~
++COPY_EXISTING ~DDGUARD2.CRE~ ~override\DDGUARD3.CRE~ //    (LW: modified in Fixpack)
+     WRITE_BYTE  0x287   0x33
+     WRITE_BYTE  0x2D3   0x33
+     WRITE_BYTE  0x5D0   0x36
+-COPY_EXISTING ~DGTROL01.CRE~ ~override\DGTROL01.CRE~
++COPY_EXISTING ~DGTROL01.CRE~ ~override\DGTROL01.CRE~ //    (LW: modified in Fixpack, unsure about this fix)
+     WRITE_BYTE  0x273   0xA7    
+-COPY_EXISTING ~SAHOTY01.CRE~ ~override\SAHOTY01.CRE~
++COPY_EXISTING ~SAHOTY01.CRE~ ~override\SAHOTY01.CRE~ //    (LW: modified in Fixpack)
+     WRITE_BYTE  0x271   0x05
+ 
+-COPY ~NeJE\bdash\extrem\sfixes\GRAE.BCS~ ~override~
++COPY ~NeJE\bdash\extrem\sfixes\GRAE.BCS~ ~override~ //     (LW: modified in Fixpack)
+ 
+-//Greater Wolfwere regeneration fix by Cirneth 
++//Greater Wolfwere regeneration fix by Cirneth
+ 
+-COPY_EXISTING ~RINGWOLF.ITM~ ~override\RINGWOLF.ITM~
++COPY_EXISTING ~RINGWOLF.ITM~ ~override\RINGWOLF.ITM~ //    (LW: modified in Fixpack, unsure about this fix)
+     WRITE_BYTE  0x7E    0x02
+ 
+ //Jon Irenicus as Slayer in Hell regeneration fix by Extremist
+ 
+-COPY_EXISTING ~HSLAYWPN.ITM~ ~override\HSLAYWPN.ITM~
++COPY_EXISTING ~HSLAYWPN.ITM~ ~override\HSLAYWPN.ITM~ //    (LW: modified in Fixpack, unsure about this fix)
+     WRITE_BYTE  0x4D6   0x02
+ 
+ //Miscellaneous fixes by Extremist
+     
+-COPY ~NeJE\bdash\extrem\MINHP1.ITM~ ~override~
+-
+-COPY_EXISTING ~KPSOLD01.CRE~ ~override\KPSOLD01.CRE~
++COPY ~NeJE\bdash\extrem\MINHP1.ITM~ ~override~ //          (LW: modified in Fixpack, unsure about this fix)
++*/
++COPY_EXISTING ~KPSOLD01.CRE~ ~override\KPSOLD01.CRE~ //    (LW: not in Fixpack)
+     WRITE_ASCII 0x254 ~MCUT~
+-
+-COPY_EXISTING ~FIGSPID.ITM~ ~override\FIGSPID.ITM~
++/*
++COPY_EXISTING ~FIGSPID.ITM~ ~override\FIGSPID.ITM~ //      (LW: modified in Fixpack, unsure about this fix)
+     WRITE_BYTE  232 0x0E
+-COPY_EXISTING ~SPIN683.SPL~ ~override\SPIN683.SPL~
++COPY_EXISTING ~SPIN683.SPL~ ~override\SPIN683.SPL~ //      (LW: modified in Fixpack, unsure about this fix)
+     WRITE_BYTE  312 0x15
+-COPY_EXISTING ~SPIN699.SPL~ ~override\SPIN699.SPL~
++COPY_EXISTING ~SPIN699.SPL~ ~override\SPIN699.SPL~ //      (LW: modified in Fixpack, unsure about this fix)
+     WRITE_BYTE  300 0x02
+-    
++
+ //-------------------------------------------------------------------------
+-//Mordenkainen's Sword Amulets & Mind-Control Magic Susceptbility Fixes
++//Mordenkainen's Sword Amulets & Mind-Control Magic Susceptbility Fixes        (LW: not in Fixpack)
+ //-------------------------------------------------------------------------
+ 
+ COPY ~NeJE\bdash\extrem\IPSION.ITM~ ~override~
+  READ_LONG  0x18 "flags"
+  WRITE_LONG 0x18 ("%flags%" BOR 0x00000004)  //make it droppable
+ BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ //******************************************************************************
+ //******************* SPCL521.SPL **********************************************
+ //******************************************************************************
++/*
+ //-------------------------------------------------------------------------
+-//Blade Offensive Spin Ability Fix
++//Blade Offensive Spin Ability Fix                         (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~SPCL521.SPL~ ~override~
+  READ_LONG  0x64 "ability_offset"
+@@ -6610,29 +6632,30 @@
+  END
+ BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~SPCL321D.SPL~ ~override\SPCL321D.SPL~
++COPY_EXISTING ~SPCL321D.SPL~ ~override\SPCL321D.SPL~ //	   (LW: modified in Fixpack, unsure about this fix)
+     WRITE_SHORT 0xCA   0x0116
+     WRITE_LONG  0xCE   0xFFFFFFFE
+     WRITE_BYTE  0xD2   0x00
+     WRITE_LONG  0xDE   0x70784500
+     WRITE_LONG  0xE2   0x74617269
+-COPY_EXISTING ~SPCL521.SPL~ ~override\SPCL521.SPL~
++COPY_EXISTING ~SPCL521.SPL~ ~override\SPCL521.SPL~ //	   (LW: modified in Fixpack, unsure about this fix)
+     WRITE_SHORT 0xFA   0x0116
+     WRITE_BYTE  0xFE   0x02
+     WRITE_BYTE  0x102  0x00
+     WRITE_LONG  0x10E  0x70784500
+     WRITE_LONG  0x112  0x74617269
+-COPY_EXISTING ~HITPLUS1.EFF~ ~override\HITPLUS1.EFF~
++*/
++COPY_EXISTING ~HITPLUS1.EFF~ ~override\HITPLUS1.EFF~ //	   (LW: not in Fixpack)
+     WRITE_SHORT 0x10   0x0116
+     WRITE_BYTE  0x1C   0x01
+     WRITE_BYTE  0x20   0x00
+     WRITE_BYTE  0x60   0x00
+ 
+-COPY_EXISTING ~SW1HSEEK.ITM~ ~override\SW1HSEEK.ITM~
++COPY_EXISTING ~SW1HSEEK.ITM~ ~override\SW1HSEEK.ITM~ //	   (LW: not in Fixpack)
+     WRITE_BYTE  0x88   0x04
+     WRITE_BYTE  0x8A   0x02
+-
+-COPY_EXISTING ~SPCL741.SPL~ ~override\SPCL741.SPL~
++/*
++COPY_EXISTING ~SPCL741.SPL~ ~override\SPCL741.SPL~ //	   (LW: modified in Fixpack, unsure about this fix)
+     WRITE_SHORT 0x31A  0x0116
+     WRITE_SHORT 0x70A  0x0116
+     WRITE_SHORT 0xAFA  0x0116
+@@ -6645,7 +6668,7 @@
+     WRITE_SHORT 0x26BA 0x0116
+     WRITE_SHORT 0x2AAA 0x0116
+ 
+-COPY_EXISTING ~SPCL222.SPL~ ~override\SPCL222.SPL~
++COPY_EXISTING ~SPCL222.SPL~ ~override\SPCL222.SPL~ //	   (LW: modified in Fixpack, unsure about this fix)
+     WRITE_SHORT 0xA7   0x2803
+     WRITE_BYTE  0xD7   0x03
+     WRITE_BYTE  0x107  0x03
+@@ -6655,30 +6678,30 @@
+     WRITE_BYTE  0x1C7  0x03
+     WRITE_BYTE  0x1F7  0x03
+ 
+-COPY_EXISTING ~SPWI114.SPL~ ~override\SPWI114.SPL~
++COPY_EXISTING ~SPWI114.SPL~ ~override\SPWI114.SPL~ //	   (LW: modified in Fixpack, unsure about this fix)
+     WRITE_LONG  0x196  0x012C0300
+     
+-COPY_EXISTING ~UDDROW23.STO~ ~override\UDDROW23.STO~
++COPY_EXISTING ~UDDROW23.STO~ ~override\UDDROW23.STO~ //	   (LW: modified in Fixpack, unsure about this fix)
+     WRITE_BYTE  0x2D0  0x00
+ 
+-COPY_EXISTING ~HELM06.ITM~ ~override\HELM06.ITM~
++COPY_EXISTING ~HELM06.ITM~ ~override\HELM06.ITM~ //	   (LW: modified in Fixpack, unsure about this fix)
+     DELETE_BYTES 0x1C2 48
+     WRITE_BYTE   112   0x08
+     WRITE_BYTE   144   0x00
+-
+-COPY_EXISTING ~MOOND2.EFF~ ~override\SPECHOIC.EFF~
++*/
++COPY_EXISTING ~MOOND2.EFF~ ~override\SPECHOIC.EFF~ //	   (LW: not in Fixpack)
+     WRITE_SHORT 0X1C   0x0000
+     WRITE_BYTE  0X20   0x0D
+     WRITE_BYTE  0X24   0x01
+     WRITE_BYTE  0X60   0x00
+-COPY_EXISTING ~MOOND4.EFF~ ~override\SPECHOLD.EFF~
++COPY_EXISTING ~MOOND4.EFF~ ~override\SPECHOLD.EFF~ //	   (LW: not in Fixpack)
+     WRITE_SHORT 0X1C   0x0000
+     WRITE_BYTE  0X24   0x01
+     WRITE_BYTE  0X28   0x09
+     WRITE_BYTE  0X60   0x00
+-
++/*
+ //-------------------------------------------------------------------------
+-//Potion Of Freedom Fix
++//Potion Of Freedom Fix	                                   (LW: modified in Fixpack)
+ //-------------------------------------------------------------------------
+ COPY_EXISTING ~POTN45.ITM~ ~override~
+  READ_LONG 0x64 "ability_offset"
+@@ -6709,7 +6732,8 @@
+  END
+ BUT_ONLY_IF_IT_CHANGES
+ 
+-COPY_EXISTING ~TOMEGOL4.cre~     ~override~
++
++COPY_EXISTING ~TOMEGOL4.cre~     ~override~ //             (LW: modified in Fixpack)
+  READ_LONG  0x2b8  "item_slots_offset"
+  READ_LONG  0x2bc  "items_offset"
+  READ_LONG  0x2c0  "items_num"
+@@ -6723,17 +6747,17 @@
+  SET offset = "%item_slots_offset%" + 2*9    //weapon slot
+  WRITE_SHORT offset "%idx%"
+ BUT_ONLY_IF_IT_CHANGES
+-
+-//BALDUR.BCS fixes by Extremist
++*/
++//BALDUR.BCS fixes by Extremist                            (LW: not in Fixpack)
+ COPY_EXISTING ~BALDUR.BCS~  ~override~
+ 	REPLACE_BCS_BLOCK ~NeJE\bdash\extrem\sfixes\oBALDUR.BCS~ ~NeJE\bdash\extrem\sfixes\nBALDUR.BCS~
+ EXTEND_BOTTOM ~BALDUR.BCS~ ~NeJE\bdash\extrem\sfixes\eBALDUR.BCS~
+ 
+-// Stop Anomen's LT if Valygar speaks
++// Stop Anomen's LT if Valygar speaks                      (agb1: not in Fixpack)
+ COPY_EXISTING ~Anomen.bcs~ ~override~
+ 	REPLACE_BCS_BLOCK ~NeJE\bdash\BAF_x\xAnomen.BAF~ ~NeJE\bdash\BAF_r\rAnomen.BAF~
+-
+-// Prevent NPCs from leaving the party because of the unfavourable reputation changes
++/*
++// Prevent NPCs from leaving the party because of the unfavourable reputation changes    (agb1: same result as BG2 Tweaks #3121)
+ COPY_EXISTING ~happy.2da~ ~override~
+   SET_2DA_ENTRY  0 1 4 ~-160~
+   SET_2DA_ENTRY  1 1 4 ~-160~
+@@ -6741,7 +6765,7 @@
+   SET_2DA_ENTRY 18 3 4 ~-160~
+   SET_2DA_ENTRY 19 3 4 ~-160~
+   BUT_ONLY_IF_IT_CHANGES
+-
++*/
+ //Minsc Ever Stutter Fix - 04.08.2017
+ COPY_EXISTING ~Minsc.bcs~ ~override~
+  DECOMPILE_BCS_TO_BAF
+@@ -6795,7 +6819,8 @@
+ 		COMPILE ~NeJE\bdash\BAF_b\Sarev25.BAF~ 
+ END
+ 
+-//KIT.IDS (by Idobek - thanks!!!)
++/*
++//KIT.IDS (by Idobek - thanks!!!)                          (LW: modified in Fixpack)
+ 
+ COPY_EXISTING ~kit.ids~ ~override\kit.ids~
+   REPLACE_TEXTUALLY ~0x00004000~ ~0x4000~ // TRUECLASS_MAGESCHOOL_GENERALIST
+@@ -6835,7 +6860,7 @@
+ 	THEN BEGIN
+ 		COPY_EXISTING   ~KIT.IDS~         ~script compiler~
+ END
+-
++*/
+ /////////////////////////
+ // Bonus Merchants
+ /////////////////////////
+@@ -7107,6 +7132,8 @@
+ //                                     			//
+ //////////////////////////////////////////
+ 
++BEGIN ~BGT Compatibility, Fixes and Improvements (BGT required!) (by Vlad)~
++
+ ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~
+  THEN BEGIN
+  	COMPILE ~NeJE/bdash/BGTComp/dlg~
+@@ -7114,7 +7141,8 @@
+ 	COMPILE ~NeJE/bdash/BGTComp/trans/rbeltbrd.d~
+ 	COPY_EXISTING ~AR7300.bcs~ ~override/AR7300.bcs~
+ 	EXTEND_BOTTOM ~AR7300.bcs~ ~NeJE/bdash/BGTComp/trans/xAR7300.baf~
+-	COMPILE ~NeJE/bdash/BGTComp/trans/ARAM00.baf~
++	COPY_EXISTING ~ARAM00.BCS~ ~override/ARAM00.BCS~
++	EXTEND_BOTTOM ~ARAM00.BCS~ ~NeJE/bdash/BGTComp/trans/ARAM00.baf~
+ 	COPY_EXISTING ~AR0602.bcs~ ~override/AR0602.bcs~
+ 	EXTEND_BOTTOM ~AR0602.bcs~ ~NeJE/bdash/BGTComp/trans/eAR0602.baf~
+ END
+@@ -7124,6 +7152,8 @@
+ 
+ ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~
+  THEN BEGIN
++	ACTION_IF NOT FILE_EXISTS ~data\CTB-CHOR0.BIF~
++	THEN BEGIN
+ 	COPY_EXISTING ~AR0602.bcs~ ~override/AR0602.bcs~
+   		DECOMPILE_BCS_TO_BAF
+   			REPLACE_TEXTUALLY
+@@ -7132,6 +7162,13 @@
+   			REPLACE_TEXTUALLY
+ ~ActionOverride(Player1,DestroyAllEquipment())[^!]* ActionOverride(Player2,DestroyAllEquipment())[^!]* ActionOverride(Player3,DestroyAllEquipment())[^!]* ActionOverride(Player4,DestroyAllEquipment())[^!]* ActionOverride(Player5,DestroyAllEquipment())[^!]* ActionOverride(Player6,DestroyAllEquipment())~
+ ~~
++ END
++END
++
++ACTION_IF FILE_EXISTS ~data/BG1ARE.BIF~
++ THEN BEGIN
++	COPY_EXISTING ~AR0602.bcs~ ~override/AR0602.bcs~
++  		DECOMPILE_BCS_TO_BAF
+ 			REPLACE_TEXTUALLY
+ ~SetCursorState(TRUE)[^!]* FadeToColor([1.0],0)[^!]* SmallWait(10)[^!]* StartMovie("SOAINTRO")[^!]* SetGlobal("ENDOFBG1","GLOBAL",2)[^!]* SetGlobal("NewGame","AR0602",1)[^!]* Continue()~
+ ~SetGlobal("ENDOFBG1","GLOBAL",2)
+@@ -7364,7 +7401,7 @@
+ //        Keldorn Romance v1.02          //
+ //______________________________________//
+ //                                      //
+-PRINT ~Keldorn Romance v1.02~
++BEGIN ~Keldorn Romance v1.02~
+ 
+ COPY ~NeJE/KeldornR/img~ ~override~
+ COPY ~NeJE/KeldornR/are~ ~override~
+@@ -8170,7 +8207,7 @@
+ //Third Path
+ ///////////////////////////
+ 
+-PRINT ~Third Path (by Vlad)~
++BEGIN ~Third Path (by Vlad)~
+ 
+ COPY ~NeJE\bdash\ThirdP\toda\SCENE04T.2da~ ~override~
+ REPLACE ~scene04t~ ~CHAPTER THREE
+@@ -8448,7 +8485,7 @@
+ //______________________________________//
+ //                                      //
+ 
+-PRINT ~Tortured Souls v7.06~
++BEGIN ~Tortured Souls v7.06~
+ 
+ COPY ~tisunpack.exe~ ~override\tisunpack.exe~
+ COPY ~oggdec.exe~ ~override\oggdec.exe~
+@@ -10737,7 +10774,7 @@
+   SAY NAME1 ~Sol~
+   SAY NAME2 ~Sol~
+  
+-COPY~NeJE/TS/cre/Sola.cre~         ~override/Sola.cre~
++COPY~NeJE/TS/cre/SolaTS.cre~         ~override/SolaTS.cre~
+   SAY NAME1 ~Sola~
+   SAY NAME2 ~Sola~
+  
+@@ -11139,93 +11176,6 @@
+   SAY NAME1 ~Kuku~
+   SAY NAME2 ~Kuku~
+ 
+-//Adding music
+-PRINT ~Adding music themes...~
+-
+-COPY ~NeJE/Leina/music/VPBlank.mus~ ~music/VPBlank.mus~
+-COPY_EXISTING ~songlist.2da~ ~override~
+-SET_2DA_ENTRY 0 2 3 ~VPBlank.mus~
+-
+-COPY_EXISTING + ~SONGLIST.2da~ ~override\1.txt~
+-COPY_EXISTING + ~1.txt~ ~override~
+- COUNT_2DA_ROWS 3 "rows_cnt"
+- SET kachiko = 0
+- SET valygar = 0
+- SET sime = 0
+- SET keldorn = 0
+- SET leina = 0
+- PATCH_IF ("%rows_cnt%"<=97) THEN BEGIN
+-   INNER_ACTION BEGIN
+-
+-     COPY ~NeJE/TS/music/MxKachi.mus~ ~music~
+-          ~NeJE/TS/music/MxSimel.mus~ ~music~
+-          ~NeJE/TS/music/MxValyg.mus~ ~music~
+-          ~NeJE/KeldornR/music/MxKeld.mus~ ~music~
+-          ~NeJE/Leina/music/MxLeina.mus~ ~music~
+-
+-     MKDIR ~music/MxKachi~
+-     MKDIR ~music/MxSimel~
+-     MKDIR ~music/MxValyg~
+-     MKDIR ~music/MxKeld~
+-     MKDIR ~music/MxLeina~
+-
+-     COPY ~NeJE/TS/music/MxKachi/MxKachiA.acm~ ~music/MxKachi~
+-          ~NeJE/TS/music/MxSimel/MxSimelA.acm~ ~music/MxSimel~
+-          ~NeJE/TS/music/MxValyg/MxValygA.acm~ ~music/MxValyg~
+-          ~NeJE/KeldornR/music/MxKeld/MxKeldA.acm~ ~music/MxKeld~
+-          ~NeJE/Leina/music/MxLeina/MxLeinaA.acm~ ~music/MxLeina~
+-
+-     APPEND ~SONGLIST.2da~
+-~99990      Kachiko         MXKACHI.MUS
+-99991      Valygar         MXVALYG.MUS
+-99992      Sime            MXSIMEL.MUS
+-99993      Keldorn         MXKELD.MUS
+-99994      Leina         MXLEINA.MUS~
+-
+-     COPY_EXISTING ~SONGLIST.2da~  ~override~
+-      SET kachiko = "%rows_cnt%"
+-      REPLACE_TEXTUALLY ~99990~    "%kachiko%"
+-      SET valygar = "%rows_cnt%"+1
+-      REPLACE_TEXTUALLY ~99991~    "%valygar%"
+-      SET sime = "%rows_cnt%"+2
+-      REPLACE_TEXTUALLY ~99992~    "%sime%"
+-      SET keldorn = "%rows_cnt%"+3
+-      REPLACE_TEXTUALLY ~99993~    "%keldorn%"
+-      SET leina = "%rows_cnt%"+4
+-      REPLACE_TEXTUALLY ~99994~    "%leina%"
+- END
+- END
+- 
+- COPY_EXISTING + ~KACHIKO.BCS~  ~override~
+-                 ~KACH25.BCS~   ~override~
+-                 ~KACHI25D.BCS~ ~override~
+-                 ~KACHID.BCS~   ~override~
+-  REPLACE_TEXTUALLY ~999999~ "%kachiko%"
+-
+- COPY_EXISTING + ~SIME.BCS~    ~override~
+-                 ~SIMED.BCS~   ~override~
+-  REPLACE_TEXTUALLY ~999999~ "%sime%"
+-
+- COPY_EXISTING + ~VALYGAR.BCS~    ~override~
+-                 ~VALY25.BCS~     ~override~
+-                 ~VALYG25D.BCS~   ~override~
+-                 ~VALYGARD.BCS~   ~override~
+-  REPLACE_TEXTUALLY ~999999~ "%valygar%"
+-
+- COPY_EXISTING + ~KELDORN.BCS~    ~override~
+-                 ~KELDORD.BCS~   ~override~
+-                 ~KELD25.BCS~   ~override~
+- 					~KRCUT18.BCS~    ~override~
+-                 ~KRCUT20.BCS~   ~override~
+-                 ~KRCUT23.BCS~   ~override~
+-  REPLACE_TEXTUALLY ~999999~ "%keldorn%"
+-
+-/*MKDIR ~music/MxLeina~
+-COPY ~NeJ2/Leina/music/MxLeina/MxLeinaA.acm~ ~music/MxLeina/MxLeinaA.acm~
+-COPY ~NeJ2/Leina/music/MxLeina.mus~ ~music/MxLeina.mus~
+-ADD_MUSIC ~MxLeina~ ~music/MxLeina.mus~
+-COPY_EXISTING ~Leina.bcs~ ~override/Leina.bcs~
+-REPLACE_TEXTUALLY ~666~ ~%MxLeina%~*/
+       
+ //////////////////////////////
+ //Makin’ the Areas
+@@ -11375,7 +11325,7 @@
+ //
+ /////////////////////////////////////
+ 
+-PRINT ~Improved Character Minsc & Boo (by Vlad)~
++BEGIN ~Improved Character Minsc & Boo (by Vlad)~
+ 
+ ACTION_IF FILE_EXISTS ~data\BG1ARE.BIF~
+ THEN BEGIN
+@@ -11535,6 +11485,8 @@
+ //Adding Boo Familiar
+ ///////////////////////////////
+ 
++BEGIN ~Boo - Familiar of Minsc (by Vlad) (If you're going to install TS next, please install this component.)~
++
+ APPEND ~SPELL.IDS~
+ ~3299 BOO_HEALING_LICK
+ 3204 BOO_DETECT_EVIL~
+@@ -11593,7 +11545,7 @@
+ ////////////////////////////////
+ // 20.05.2018 - New Fixes
+ ////////////////////////////////
+-
++BEGIN ~New Fixes~
+ //Fix with Saemon reappearing in the Vulgar Monkey tavern
+ COPY_EXISTING ~ar1602.bcs~ ~override~
+  EXTEND_BOTTOM ~ar1602.bcs~ ~NeJE\bdash\new_fix\exAR1602.BAF~
+@@ -11982,7 +11934,7 @@
+ Disadvantages:
+ -  The monk cannot wear armor~
+ 
+-COPY_EXISTING ~ABCLASRQ.2da~ ~override~
++COPY_EXISTING ~ABCLASRQ.2da~ ~override~                     // (agb1: not in Fixpack)
+   SET_2DA_ENTRY 48 1 7 ~12~
+   SET_2DA_ENTRY 48 2 7 ~15~
+   SET_2DA_ENTRY 48 3 7 ~13~
+@@ -12001,7 +11953,7 @@
+ //	SET_2DA_ENTRY 34 51  1 ~3~              
+ //BUT_ONLY_IF_IT_CHANGES              
+       
+-COPY ~NeJE/monk/CLABMO01.2DA~ ~override~
++COPY ~NeJE/monk/CLABMO01.2DA~ ~override~                     // (agb1: not in Fixpack)
+ COPY ~NeJE/monk/spl~ ~override~
+ //_____________________________________//
+ //                                     //
+@@ -12266,14 +12218,21 @@
+ 
+ COPY ~NeJE/sharteel/wav~	~override~
+ 
++		ACTION_IF FILE_EXISTS ~data/BG1ARE.bif~ THEN BEGIN
++		COPY_EXISTING ~pdialog.2da~ ~override~
++		REPLACE_TEXTUALLY ~SHARTEEL     SHARTP             SHARTJ            ***            SHARTP             SHARTJ             ***                 ***~ ~SHARTEEL     SHARTP             SHARTJ            SHARTD         SHARTP           SHARTJ              SHARTD              shar25~
++		BUT_ONLY
++		COPY_EXISTING ~interdia.2da~ ~override~
++		REPLACE_TEXTUALLY ~SHARTEEL    BSHART        NONE~ ~SHARTEEL    BSHART	  BSHART~
++		BUT_ONLY
++		END ELSE BEGIN
+ 		APPEND ~pdialog.2da~ // TOB append
+ 			~SHARTEEL     SHARTP             SHARTJ            SHARTD         SHARTP           SHARTJ              SHARTD              sharteel~
+ 			UNLESS ~SHARTEEL~ // we are already there, skip it
+-
+ 		APPEND ~interdia.2da~
+ 			~SHARTEEL    BSHART	  BSHART~
+ 			UNLESS ~SHARTEEL~ // we are already there, skip it
+-
++		END
+ //Lock cell that Shar-teel will be imported into
+ 
+ COPY ~NeJE/sharteel/itm/VPShrKey.ITM~           ~override/VPShrKey.ITM~         
+@@ -13298,11 +13257,93 @@
+ COPY_EXISTING ~AR6200.bcs~ ~override/AR6200.bcs~
+ 	EXTEND_TOP ~AR6200.bcs~ ~NeJE/Leina/sExt/sAR6200.baf~
+ 
+-//Music
+-COPY_EXISTING + ~LEINA.BCS~    ~override~
++BEGIN ~Music for Keldorn, Tortured Souls and Leina (MUST be installed for any of these mods)~
++
++//Adding music
++PRINT ~Adding music themes...~
++
++COPY ~NeJE/Leina/music/VPBlank.mus~ ~music/VPBlank.mus~
++COPY_EXISTING ~songlist.2da~ ~override~
++SET_2DA_ENTRY 0 2 3 ~VPBlank.mus~
++
++COPY_EXISTING + ~SONGLIST.2da~ ~override\1.txt~
++COPY_EXISTING + ~1.txt~ ~override~
++ COUNT_2DA_ROWS 3 "rows_cnt"
++ SET kachiko = 0
++ SET valygar = 0
++ SET sime = 0
++ SET keldorn = 0
++ SET leina = 0
++ PATCH_IF ("%rows_cnt%"<=97) THEN BEGIN
++   INNER_ACTION BEGIN
++
++     COPY ~NeJE/TS/music/MxKachi.mus~ ~music~
++          ~NeJE/TS/music/MxSimel.mus~ ~music~
++          ~NeJE/TS/music/MxValyg.mus~ ~music~
++          ~NeJE/KeldornR/music/MxKeld.mus~ ~music~
++          ~NeJE/Leina/music/MxLeina.mus~ ~music~
++
++     MKDIR ~music/MxKachi~
++     MKDIR ~music/MxSimel~
++     MKDIR ~music/MxValyg~
++     MKDIR ~music/MxKeld~
++     MKDIR ~music/MxLeina~
++
++     COPY ~NeJE/TS/music/MxKachi/MxKachiA.acm~ ~music/MxKachi~
++          ~NeJE/TS/music/MxSimel/MxSimelA.acm~ ~music/MxSimel~
++          ~NeJE/TS/music/MxValyg/MxValygA.acm~ ~music/MxValyg~
++          ~NeJE/KeldornR/music/MxKeld/MxKeldA.acm~ ~music/MxKeld~
++          ~NeJE/Leina/music/MxLeina/MxLeinaA.acm~ ~music/MxLeina~
++
++     APPEND ~SONGLIST.2da~
++~99990      Kachiko         MXKACHI.MUS
++99991      Valygar         MXVALYG.MUS
++99992      Sime            MXSIMEL.MUS
++99993      Keldorn         MXKELD.MUS
++99994      Leina         MXLEINA.MUS~
++
++     COPY_EXISTING ~SONGLIST.2da~  ~override~
++      SET kachiko = "%rows_cnt%"
++      REPLACE_TEXTUALLY ~99990~    "%kachiko%"
++      SET valygar = "%rows_cnt%"+1
++      REPLACE_TEXTUALLY ~99991~    "%valygar%"
++      SET sime = "%rows_cnt%"+2
++      REPLACE_TEXTUALLY ~99992~    "%sime%"
++      SET keldorn = "%rows_cnt%"+3
++      REPLACE_TEXTUALLY ~99993~    "%keldorn%"
++      SET leina = "%rows_cnt%"+4
++      REPLACE_TEXTUALLY ~99994~    "%leina%"
++ END
++ END
++ 
++ COPY_EXISTING + ~KACHIKO.BCS~  ~override~
++                 ~KACH25.BCS~   ~override~
++                 ~KACHI25D.BCS~ ~override~
++                 ~KACHID.BCS~   ~override~
++  REPLACE_TEXTUALLY ~999999~ "%kachiko%"
++
++ COPY_EXISTING + ~SIME.BCS~    ~override~
++                 ~SIMED.BCS~   ~override~
++  REPLACE_TEXTUALLY ~999999~ "%sime%"
++
++ COPY_EXISTING + ~VALYGAR.BCS~    ~override~
++                 ~VALY25.BCS~     ~override~
++                 ~VALYG25D.BCS~   ~override~
++                 ~VALYGARD.BCS~   ~override~
++  REPLACE_TEXTUALLY ~999999~ "%valygar%"
++
++ COPY_EXISTING + ~KELDORN.BCS~    ~override~
++                 ~KELDORD.BCS~   ~override~
++                 ~KELD25.BCS~   ~override~
++ 					~KRCUT18.BCS~    ~override~
++                 ~KRCUT20.BCS~   ~override~
++                 ~KRCUT23.BCS~   ~override~
++  REPLACE_TEXTUALLY ~999999~ "%keldorn%"
++
++ COPY_EXISTING + ~LEINA.BCS~    ~override~
+                  ~LEINAD.BCS~   ~override~
+   REPLACE_TEXTUALLY ~666~ "%leina%"
+-      
++
+ ////////////////////////////////////////////////////
+ ////////////////////////////////////////////////////
+ 
+@@ -13556,7 +13597,7 @@
+ //Improved Anti-Dragon Items
+ BEGIN ~Restored Anti-Dragon Items and Powerful Swords (by Vlad)~
+ 
+-COPY ~NeJE\bdash\itm\SHLD21.ITM~        ~override~
++COPY ~NeJE\bdash\itm\SHLD21.ITM~        ~override~ //                (agb1: not in Fixpack)
+   SAY NAME2 ~Dragon Scale Shield +5~
+   SAY DESC ~Another powerful item created by the warlock Wormsor, this shield consists of red dragon skin stretched over a steel frame.  Green and white dragon scales adorn the red background in a pattern that, when looked in the right way, reveals the face of an ancient dragon.
+ 
+@@ -13694,7 +13735,7 @@
+     WRITE_BYTE  0x297  0x02
+     WRITE_BYTE  0x2C7  0x02*/
+        
+-COPY ~NeJE\bdash\itm\SW1H32.ITM~        ~override~
++COPY ~NeJE\bdash\itm\SW1H32.ITM~        ~override~ //		     (agb1: modified in Fixpack, but this is an intentional overwrite so OK)
+   SAY DESC ~Long sword +5:  Dragonslayer (Peridan)
+ Few dare to create items such as this, for who does not fear the wrath of dragons, and what action would more tempt their reckoning? Yet, at a time lost in Faerun's past, there was a need, and this sword was forged in answer. Tempered by a wizard's skill, this blade protects the wielder from the fear they should rightly feel while staring down a dragon's maw. It also bolsters with regeneration, dispels magics whenever the sword strikes an enemy, and dares to do double damage against the greatest creatures of the Realms.
+ 
+@@ -14518,7 +14559,7 @@
+ Saving Throws Bonus: +2
+ Spell Casting Factor: x2 
+ Fire Resistance Bonus: +50% 
+-Thieving Skills Bonus: +50% 
++Thieving Skills Bonus: +50%  
+ 
+ Usable By:
+  Nalia~
+@@ -14664,7 +14705,7 @@
+ ~3177 Aerie_Entangle                       
+ 3167 Aerie_Barkskin                        
+ 3168 Aerie_Good Berries                    
+-3169 Aerie_Charm_Person_or_Mammal          
++3169 Aerie_Charm_Person_or_Mammal           
+ 3170 Aerie_Hold_Animal                     
+ 3171 Aerie_Zone_of_Sweet_Air               
+ 3172 Aerie_Summon_Insects                  
+@@ -14686,7 +14727,7 @@
+ 
+ COPY ~NeJE\bdash\Aerie\spl_copy~					~override~
+ 
+-ADD_KIT ~WILWANDERER_OF_BAERVAN~
++ADD_KIT ~PRIEST_OF_BAERVAN~
+ 
+ ~PRIEST_OF_BAERVAN          0           0           1           1           0           1           0           0~
+ 
+@@ -14761,32 +14802,32 @@
+ 
+ COPY ~NeJE\bdash\Aerie\copy\AERIE6.cre~ ~override\AERIE6.cre~
+   WRITE_SHORT 0x244 0 // doesn‘t change
+-  WRITE_BYTE  0x246 ~%WILWANDERER_OF_BAERVAN%~ // the internal name of your kit, surrounded by %
++  WRITE_BYTE  0x246 ~%PRIEST_OF_BAERVAN%~ // the internal name of your kit, surrounded by %
+   WRITE_BYTE  0x247 0x40 // doesn‘t change
+ 
+ COPY ~NeJE\bdash\Aerie\copy\AERIE7.cre~ ~override\AERIE7.cre~
+   WRITE_SHORT 0x244 0 // doesn‘t change
+-  WRITE_BYTE  0x246 ~%WILWANDERER_OF_BAERVAN%~ // the internal name of your kit, surrounded by %
++  WRITE_BYTE  0x246 ~%PRIEST_OF_BAERVAN%~ // the internal name of your kit, surrounded by %
+   WRITE_BYTE  0x247 0x40 // doesn‘t change
+   
+ COPY ~NeJE\bdash\Aerie\copy\AERIE9.cre~ ~override\AERIE9.cre~
+   WRITE_SHORT 0x244 0 // doesn‘t change
+-  WRITE_BYTE  0x246 ~%WILWANDERER_OF_BAERVAN%~ // the internal name of your kit, surrounded by %
++  WRITE_BYTE  0x246 ~%PRIEST_OF_BAERVAN%~ // the internal name of your kit, surrounded by %
+   WRITE_BYTE  0x247 0x40 // doesn‘t change
+   
+ COPY ~NeJE\bdash\Aerie\copy\AERIE10.CRE~ ~override\AERIE10.CRE~
+   WRITE_SHORT 0x244 0 // doesn‘t change
+-  WRITE_BYTE  0x246 ~%WILWANDERER_OF_BAERVAN%~ // the internal name of your kit, surrounded by %
++  WRITE_BYTE  0x246 ~%PRIEST_OF_BAERVAN%~ // the internal name of your kit, surrounded by %
+   WRITE_BYTE  0x247 0x40 // doesn‘t change
+ 
+ COPY ~NeJE\bdash\Aerie\copy\AERIE11.cre~ ~override\AERIE11.cre~
+   WRITE_SHORT 0x244 0 // doesn‘t change
+-  WRITE_BYTE  0x246 ~%WILWANDERER_OF_BAERVAN%~ // the internal name of your kit, surrounded by %
++  WRITE_BYTE  0x246 ~%PRIEST_OF_BAERVAN%~ // the internal name of your kit, surrounded by %
+   WRITE_BYTE  0x247 0x40 // doesn‘t change
+ 
+ COPY ~NeJE\bdash\Aerie\copy\AERIE12.cre~ ~override\AERIE12.cre~
+   WRITE_SHORT 0x244 0 // doesn‘t change
+-  WRITE_BYTE  0x246 ~%WILWANDERER_OF_BAERVAN%~ // the internal name of your kit, surrounded by %
++  WRITE_BYTE  0x246 ~%PRIEST_OF_BAERVAN%~ // the internal name of your kit, surrounded by %
+   WRITE_BYTE  0x247 0x40 // doesn‘t change
+     
+ COPY_EXISTING ~AR0607.bcs~ ~override~

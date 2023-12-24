@@ -1,0 +1,19 @@
+--- BG1NPCSoA\dialogues\7XsharJ.d	Mon Feb 06 08:44:26 2023
++++ C:\BWP Patchstudio\patched files\BG1NPCSoA\dialogues\7XsharJ.d	Wed Aug 02 14:24:19 2023
+@@ -1213,14 +1213,14 @@
+ I_C_T PLAYER1 25 7xShar_Hell
+   == 7XsharJ IF ~InParty("7XSHAR") !StateCheck("7XSHAR",CD_STATE_NOTVALID)~ THEN @250
+ END
+-
++/*
+ I_C_T IF_FILE_EXISTS NEERAJ 512 7xSharNEERAJ-512
+ == 7XsharJ IF ~InParty("7XSHAR") !StateCheck("7XSHAR",CD_STATE_NOTVALID)~ THEN @251
+ == OHNTELAN @252
+ == NEERAJ @253
+ == 7XsharJ @254
+ END
+-
++*/
+ INTERJECT UDDOOR01 10 7xSharTeel-UDDOOR01-10
+ == 7XsharJ IF ~InParty("7XSHAR") !StateCheck("7XSHAR",CD_STATE_NOTVALID)~ THEN @255
+ == UDDOOR01 @256

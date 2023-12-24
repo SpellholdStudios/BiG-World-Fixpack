@@ -1,0 +1,11 @@
+--- Rylorn\Scripts\S00003.baf	Sat Dec 08 22:58:49 2007
++++ C:\BWP Patchstudio\patched files\Rylorn\Scripts\S00003.baf	Sun Mar 19 17:28:40 2023
+@@ -12,7 +12,7 @@
+ Range(Lasttrigger,9)
+ THEN
+ RESPONSE #100
+-DisplayString(Myself,"As long as Karbarolux lives you can not pass through this gate")
++DisplayString(Myself,%As long as Karbarolux lives you can not pass through this gate%)
+ END
+ 
+ IF

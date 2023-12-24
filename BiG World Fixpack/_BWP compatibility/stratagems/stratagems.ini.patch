@@ -1,0 +1,38 @@
+--- stratagems\stratagems.ini	Fri Jul 03 16:32:10 2020
++++ C:\BWP Patchstudio\patched files\stratagems\stratagems.ini	Mon Mar 15 00:18:09 2021
+@@ -33,17 +33,19 @@
+ no_initial_change_enhance_thorn_spray = 0
+ no_initial_change_entropy_shield_abjuration = 0
+ no_initial_change_nerf_beetles = 0
++no_initial_change_npc_fiend_summoning_backup = 0
++no_initial_change_extra_healing=0
+ 
+ [nerfed and moved items]
+ 
+ no_item_nerf_balduran_shield=1
+-no_item_nerf_magi_staff=0
+-no_item_nerf_mirror_cloak = 0
+-no_item_nerf_carsomyr = 0
+-no_item_nerf_resurrection_rod = 0
+-no_item_nerf_vhailor_helm = 0
+-no_item_nerf_vecna = 0
+-no_initial_change_elemental_arrows = 0
++no_item_nerf_magi_staff=1
++no_item_nerf_mirror_cloak = 1
++no_item_nerf_carsomyr = 1
++no_item_nerf_resurrection_rod = 1
++no_item_nerf_vhailor_helm = 1
++no_item_nerf_vecna = 1
++no_initial_change_elemental_arrows = 1
+ 
+ [component tweaks]
+ 
+@@ -70,6 +72,8 @@
+ troll_regen_addition=0
+ ulgoths_beard_textscreen=1
+ respace_seavoyage_textscreen=1
++teleport_maze_number=0
++hitpoint_percentage=0
+ 
+ [hotkeys]
+ hot_key_A=A

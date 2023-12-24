@@ -1,0 +1,33 @@
+--- Rjali\tpa\multi.tpa	Thu Sep 14 22:53:14 2017
++++ C:\BWP Patchstudio\patched files\Rjali\tpa\multi.tpa	Sat Feb 23 11:29:44 2019
+@@ -97,7 +97,7 @@
+ EXTEND_TOP ~Rjal25.bcs~ ~Rjali/Scripts/SOA/RJPSRV/RJMRBOT.baf~
+ 
+ // Neera
+-
++/*
+   COMPILE ~Rjali/Dialogue/SOA/RJNEER/RJMULTI.d~
+   EXTEND_TOP ~Rjalis.bcs~ ~Rjali/Scripts/SOA/RJNEER/RJMRSOA.baf~
+   EXTEND_TOP ~Rjalis.bcs~ ~Rjali/Scripts/SOA/RJNEER/RJMRBOT.baf~
+@@ -117,7 +117,7 @@
+       REPLACE_TEXTUALLY ~\b\(G(".*[rR]omanc[eE][aA]ctive",[12])\)~ ~False()~
+       REPLACE_TEXTUALLY ~RJSTUB~ ~NeeraRomanceActive~
+     END
+-
++*/
+ // Imoen
+ 
+ ACTION_IF MOD_IS_INSTALLED ~imoenRomance/Setup-ImoenRomance.tp2~ "0" THEN BEGIN
+@@ -353,9 +353,9 @@
+ 
+ ACTION_IF MOD_IS_INSTALLED ~setup-amber.tp2~ "0" THEN BEGIN
+   COPY_EXISTING ~M#Amber.bcs~ ~override~
+-                ~M#Aerie.bcs~ ~override~
+-                ~M#Jaheir.bcs~ ~override~
+-                ~M#Viconi.bcs~ ~override~
++//                ~M#Aerie.bcs~ ~override~
++//                ~M#Jaheir.bcs~ ~override~
++//                ~M#Viconi.bcs~ ~override~
+                 ~M#AMBER.dlg~ ~override~
+                 ~M#AMBERJ.dlg~ ~override~
+                 ~M#AMBERN.dlg~ ~override~

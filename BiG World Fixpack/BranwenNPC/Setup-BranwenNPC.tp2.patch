@@ -1,0 +1,22 @@
+--- Setup-BranwenNPC.tp2	Sat Feb 12 15:11:30 2011
++++ C:\BWP Patchstudio\patched files\Setup-BranwenNPC.tp2	Fri Nov 08 17:53:57 2013
+@@ -1,6 +1,6 @@
+ BACKUP ~BranwenNPC/backup~
+ AUTHOR ~aWoundedLion@yahoo.com~
+-
++VERSION ~v1.2 BWP Fix~
+ README ~BranwenNPC/readme.txt~
+ 
+ LANGUAGE ~English~
+@@ -24,7 +24,11 @@
+  ~BranwenNPC/WLBRAN_L.bmp~ ~override~
+  ~BranwenNPC/WLBRAN_S.bmp~ ~override~
+ 
++ACTION_IF !(FILE_EXISTS ~data/BG1ARE.bif~) THEN BEGIN
+ COMPILE ~BranwenNPC/WLBRAN.d~ USING ~BranwenNPC/%LANGUAGE%/WLBRAN.tra~
++END ELSE BEGIN
++COMPILE ~BranwenNPC/BGT-WLBRAN.d~ USING ~BranwenNPC/%LANGUAGE%/WLBRAN.tra~
++END
+ 
+ APPEND ~PDIALOG.2da~
+ ~WLBRAN WLBRANP WLBRANJ WLBRAND WLBRA25P WLBRA25J WLBRA25D WLBRAN25~

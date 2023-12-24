@@ -1,0 +1,11 @@
+--- might_and_guile\language\english\setup.tra	Tue Sep 29 04:57:55 2020
++++ C:\BWP Patchstudio\patched files\might_and_guile\language\english\setup.tra	Wed Sep 30 09:48:38 2020
+@@ -1181,6 +1181,8 @@
+ @21999 = ~Declamation: when a bard chooses this ability, <PRO_HESHE> become permanently Vocalized, immune to any antagonistic effects that might hinder <PRO_HISHER> ability to speak, sing, or play music. Thus any spells or effects such as Silence or Deafness will not affect the bard. Further, any allies within 15 feet of the bard fall under this protection as well. This immunity cannot be dispelled or overcome by any known technique.~
+ //
+ //
++@2210  = ~~
++@2211  = ~~
+ @2251  = ~STALKER: Stalkers serve as covert intelligence-gatherers, comfortable in both wilderness and urban settings. They are spies, informants, and interrogators, and their mastery of stealth makes them deadly opponents.
+ 
+ Advantages:

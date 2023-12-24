@@ -1,0 +1,20 @@
+--- HerThiMoney\scripts\AN0012.BAF	Wed Apr 14 11:03:36 2021
++++ C:\BWP Patchstudio\patched files\HerThiMoney\scripts\AN0012.BAF	Thu May 06 09:53:52 2021
+@@ -6,7 +6,7 @@
+ CutSceneId(Player1) 	
+ SetGlobal("ANAranTethyr","GLOBAL",201)
+ ActionOverride(Player1,Rest())
+-CreateCreature("ANgori",[1623.672],W)
++CreateCreature("ANgori",[1623.672],4)
+ ActionOverride(Player1,SetDialog("PLAYER1"))
+ ActionOverride(Player1,FaceObject("ANgori"))
+ ActionOverride("ANgori",FaceObject(Player1))
+@@ -24,6 +24,6 @@
+ CutSceneId(Player1) 
+ Wait(1)
+ EndCutSceneMode()
+-ActionOverride(Player1,LeaveAreaLUAPanic("AN1204","",[456.397],N)) 
+-ActionOverride(Player1,LeaveAreaLUA("AN1204","",[456.397],N))
++ActionOverride(Player1,LeaveAreaLUAPanic("AN1204","",[456.397],8)) 
++ActionOverride(Player1,LeaveAreaLUA("AN1204","",[456.397],8))
+ END

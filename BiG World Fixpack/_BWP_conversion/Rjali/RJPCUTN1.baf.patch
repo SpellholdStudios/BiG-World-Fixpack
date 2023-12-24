@@ -1,0 +1,11 @@
+--- Rjali\Scripts\SOA\CUTSCENES\RJPCUTN1.baf	Fri May 13 11:21:58 2016
++++ C:\BWP Patchstudio\patched files\Rjali\Scripts\SOA\CUTSCENES\RJPCUTN1.baf	Mon Dec 05 09:14:03 2016
+@@ -4,7 +4,7 @@
+ THEN
+  RESPONSE #100
+     CutSceneID(Player1)
+-    ActionOverride("RJNordom",MoveToObjectOffset("RJPSTDO",[5.45]))
++    ActionOverride("RJNordom",MoveToObject(Player1)
+     Wait(5)
+     SetGlobal("RJiniiJIDND","GLOBAL",15)
+     ActionOverride(Player1,StartDialogue("Player1",Player1))

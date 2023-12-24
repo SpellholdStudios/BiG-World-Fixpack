@@ -1,0 +1,110 @@
+--- FotD\BAF_NEW\KYSUS.baf	Mon Nov 28 08:59:28 2016
++++ C:\BWP Patchstudio\patched files\FotD\BAF_NEW\KYSUS.baf	Tue Nov 29 08:08:03 2016
+@@ -368,7 +368,7 @@
+ END
+ 
+ IF
+-  HaveSpell(WIZARD_FEAR)
++  HaveSpell(WIZARD_HORROR)
+   !General(TenthNearestEnemyOf(Myself),UNDEAD)
+   !StateCheck(TenthNearestEnemyOf(Myself),STATE_CONFUSED)
+   !StateCheck(TenthNearestEnemyOf(Myself),STATE_FEEBLEMINDED)
+@@ -383,7 +383,7 @@
+ END
+ 
+ IF
+-  HaveSpell(WIZARD_FEAR)
++  HaveSpell(WIZARD_HORROR)
+   !General(NinthNearestEnemyOf(Myself),UNDEAD)
+   !StateCheck(NinthNearestEnemyOf(Myself),STATE_CONFUSED)
+   !StateCheck(NinthNearestEnemyOf(Myself),STATE_FEEBLEMINDED)
+@@ -398,7 +398,7 @@
+ END
+ 
+ IF
+-  HaveSpell(WIZARD_FEAR)
++  HaveSpell(WIZARD_HORROR)
+   !General(EighthNearestEnemyOf(Myself),UNDEAD)
+   !StateCheck(EighthNearestEnemyOf(Myself),STATE_CONFUSED)
+   !StateCheck(EighthNearestEnemyOf(Myself),STATE_FEEBLEMINDED)
+@@ -413,7 +413,7 @@
+ END
+ 
+ IF
+-  HaveSpell(WIZARD_FEAR)
++  HaveSpell(WIZARD_HORROR)
+   !General(SeventhNearestEnemyOf(Myself),UNDEAD)
+   !StateCheck(SeventhNearestEnemyOf(Myself),STATE_CONFUSED)
+   !StateCheck(SeventhNearestEnemyOf(Myself),STATE_FEEBLEMINDED)
+@@ -428,7 +428,7 @@
+ END
+ 
+ IF
+-  HaveSpell(WIZARD_FEAR)
++  HaveSpell(WIZARD_HORROR)
+   !General(SixthNearestEnemyOf(Myself),UNDEAD)
+   !StateCheck(SixthNearestEnemyOf(Myself),STATE_CONFUSED)
+   !StateCheck(SixthNearestEnemyOf(Myself),STATE_FEEBLEMINDED)
+@@ -443,7 +443,7 @@
+ END
+ 
+ IF
+-  HaveSpell(WIZARD_FEAR)
++  HaveSpell(WIZARD_HORROR)
+   !General(FifthNearestEnemyOf(Myself),UNDEAD)
+   !StateCheck(FifthNearestEnemyOf(Myself),STATE_CONFUSED)
+   !StateCheck(FifthNearestEnemyOf(Myself),STATE_FEEBLEMINDED)
+@@ -458,7 +458,7 @@
+ END
+ 
+ IF
+-  HaveSpell(WIZARD_FEAR)
++  HaveSpell(WIZARD_HORROR)
+   !General(FourthNearestEnemyOf(Myself),UNDEAD)
+   !StateCheck(FourthNearestEnemyOf(Myself),STATE_CONFUSED)
+   !StateCheck(FourthNearestEnemyOf(Myself),STATE_FEEBLEMINDED)
+@@ -473,7 +473,7 @@
+ END
+ 
+ IF
+-  HaveSpell(WIZARD_FEAR)
++  HaveSpell(WIZARD_HORROR)
+   !General(ThirdNearestEnemyOf(Myself),UNDEAD)
+   !StateCheck(ThirdNearestEnemyOf(Myself),STATE_CONFUSED)
+   !StateCheck(ThirdNearestEnemyOf(Myself),STATE_FEEBLEMINDED)
+@@ -488,7 +488,7 @@
+ END
+ 
+ IF
+-  HaveSpell(WIZARD_FEAR)
++  HaveSpell(WIZARD_HORROR)
+   !General(SecondNearestEnemyOf(Myself),UNDEAD)
+   !StateCheck(SecondNearestEnemyOf(Myself),STATE_CONFUSED)
+   !StateCheck(SecondNearestEnemyOf(Myself),STATE_FEEBLEMINDED)
+@@ -503,7 +503,7 @@
+ END
+ 
+ IF
+-  HaveSpell(WIZARD_FEAR)
++  HaveSpell(WIZARD_HORROR)
+   !General(NearestEnemyOf(Myself),UNDEAD)
+   !StateCheck(NearestEnemyOf(Myself),STATE_CONFUSED)
+   !StateCheck(NearestEnemyOf(Myself),STATE_FEEBLEMINDED)
+@@ -518,7 +518,7 @@
+ END
+ 
+ IF
+-  HaveSpell(WIZARD_FEAR)
++  HaveSpell(WIZARD_HORROR)
+   !Allegiance(LastSeenBy(Myself),ENEMY)
+   !General(LastSeenBy(Myself),UNDEAD)
+   !StateCheck(LastSeenBy(Myself),STATE_CONFUSED)
+@@ -532,7 +532,7 @@
+ THEN
+   RESPONSE #100
+     SetGlobalTimer("CastAndAttack","LOCALS",6)
+-    Spell(LastSeenBy(Myself),WIZARD_FEAR)
++    Spell(LastSeenBy(Myself),WIZARD_HORROR)
+ END
+ 
+ IF

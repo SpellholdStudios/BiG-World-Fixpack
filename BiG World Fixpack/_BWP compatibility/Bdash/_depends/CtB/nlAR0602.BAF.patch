@@ -1,0 +1,45 @@
+--- Bdash\BGTComp\trans\nlAR0602.BAF	Sat Sep 13 02:04:10 2014
++++ C:\BWP Patchstudio\patched files\Bdash\BGTComp\trans\nlAR0602.BAF	Mon Jan 29 07:55:57 2018
+@@ -1,5 +1,6 @@
+ IF
+ 	Global("TakeImportItems","AR0602",0)
++	Gender(Player1,MALE)
+ THEN
+ 	RESPONSE #100
+ 		SetGlobal("TakeImportItems","AR0602",1)
+@@ -9,10 +10,33 @@
+ 		ActionOverride("Shelf1",TakeItemListPartyNum("IMPORT03",1))
+ 		SmallWait(4)
+ 		TakePartyGold(2147483647)
++		ActionOverride(Player1,MakeUnselectable(0))
++		CreateCreature("CSJON",[3210.3304],10) // Mage
++		ActionOverride(Player1,PlayDead(165))
++		Wait(1)
++		FadeFromColor([30.0],0)
++		StartCutSceneMode()
++		StartCutScene("CBNEWGMM")
++END
++
++IF
++	Global("TakeImportItems","AR0602",0)
++	Gender(Player1,FEMALE)
++THEN
++	RESPONSE #100
++		SetGlobal("TakeImportItems","AR0602",1)
++		SetGlobal("Chapter","GLOBAL",1)
++		ActionOverride("Malaaq",MoveBetweenAreas("AR0601",[345.591],14))
++		ActionOverride("DuegarClanChief",TakeItemListPartyNum("IMPORT01",1))
++		ActionOverride("Shelf1",TakeItemListPartyNum("IMPORT03",1))
++		SmallWait(4)
++		TakePartyGold(2147483647)
++		ActionOverride(Player1,MakeUnselectable(0))
+ 		CreateCreature("CSJON",[3210.3304],10) // Mage
+ 		ActionOverride(Player1,PlayDead(165))
+ 		Wait(1)
+ 		FadeFromColor([30.0],0)
+ 		StartCutSceneMode()
+ 		StartCutScene("NewGame")
+-END
+\ No newline at end of file
++		StartCutScene("CBNEWGMF")
++END

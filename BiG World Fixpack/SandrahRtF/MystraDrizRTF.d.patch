@@ -1,0 +1,11 @@
+--- SandrahRtF\D\MystraDrizRTF.d	Mon Feb 15 12:41:00 2016
++++ C:\BWP Patchstudio\patched files\SandrahRtF\D\MystraDrizRTF.d	Thu Dec 21 08:44:55 2017
+@@ -1,7 +1,7 @@
+ CHAIN
+ IF~GlobalGT("SanBeginRTF","GLOBAL",1) Global("MeetRTFM","LOCALS",0) ~THEN SanMyst InitialRTF
+ ~Welcome, <CHARNAME>, welcome granddaughter.~
+-DO~SetGlobal("MeetRTFM","LOCALS",1) SetName("Midnight") ~
++DO~SetGlobal("MeetRTFM","LOCALS",1) SetName(@2042) ~
+ ==CVSan25J~Grandmother! Finally we have found a way to address each other as we always should have done.~
+ ==SanMyst~Your deeds as Mystra ripple even into this remote corner of the Prime, my dear. You and the true Love and Hope really fulfill the expectations that have been set upon you.~
+ =~Maybe a bit more than some can accept...you are not here to visit a happy old couple, arent't you?~

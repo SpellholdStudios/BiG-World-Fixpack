@@ -1,0 +1,20 @@
+--- Charli\Setup-Charli.tp2	Sun Jul 04 10:34:24 2010
++++ C:\BWP Patchstudio\patched files\Charli\Setup-Charli.tp2	Sun Sep 29 17:21:10 2013
+@@ -1,7 +1,7 @@
+ BACKUP ~Charli\backup~
+ AUTHOR ~sergiond77@hotmail.com~
+ 
+-VERSION ~v2.3~
++VERSION ~v2.3 BWP Fix~
+ 
+ ASK_EVERY_COMPONENT
+ 
+@@ -40,7 +40,7 @@
+ 
+ 
+ COMPILE ~Charli\baf\Gittanox.baf~
+-// EXTEND_TOP ~ar0400.bcs~ ~Charli\baf\Añadir_Gittano.baf~
++EXTEND_TOP ~ar0400.bcs~ ~Charli\baf\Gittano.baf~
+ 
+ 
+ // Copia retratos

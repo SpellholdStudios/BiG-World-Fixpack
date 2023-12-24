@@ -1,0 +1,41 @@
+--- SETUP-BG2eeAR.tp2	Thu Sep 11 23:30:37 2014
++++ C:\BWP Patchstudio\patched files\SETUP-BG2eeAR.tp2	Tue Feb 07 16:32:29 2017
+@@ -1,7 +1,7 @@
+ BACKUP ~BG2eeAR/backup~
+ AUTHOR ~CoM_Solaufein @ "http://www.teambg.net"~
+ 
+-
++VERSION ~v1.02 BWP Fix~
+ 
+ // Language Options
+ //
+@@ -158,17 +158,17 @@
+  /*STORES */
+  
+  /* CMTBEES1.STO */
+-COPY ~BG2eeAR/sto/cmtb2ees1.sto~ ~Override~
++COPY ~BG2eeAR/sto/cmtb2es1.sto~ ~Override~
+   SAY 0xC @47
+ 
+ 
+  /*CREATURE */
+  
+  /* CMTBEES1.CRE */
+-COPY ~BG2eeAR/cre/cmtb2ees1.cre~ ~Override~
++COPY ~BG2eeAR/cre/cmtb2es1.cre~ ~Override~
+   SAY 0x8 @48
+   SAY 0xC @48
+-
++  WRITE_ASCII 0x02cc "CMTB2ES1" #8
+  
+ 
+  /*SCRIPTS */
+@@ -180,7 +180,7 @@
+ /*DIALOGS */
+  
+  /* CMTBEES1.dlg */
+-COMPILE ~BG2eeAR/dlg/cmtb2ees1.d~
++COMPILE ~BG2eeAR/dlg/cmtb2es1.d~ USING ~BG2eeAR/translations/%LANGUAGE%/D/CMTB2EES1.tra~
+ 
+ 
+ 

@@ -1,0 +1,11 @@
+--- SandrahRtF\Setup-SandrahRtF.tp2	Mon Feb 15 12:41:00 2016
++++ C:\BWP Patchstudio\patched files\SandrahRtF\Setup-SandrahRtF.tp2	Fri Dec 22 06:17:28 2017
+@@ -1,7 +1,7 @@
+ BACKUP ~SandrahRTF/backup~
+ AUTHOR ~Roxanne - Contact Roxanne@shsforums.net~
+ 
+-VERSION ~v1.09.b~
++VERSION ~v1.09.b BWP Fix~
+ AUTO_TRA ~SandrahRTF/TRA/%s~
+ 
+ LANGUAGE ~English~ ~english~ ~SandrahRTF/TRA/RTF-setup.tra~

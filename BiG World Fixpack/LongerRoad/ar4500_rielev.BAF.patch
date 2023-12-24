@@ -1,0 +1,10 @@
+--- LongerRoad\bcs\ar4500_rielev.BAF	Sun Oct 30 20:55:02 2022
++++ C:\BWP Patchstudio\patched files\LongerRoad\bcs\ar4500_rielev.BAF	Thu Jun 08 12:56:04 2023
+@@ -14,6 +14,6 @@
+ THEN
+ 	RESPONSE #100
+ 		SetGlobal("RielevSpawn","GLOBAL",1)
+-		CreateCreatureOffScreen("lrrielev",SSW)  // Velemir Rielev
++		CreateCreatureOffScreen("lrrielev",1)  // Velemir Rielev
+ END
+ 

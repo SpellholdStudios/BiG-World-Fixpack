@@ -1,0 +1,54 @@
+BACKUP ~DR8_hotfix/backup~
+AUTHOR ~SubtleD~
+
+
+BEGIN ~hotfix for Divine Remix v8b~
+
+
+ACTION_IF FILE_EXISTS_IN_GAME ~a#cyric.2da~ BEGIN
+ COPY_EXISTING ~a#cyric.2da~ ~override~
+  REPLACE_TEXTUALLY ~KITBIL1~ ~SPCL423~ // poison weapon as 1/5
+  REPLACE_TEXTUALLY ~KITBIL2~ ~a#cyr07~ // dread blast as 1/10
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~a#feyw.2da~ BEGIN
+ COPY_EXISTING ~a#feyw.2da~ ~override~
+  REPLACE_TEXTUALLY ~KITBIL1~ ~a#fey09~ // emotion as 1/5
+  REPLACE_TEXTUALLY ~GA_KITBIL2~ ~****   ~ // nothing as 1/10
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~a#koss.2da~ BEGIN
+ COPY_EXISTING ~a#koss.2da~ ~override~
+  REPLACE_TEXTUALLY ~KITBIL1~ ~a#kos09~
+  REPLACE_TEXTUALLY ~GA_KITBIL2~ ~****   ~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~a#ogma.2da~ BEGIN
+ COPY_EXISTING ~a#ogma.2da~ ~override~
+  COUNT_2DA_COLS cols
+  REPLACE_TEXTUALLY ~KITBIL2~ ~a#og07~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~a#ooze.2da~ BEGIN
+  ACTION_IF FILE_EXISTS_IN_GAME ~a#ooze4.spl~ BEGIN
+	COPY_EXISTING ~a#ooze4.spl~ ~override~
+	  LPF ALTER_EFFECT INT_VAR resist_dispel = 0 END
+  END
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~a#red.2da~ BEGIN
+ COPY_EXISTING ~a#red.2da~ ~override~
+  REPLACE_TEXTUALLY ~KITBIL1~ ~a#re07 ~
+  REPLACE_TEXTUALLY ~GA_KITBIL2~ ~****      ~
+END
+
+ACTION_IF FILE_EXISTS_IN_GAME ~a#shar.2da~ BEGIN
+  COPY_EXISTING ~cdshar2.spl~ ~override~
+	LPF ALTER_EFFECT INT_VAR match_opcode = 215 timing = 0 duration = 4 END
+  BUT_ONLY
+  COPY_EXISTING ~cdshar2.itm~ ~override~
+	WRITE_BYTE 0x18 (THIS BAND 0b11110011)
+	LPF ADD_ITEM_EQEFFECT INT_VAR opcode = 233 target = 1 parameter1 = 2 parameter2 = 109 timing = 2 END
+	LPF ALTER_ITEM_HEADER INT_VAR header_type = 2 damage_type = 4 charges = 1 flag_strength = 0 END
+  BUT_ONLY
+END

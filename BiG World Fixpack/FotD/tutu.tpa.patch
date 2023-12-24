@@ -1,0 +1,13 @@
+--- FotD\lib\tutu.tpa	Wed Nov 19 22:29:47 2014
++++ C:\BWP Patchstudio\patched files\FotD\lib\tutu.tpa	Wed Nov 30 08:48:53 2016
+@@ -257,6 +257,10 @@
+     OUTER_SPRINT "AR5102" "FW5102"
+     OUTER_SPRINT "AR5400" "FW5400"
+     OUTER_SPRINT "AR5403" "FW5403"
++	OUTER_SPRINT "AR1000" "FW1000"
++	OUTER_SPRINT "AR2500" "FW2500"
++	OUTER_SPRINT "AR2501" "FW2501"
++	OUTER_SPRINT "AR4502" "FW4502"
+ 
+     /* AREA_SCRIPTS (BG1 NPC Only) */
+     OUTER_SPRINT "BelchingDragonTavern_BCS" "_AR4809"

@@ -1,0 +1,45 @@
+--- arestorationp\arestorationp.tp2	Sat Sep 22 23:25:57 2018
++++ C:\BWP Patchstudio\patched files\arestorationp\arestorationp.tp2	Mon Aug 26 08:24:23 2019
+@@ -2501,7 +2501,7 @@
+ DisplayStringHead(Myself,40099)
+ Wait(6)~
+ END
+-
++/*
+ ACTION_IF FILE_EXISTS_IN_GAME ~slayerw3.itm~ BEGIN
+ COPY_EXISTING slayerw3.itm override
+ LPF ALTER_ITEM_EFFECT
+@@ -2512,7 +2512,7 @@
+ END
+ BUT_ONLY
+ END
+-
++*/
+ BEGIN ~~
+ DEPRECATED @1100
+ 
+@@ -2679,6 +2679,24 @@
+     strDesc = EVAL "%GrovName%"
+     worldmap = "worldmap"
+ RET areNum = areNum END
++
++//Add BP-BGT-WORLDMAP Compatibility
++APPEND ~MASTAREA.2da~ ~AR2700 value~ UNLESS ~AR2700~
++
++ACTION_IF FILE_EXISTS ~Worldmap/map_mods_areas.tbl~ THEN BEGIN
++  COPY ~Worldmap/map_mods_areas.tbl~  ~Worldmap~
++   APPEND_FILE ~arestorationp/Worldmap/areas.tbl~
++  COPY ~Worldmap/map_mods_links.tbl~  ~Worldmap~
++   APPEND_FILE ~arestorationp/Worldmap/links.tbl~
++  COPY ~Worldmap/map_mods_trans.tra~  ~Worldmap~
++   APPEND_FILE_EVALUATE ~arestorationp/Worldmap/%LANGUAGE%/worldmap.tra~
++END
++ELSE BEGIN
++  MKDIR ~Worldmap~
++  COPY ~arestorationp/Worldmap/areas.tbl~ ~Worldmap/map_mods_areas.tbl~
++  COPY ~arestorationp/Worldmap/links.tbl~ ~Worldmap/map_mods_links.tbl~
++  COPY ~arestorationp/Worldmap/%LANGUAGE%/worldmap.tra~ ~Worldmap/map_mods_trans.tra~
++END
+ 
+  BEGIN @1400
+  REQUIRE_COMPONENT "setup-arestorationp.tp2" "11" ~Requires the previous component.~

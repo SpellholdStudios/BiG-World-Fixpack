@@ -1,0 +1,11 @@
+--- haiass\setup-haiass.tp2	Mon Apr 06 15:17:06 2020
++++ C:\BWP Patchstudio\patched files\haiass\setup-haiass.tp2	Sun May 24 12:02:10 2020
+@@ -1,7 +1,7 @@
+ BACKUP ~haiass/backup~
+ //AUTHOR Auda (auda_chella@hotmail.com)
+ SUPPORT ~www.shsforums.net/index.php?showtopic=40623~
+-VERSION ~v2.4~
++VERSION ~v2.4 BWP Fix~
+ README ~haiass/haiass-%LANGUAGE%.txt~
+ 
+ ALWAYS

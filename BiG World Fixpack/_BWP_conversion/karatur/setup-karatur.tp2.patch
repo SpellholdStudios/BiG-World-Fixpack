@@ -1,0 +1,76 @@
+--- karatur\setup-karatur.tp2	Mon Feb 11 17:11:17 2013
++++ C:\BWP Patchstudio\patched files\karatur\setup-karatur.tp2	Tue May 09 19:01:31 2017
+@@ -1,6 +1,8 @@
+-BACKUP ~\KaraTur\Kbackup~
++BACKUP ~karatur/backup~
+ AUTHOR ~Corsymyr~
+ 
++VERSION ~v1 BWP conversion~
++
+ BEGIN ~T'Was a Slow Boat from Kara-Tur~
+ 
+ //Extending the Area Files
+@@ -493,7 +495,7 @@
+ Damage: 1d8 (piercing)
+ +1 Damage
+ Speed Factor: 3
+-Proficiency Type: Scimitar/Wakizashi/Ninjatō
++Proficiency Type: Scimitar/Wakizashi/Ninjato
+ Type: One-handed
+ Requires:5 Strength
+ Weight: 3~
+@@ -512,7 +514,7 @@
+ +1 Thac0
+ +1 Damage
+ Speed Factor: 3
+-Proficiency Type: Scimitar/Wakizashi/Ninjatō
++Proficiency Type: Scimitar/Wakizashi/Ninjato
+ Type: One-handed
+ Requires:5 Strength
+ Weight: 3~
+@@ -523,14 +525,14 @@
+   SAY 0x50 ~Ninjato~
+   SAY 0x54 ~Masterworked Ninjato
+ 
+-The sword of the ninja, the ninjatō, is of lower quality than other Kara-Turan blades such as the katana. The ninjatō is short with a straight blade, making it ideal for subterfuge. The ninjatō is also more suited to fighting in closed places, sometimes giving the ninja an advantage over the longer blades that the samurai use.
++The sword of the ninja, the Ninjato, is of lower quality than other Kara-Turan blades such as the katana. The Ninjato is short with a straight blade, making it ideal for subterfuge. The Ninjato is also more suited to fighting in closed places, sometimes giving the ninja an advantage over the longer blades that the samurai use.
+ 
+ STATISTICS
+ 
+ Damage: 1d8 (slashing)
+ +1 Damage
+ Speed Factor: 4
+-Proficiency Type: Scimitar/Wakizashi/Ninjatō
++Proficiency Type: Scimitar/Wakizashi/Ninjato
+ Type: One-handed
+ Requires:6 Strength
+ Weight: 5~
+@@ -541,7 +543,7 @@
+   SAY 0x50 ~Ninjato~
+   SAY 0x54 ~+1 Ninjato
+ 
+-The sword of the ninja, the ninjatō, is of lower quality than other Kara-Turan blades such as the katana. The ninjatō is short with a straight blade, making it ideal for subterfuge. The ninjatō is also more suited to fighting in closed places, sometimes giving the ninja an advantage over the longer blades that the samurai use.
++The sword of the ninja, the Ninjato, is of lower quality than other Kara-Turan blades such as the katana. The Ninjato is short with a straight blade, making it ideal for subterfuge. The Ninjato is also more suited to fighting in closed places, sometimes giving the ninja an advantage over the longer blades that the samurai use.
+ 
+ STATISTICS
+ 
+@@ -549,7 +551,7 @@
+ +1 Thac0
+ +1 Damage
+ Speed Factor: 4
+-Proficiency Type: Scimitar/Wakizashi/Ninjatō
++Proficiency Type: Scimitar/Wakizashi/Ninjato
+ Type: One-handed
+ Requires:6 Strength
+ Weight: 5~
+@@ -830,7 +832,4 @@
+ //COPY Store File
+ 
+ COPY ~KaraTur\STO\KTStore.STO~ ~OVERRIDE\KTStore.STO~
+-  SAY 0x8 ~Kara-Tur Store~
+-  SAY 0xC ~Store of the Meager Three~
+-  SAY 0x50 ~Kara-Tur Store~
+-  SAY 0x54 ~Store of the Meager Three~
+\ No newline at end of file
++  SAY 0xC ~Store of the Meager Three~
+\ No newline at end of file

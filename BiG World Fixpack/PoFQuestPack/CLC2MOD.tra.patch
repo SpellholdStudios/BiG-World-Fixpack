@@ -1,0 +1,11 @@
+--- PoFQuestPack\English\D\CLC2MOD.tra	Mon Mar 16 18:28:56 2020
++++ C:\BWP Patchstudio\patched files\PoFQuestPack\English\D\CLC2MOD.tra	Sun Mar 06 16:48:46 2022
+@@ -7,7 +7,7 @@
+ @4 = ~ What happened? ~
+ @5 = ~ Torm priests hired a group of adventurers in the Twilight Mountains. ~
+ @6 = ~ And what does this have to do with your Temple? ~
+-@7 = ~ Well, they’re actually looking for those who attacked the caravan, who planned it all. They even seem to have a witness who saw you kill their priests. I need you to find this witness before they find him. He has a house north of the city. ~
++@7 = ~ Well, they're actually looking for those who attacked the caravan, who planned it all. They even seem to have a witness who saw you kill their priests. I need you to find this witness before they find him. He has a house north of the city. ~
+ @8 = ~ Okay, I'll go there. ~
+ @9 = ~ Order and Chaos.
+ 

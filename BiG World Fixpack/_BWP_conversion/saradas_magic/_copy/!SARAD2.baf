@@ -1,0 +1,284 @@
+IF
+	See(NearestEnemyOf(Myself))
+	Global("!1aradasAggro","LOCALS",1)
+	!Global("!1protect","LOCALS",1)
+THEN
+	RESPONSE #100
+		ApplySpell(Myself,WIZARD_TRUE_SIGHT)
+		ApplySpell(Myself,WIZARD_ABSOLUTE_IMMUNITY)
+		ApplySpell(Myself,WIZARD_SPELL_TRAP)
+		ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+		ApplySpell(Myself,WIZARD_SPELL_SHIELD)
+                ApplySpell(Myself,WIZARD_STONE_SKIN)
+		ApplySpell(Myself,WIZARD_SPELL_IMMUNITY_CONJURATION)
+		ApplySpell(Myself,WIZARD_SPELL_IMMUNITY_ABJURATION)
+		ApplySpell(Myself,WIZARD_MORDENKAINENS_SWORD)
+		ApplySpell(Myself,WIZARD_MORDENKAINENS_SWORD)
+		smallwait(7)
+		DisplayStringWait(Myself,4478)
+		SetGlobal("!1protect","LOCALS",1)
+		Continue()
+END
+
+
+IF
+	See(NearestEnemyOf(Myself))
+	CheckStatGT(NearestEnemyOf(Myself),25,RESISTMAGIC)
+	HaveSpell(WIZARD_LOWER_RESISTANCE)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_LOWER_RESISTANCE)
+		Wait(4)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	CheckStatGT(NearestEnemyOf(Myself),25,RESISTMAGIC)
+	HaveSpell(WIZARD_LOWER_RESISTANCE)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_LOWER_RESISTANCE)
+		Wait(4)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_GREATER_MALISON)
+	!Global("!1malison1","LOCALS",1)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		SetGlobal("!1malison1","LOCALS",1)
+		Spell(NearestEnemyOf(Myself),WIZARD_GREATER_MALISON)
+		Wait(4)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpellRES("!1FORCE") // Vento sferzante
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		SpellRES("!1FORCE",[PC]) // Vento sferzante
+		Wait(4)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_GLITTERDUST)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_GLITTERDUST)
+		Wait(4)
+		Continue()
+END
+
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_ABI_DALZIMS_HORRID_WILTING)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_ABI_DALZIMS_HORRID_WILTING)
+		Wait(2)
+		Continue()
+END
+
+
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_CHAOS)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_CHAOS)
+		Wait(2)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	GlobalLT("!1disint","LOCALS",2)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		ForceSpell(NearestEnemyOf(Myself),WIZARD_DISINTEGRATE_IGNORE_RESISTANCE)
+		IncrementGlobal("!1disint","LOCALS",1)
+		Wait(4)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_FIREBALL)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_FIREBALL)
+		Wait(4)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_LIGHTNING_BOLT)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_LIGHTNING_BOLT)
+		Wait(4)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	CheckStatGT(NearestEnemyOf(Myself),25,RESISTMAGIC)
+	HaveSpell(WIZARD_LOWER_RESISTANCE)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_LOWER_RESISTANCE)
+		Wait(4)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpellRES("!1PCINV") // Esplosione Spirituale
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		SpellRES("!1PCINV",[PC]) // Esplosione Spirituale
+		Wait(4)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpellRES("!1TELEPO") // Teletrasporto
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		SpellRES("!1TELEPO",[PC]) // Teletrasporto
+		Wait(2)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpellRES("!1ZOM") // Orrida Trasformazione
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		SpellRES("!1ZOM",NearestEnemyOf(Myself)) // Orrida Trasformazione
+		Wait(4)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	CheckStatGT(NearestEnemyOf(Myself),25,RESISTMAGIC)
+	HaveSpell(WIZARD_LOWER_RESISTANCE)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_LOWER_RESISTANCE)
+		Wait(4)
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_GREATER_MALISON)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_GREATER_MALISON)
+		Wait(4)
+		Continue()
+END
+
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_WAIL_OF_THE_BANSHEE)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		ForceSpellRES("!1telepo",nearestenemyof(myself))
+		wait(1)
+                Spell(Myself,WIZARD_WAIL_OF_THE_BANSHEE)
+		Wait(4)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpell(WIZARD_MAZE)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		Spell(NearestEnemyOf(Myself),WIZARD_MAZE)
+		Wait(3)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	HaveSpellRES("!1TENS") // Supremazia di Tenser
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		SpellRES("!1TENS",Myself) // Supremazia di Tenser
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("!1aradasAggro","LOCALS",1)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		AttackOneRound(NearestEnemyOf(Myself))
+		Continue()
+END
+
+IF
+	!See(NearestEnemyOf(Myself))
+	!StateCheck(Myself,STATE_MIRRORIMAGE)
+	Global("!1aradasAggro","LOCALS",1)
+	GlobalTimerExpired("!1timer2","LOCALS")
+	ActionListEmpty()
+THEN
+	RESPONSE #100
+		ApplySpell(Myself,WIZARD_MIRROR_IMAGE)
+		ApplySpell(Myself,WIZARD_STONE_SKIN)
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("!1aradasAggro","LOCALS",1)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		AttackOneRound(NearestEnemyOf(Myself))
+		Continue()
+END
+
+IF
+	See(NearestEnemyOf(Myself))
+	Global("!1aradasAggro","LOCALS",1)
+	GlobalTimerExpired("!1timer2","LOCALS")
+THEN
+	RESPONSE #100
+		AttackOneRound(NearestEnemyOf(Myself))
+		Continue()
+END
+
+

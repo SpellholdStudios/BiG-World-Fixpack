@@ -1,0 +1,29 @@
+--- Rjali\Setup-Rjali.tp2	Thu Apr 13 08:05:02 2017
++++ C:\BWP Patchstudio\patched files\Rjali\Setup-Rjali.tp2	Fri Apr 14 10:22:50 2017
+@@ -86,7 +86,7 @@
+ 
+ END
+ 
+-VERSION ~v8.5~
++VERSION ~v8.5 BWP adaption~
+ 
+ README ~Rjali/Readme-Rjali.txt~
+ 
+@@ -113,7 +113,7 @@
+ // This is the main event
+ 
+ BEGIN @500
+-REQUIRE_PREDICATE GAME_IS ~bg2ee~ @51
++// REQUIRE_PREDICATE GAME_IS ~bg2ee~ @51
+ REQUIRE_PREDICATE FILE_EXISTS_IN_GAME ~mel01.cre~ @52
+ 
+ // Set mod defaults
+@@ -218,7 +218,7 @@
+ // Here's where Rjali equips party members
+ 
+ BEGIN @50
+-REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @51
++// REQUIRE_PREDICATE GAME_IS ~bg2ee eet~ @51
+ REQUIRE_COMPONENT "Rjali/setup-Rjali.tp2" "3" @65
+ 
+ INCLUDE ~Rjali/tpa/equip.tpa~

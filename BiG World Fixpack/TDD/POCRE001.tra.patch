@@ -1,0 +1,8 @@
+--- TDD\Language\English\POCRE001.tra	Thu Feb 02 22:08:28 2006
++++ C:\BWP Patchstudio\patched files\TDD\Language\English\POCRE001.tra	Mon Dec 25 08:34:47 2017
+@@ -16,3 +16,5 @@
+ @15   = ~Are you ready to leave the lake?~
+ @16   = ~Yes, get me out of here.~
+ @17   = ~No, not yet.~
++@18   = ~The Lake~
++@19   = ~Sunlake Inn~
